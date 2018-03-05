@@ -1,6 +1,6 @@
 ## Amazon Cloudsearch Developer Guide
 
-Content for the Amazon CloudSearch Developer Guide
+Content for the [Amazon CloudSearch Developer Guide](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/). Issues and pull requests appreciated.
 
 ## License Summary
 
