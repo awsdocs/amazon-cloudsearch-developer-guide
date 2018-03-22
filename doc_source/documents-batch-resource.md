@@ -153,11 +153,8 @@ The JSON schema representation of a document service API response is shown below
 ## documents/batch Status Codes<a name="documents-batch-status-codes"></a>
 
 A document service request can return three types of status codes:
-
 + 5xx status codes indicate that there was an internal server error\. We recommend catching and retrying all 5xx error codes as they typically represent transient error conditions\.
-
 + 4xx status codes indicate that the request was malformed\.
-
 + 2xx status codes indicate that the request was processed successfully\.
 
 

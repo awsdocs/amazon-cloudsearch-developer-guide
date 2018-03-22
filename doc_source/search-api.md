@@ -1,6 +1,6 @@
 # Search API Reference for Amazon CloudSearch<a name="search-api"></a>
 
-
+**Topics**
 + [Submitting Search Requests in Amazon CloudSearch](#submitting-search-requests-api)
 + [Search](#search-request)
 + [Submitting Suggest Requests in Amazon CloudSearch](#submitting-suggest-requests)
@@ -10,9 +10,7 @@
 You use the Search API to submit search or suggestion requests to your Amazon CloudSearch domain\. For more information about searching, see [Searching Your Data with Amazon CloudSearch](searching.md)\. For more information about suggestions, see [Getting Autocomplete Suggestions in Amazon CloudSearch](getting-suggestions.md)\.
 
 The other APIs you use to interact with Amazon CloudSearch are: 
-
 + [Configuration API](configuration-api.md)—Set up and manage your search domain\.
-
 + [Document Service API](document-service-api.md)—Submit the data you want to search\.
 
 ## Submitting Search Requests in Amazon CloudSearch<a name="submitting-search-requests-api"></a>
@@ -143,11 +141,8 @@ Required: No
 facet\.FIELD   
 Specifies a field that you want to get facet information for—`FIELD` is the name of the field\. The specified field must be facet enabled in the domain configuration\. Facet options are specified as a JSON object\. If the JSON object is empty, `facet.FIELD={}`, facet counts are computed for all field values, the facets are sorted by facet count, and the top 10 facets are returned in the results\.   
 You can specify three options in the JSON object:  
-
 + `sort` specifies how you want to sort the facets in the results: `bucket` or `count`\. Specify `bucket` to sort alphabetically or numerically by facet value \(in ascending order\)\. Specify `count` to sort by the facet counts computed for each facet value \(in descending order\)\. To retrieve facet counts for particular values or ranges of values, use the `buckets` option instead of `sort`\. 
-
 + `buckets` specifies an array of the facet values or ranges you want to count\. Buckets are returned in the order they are specified in the request\. To specify a range of values, use a comma \(,\) to separate the upper and lower bounds and enclose the range using brackets or braces\. A square bracket, \[ or \], indicates that the bound is included in the range, a curly brace, \{ or \}, excludes the bound\. You can omit the upper or lower bound to specify an open\-ended range\. When omitting a bound, you must use a curly brace\. The `sort` and `size` options are not valid if you specify `buckets`\.
-
 + `size` specifies the maximum number of facets to include in the results\. By default, Amazon CloudSearch returns counts for the top 10\. The `size` parameter is only valid when you specify the `sort` option; it cannot be used in conjunction with `buckets`\.
 For example, the following request gets facet counts for the `year` field, sorts the facet counts by value and returns counts for the top three:  
 
@@ -173,7 +168,7 @@ Required: No
 format  
 Specifies the content type of the response\.   
 Type: String  
-Valid Values: json|xml  
+Valid Values: json\|xml  
 Default: json  
 Required: No
 
@@ -185,13 +180,9 @@ Required: No
 highlight\.FIELD  
 Retrieves highlights for matches in the specified `text` or `text-array` field\. Highlight options are specified as a JSON object\. If the JSON object is empty, the returned field text is treated as HTML and the first match is highlighted with emphasis tags: `<em>search-term</em>`\.   
 You can specify four options in the JSON object:  
-
 + `format`—specifies the format of the data in the text field: `text` or `html`\. When data is returned as HTML, all non\-alphanumeric characters are encoded\. The default is `html`\. 
-
 + `max_phrases`—specifies the maximum number of occurrences of the search term\(s\) you want to highlight\. By default, the first occurrence is highlighted\. 
-
 + `pre_tag`—specifies the string to prepend to an occurrence of a search term\. The default for HTML highlights is `<em>`\. The default for text highlights is `*`\. 
-
 + `post_tag`—specifies the string to append to an occurrence of a search term\. The default for HTML highlights is `</em>`\. The default for text highlights is `*`\. 
 Examples: `highlight.plot={}`, `highlight.plot={format:'text',max_phrases:2,pre_tag:'<b>',post_tag:'</b>'}`  
 Type: String  
@@ -217,19 +208,12 @@ Required: Yes
 q\.options   
 Configure options for the query parser specified in the `q.parser` parameter\. The options are specified as a JSON object, for example: `q.options={defaultOperator: 'or', fields: ['title^5','description']}`\.   
 The options you can configure vary according to which parser you use:  
-
 + `defaultOperator`—The default operator used to combine individual terms in the search string\. For example: `defaultOperator: 'or'`\. For the `dismax` parser, you specify a percentage that represents the percentage of terms in the search string \(rounded down\) that must match, rather than a default operator\. A value of `0%` is the equivalent to OR, and a value of `100%` is equivalent to AND\. The percentage must be specified as a value in the range 0\-100 followed by the percent \(%\) symbol\. For example, `defaultOperator: 50%`\. Valid values: `and`, `or`, a percentage in the range 0%\-100% \(`dismax`\)\. Default: `and` \(`simple`, `structured`, `lucene`\) or `100` \(`dismax`\)\. Valid for: `simple`, `structured`, `lucene`, and `dismax`\. 
-
 + `fields`—An array of the fields to search when no fields are specified in a search\. If no fields are specified in a search and this option is not specified, all statically configured `text` and `text-array` fields are searched\. You can specify a weight for each field to control the relative importance of each field when Amazon CloudSearch calculates relevance scores\. To specify a field weight, append a caret \(`^`\) symbol and the weight to the field name\. For example, to boost the importance of the `title` field over the `description` field you could specify: `fields: ['title^5','description']`\. Valid values: The name of any configured field and an optional numeric value greater than zero\. Default: All statically configured `text` and `text-array` fields\. Dynamic fields and `literal` fields are not searched by default\. Valid for: `simple`, `structured`, `lucene`, and `dismax`\. 
-
 + `operators`—An array of the operators or special characters you want to disable for the simple query parser\. If you disable the `and`, `or`, or `not` operators, the corresponding operators \(`+`, `|`, `-`\) have no special meaning and are dropped from the search string\. Similarly, disabling `prefix` disables the wildcard operator \(`*`\) and disabling `phrase` disables the ability to search for phrases by enclosing phrases in double quotes\. Disabling precedence disables the ability to control order of precedence using parentheses\. Disabling `near` disables the ability to use the \~ operator to perform a sloppy phrase search\. Disabling the `fuzzy` operator disables the ability to use the \~ operator to perform a fuzzy search\. `escape` disables the ability to use a backslash \(`\`\) to escape special characters within the search string\. Disabling whitespace is an advanced option that prevents the parser from tokenizing on whitespace, which can be useful for Vietnamese\. \(It prevents Vietnamese words from being split incorrectly\.\) For example, you could disable all operators other than the phrase operator to support just simple term and phrase queries: `operators:['and', 'not', 'or', 'prefix']`\. Valid values: `and`, `escape`, `fuzzy`, `near`, `not`, `or`, `phrase`, `precedence`, `prefix`, `whitespace`\. Default: All operators and special characters are enabled\. Valid for: `simple`\. 
-
 + `phraseFields`—An array of the `text` or `text-array` fields you want to use for phrase searches\. When the terms in the search string appear in close proximity within a field, the field scores higher\. You can specify a weight for each field to boost that score\. The `phraseSlop` option controls how much the matches can deviate from the search string and still be boosted\. To specify a field weight, append a caret \(`^`\) symbol and the weight to the field name\. For example, to boost phrase matches in the `title` field over the `abstract` field, you could specify: `phraseFields:['title^3', 'abstract']` Valid values: The name of any `text` or `text-array` field and an optional numeric value greater than zero\. Default: No fields\. If you don't specify any fields with `phraseFields`, proximity scoring is disabled even if `phraseSlop` is specified\. Valid for: `dismax`\.
-
 + `phraseSlop`—An integer value that specifies how much matches can deviate from the search phrase and still be boosted according to the weights specified in the `phraseFields` option\. For example, `phraseSlop: 2`\. You must also specify `phraseFields` to enable proximity scoring\. Valid values: positive integers\. Default: 0\. Valid for: `dismax`\.
-
 + `explicitPhraseSlop`—An integer value that specifies how much a match can deviate from the search phrase when the phrase is enclosed in double quotes in the search string\. \(Phrases that exceed this proximity distance are not considered a match\.\) `explicitPhraseSlop: 5`\. Valid values: positive integers\. Default: 0\. Valid for: `dismax`\.
-
 + `tieBreaker`—When a term in the search string is found in a document's field, a score is calculated for that field based on how common the word is in that field compared to other documents\. If the term occurs in multiple fields within a document, by default only the highest scoring field contributes to the document's overall score\. You can specify a `tieBreaker` value to enable the matches in lower\-scoring fields to contribute to the document's score\. That way, if two documents have the same max field score for a particular term, the score for the document that has matches in more fields will be higher\. The formula for calculating the score with a tieBreaker is:
 
   ```
@@ -255,13 +239,9 @@ Required: No
 
 q\.parser   
 Specifies which query parser to use to process the request: `simple`, `structured`, `lucene`, and `dismax`\. If `q.parser` is not specified, Amazon CloudSearch uses the `simple` query parser\.   
-
 + `simple`—perform simple searches of `text` and `text-array` fields\. By default, the `simple` query parser searches all statically configured `text` and `text-array` fields\. You can specify which fields to search by with the `q.options` parameter\. If you prefix a search term with a plus sign \(\+\) documents must contain the term to be considered a match\. \(This is the default, unless you configure the default operator with the `q.options` parameter\.\) You can use the `-` \(NOT\), `|` \(OR\), and `*` \(wildcard\) operators to exclude particular terms, find results that match any of the specified terms, or search for a prefix\. To search for a phrase rather than individual terms, enclose the phrase in double quotes\. For more information, see [Searching Your Data with Amazon CloudSearch](searching.md)\. 
-
 + `structured`—perform advanced searches by combining multiple expressions to define the search criteria\. You can also search within particular fields, search for values and ranges of values, and use advanced options such as term boosting, `matchall`, and `near`\. For more information, see [Constructing Compound Queries](searching-compound-queries.md)\.
-
 + `lucene`—search using the Apache Lucene query parser syntax\. For more information, see [Apache Lucene Query Parser Syntax](https://cwiki.apache.org/confluence/display/solr/The+Standard+Query+Parser)\.
-
 + `dismax`—search using the simplified subset of the Apache Lucene query parser syntax defined by the DisMax query parser\. For more information, see [DisMax Query Parser Syntax](https://cwiki.apache.org/confluence/display/solr/The+DisMax+Query+Parser)\.
 Type: String  
 Default: `simple`  
@@ -433,7 +413,7 @@ Example: \+star
 
 \\ \(escape\)  
 Syntax: `\CHAR`  
-Escapes special characters that you want to search for\. You must escape the following characters if you want them to be part of the query: \+ \- & | \! \( \) \{ \} \[ \] ^ " \~ \* ? : \\ /\.  
+Escapes special characters that you want to search for\. You must escape the following characters if you want them to be part of the query: \+ \- & \| \! \( \) \{ \} \[ \] ^ " \~ \* ? : \\ /\.  
 Example: `M\*A\*S\*H`
 
 \~ \(fuzzy\)  
@@ -451,10 +431,10 @@ Syntax: `-TERM`
 Prohibits the specified term\. To match, documents must not contain the term\.   
 Example: star \-wars
 
-| \(or\)  
+\| \(or\)  
 Syntax: `|TERM`  
 Makes the specified term optional\.   
-Example: star |wars
+Example: star \|wars
 
 "\.\.\." \(phrase\)  
 Syntax: `"PHRASE"`  
@@ -688,7 +668,7 @@ Required: No
 format  
 Specifies the content type of the response\.   
 Type: String  
-Valid Values: json|xml  
+Valid Values: json\|xml  
 Default: json  
 Required: No
 
@@ -748,11 +728,8 @@ The following example shows the equivalent XML response:
 ## Search Service Errors<a name="search-service-errors"></a>
 
 A search or suggestion request can return three types of status codes:
-
 + 5xx status codes indicate that there was an internal server error\. You should catch and retry all 5xx error codes as they typically represent transient error conditions\. For more information, see [Handling Errors](error-handling.md)\. 
-
 + 4xx status codes indicate that the request was malformed\. Correct the error\(s\) before resubmitting your request\.
-
 + 2xx status codes indicate that the request was processed successfully\.
 
 The format of an error response depends on the origin of the error\. Errors returned by the search service are always returned in JSON\. 5xx errors due to server timeouts and other request routing problems are returned in XML\. 

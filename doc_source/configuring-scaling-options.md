@@ -3,20 +3,16 @@
 A search domain has one or more search instances, each with a finite amount of RAM and CPU resources for indexing data and processing requests\. You can configure scaling options to control the instance type that is used, the number of instances your search index is distributed across \(partition count\), and the number of replicas of each index partition \(replication count\)\. All instances for a domain are always of the same type\.
 
  You can configure the desired instance type, partition count, or replication count for an Amazon CloudSearch domain to:
-
 + **Increase upload capacity** By default, all search domains start out on a `search.m1.small` instance\. You can increase your domain's document upload capacity by changing the desired instance type\. If you have a large amount of data to upload—for example, when you are initially populating your search domain—you can choose a larger instance type to increase the number of updates that can be submitted in parallel and reduce how long it takes to index your data\. If you are already using the largest instance type, you can increase the desired partition count to further increase upload capacity\. For more information, see [Bulk Uploads](uploading-data.md#bulk-uploads)\. Note that increasing the desired replication count does *not* generally increase a domain's upload capacity\.
-
 + **Speed up search requests\.** Choosing a larger desired instance type can also speed up search requests\. If you've tuned your requests and still aren't meeting your performance targets, try choosing a larger instance type\. If you are already using the largest instance type, you can increase the desired partition count to further boost query performance\. For more information, see [Tuning Search Request Performance in Amazon CloudSearch](tuning-search.md)\.
-
 + **Increase search capacity\. **By default, Amazon CloudSearch uses one instance per index partition\. When Amazon CloudSearch scales the domain automatically, it adds replicas based on the resources needed to process the query traffic\. To increase a domain's search capacity, you set the desired replication count\. However, deploying additional instances takes some time\. If you know in advance that you will need additional capacity—for example, before a big launch or announcement—add replicas ahead of time to ensure that your search domain is ready to handle the load\. 
-
 + **Improve fault tolerance\.** Increasing the desired replication count also improves the domain's fault\-tolerance—if there's a problem with one of the replicas, the others will continue to handle requests while it is being recovered\. However, note that the replicas reside in the same Availability Zone\. If you need to ensure availability of your domain in the event of an Availability Zone service disruption, you should enable the MultiAZ option\. For more information, see [Configuring Availability Options](configuring-availability-options.md)\. 
 
 When you set the desired instance type, desired number of replicas, or desired partition count, Amazon CloudSearch scales your domain as necessary, but will never scale the domain to an instance type that's smaller than the desired type, use fewer replicas than the desired number of replicas, or reduce the partition count below the desired partition count\. 
 
 You can change your scaling options at any time\. If your need for additional capacity is temporary, you can prescale your domain by setting the scaling options and then revert the changes after your volume of uploads or queries returns to your domain's steady state\. When you make changes, you need to re\-index your domain, which can take some time for the changes to take effect\. How long it takes to re\-index depends on the amount of data in your index\. You can monitor the domain status to determine when indexing is complete—the status changes from PROCESSING to ACTIVE\. 
 
-
+**Topics**
 + [Choosing Scaling Options in Amazon CloudSearch](#choosing-scaling-options)
 + [Configuring Scaling Options through the Amazon CloudSearch Console](#configuring-scaling-options-console)
 + [Configuring Scaling Options through the AWS CLI](#configuring-scaling-options-cli)
@@ -53,7 +49,6 @@ To determine how many replicas you need to handle a given query volume, do some 
 You use the `aws cloudsearch update-scaling-parameters` command to configure scaling options for a search domain\. For information about installing and setting up the AWS CLI, see the [AWS Command Line Interface User Guide](http://docs.aws.amazon.com/cli/latest/userguide/)\. 
 
 **To configure a search domain's scaling options**
-
 + Run the `aws cloudsearch update-scaling-parameters` command\. You can specify the desired instance type and desired replication count\. If you choose the largest instance type \(`search.m3.2xlarge`\), you can also set the desired partition count\. For example, the following command sets the desired instance type to `search.m3.xlarge` and the desired replication count to two\. You must specify both the `--domain-name` and `--scaling-parameters` options\. 
 
   ```

@@ -1,25 +1,19 @@
 # Handling Errors in Amazon CloudSearch<a name="error-handling"></a>
 
 This section provides information about how to handle errors when interacting with Amazon CloudSearch programmatically\. For information about specific error codes returned by the Amazon CloudSearch services, see: 
-
 + [Search Service Errors](search-api.md#search-service-errors)
-
 + [documents/batch Status Codes](documents-batch-resource.md#documents-batch-status-codes)
-
 + [Configuration Service Common Errors](CommonErrors.md)\. For the specific errors that can be returned from a particular action, see the documentation for that [action](API_Operations.md)\.
 
-
+**Topics**
 + [Error Types in Amazon CloudSearch](#error-handling-types)
 + [Retrying Requests in Amazon CloudSearch](#error-handling-retry)
 
 ## Error Types in Amazon CloudSearch<a name="error-handling-types"></a>
 
 The HTTP status codes returned by the Amazon CloudSearch APIs indicate whether the request completed successfully, or if a client or server error occurred while processing the request:
-
 + 2xx status codes indicate that the client request was processed successfully\.
-
 + 4xx status codes indicate that there was a problem with the client request\. Common client request errors include providing invalid credentials and omitting required parameters\. When you get a 4xx error, you need to correct the problem and resubmit a properly formed client request\.
-
 + 5xx status codes indicate that a server error occurred while processing the client request\. Server errors are typically transient and are often the result of server timeouts, throttling, or capacity limitations\. We recommend catching and retrying all 5xx errors\.
 
 An HTTP status code is returned for every request\. In addition, the body of the response provides additional warning and error information\. 

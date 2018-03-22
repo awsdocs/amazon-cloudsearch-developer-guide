@@ -2,7 +2,7 @@
 
 Dynamic fields provide a way to index documents without knowing in advance exactly what fields they contain\. For example, consider the case where you want to search a set of products\. You might not know the names of all of the possible product attributes across all product categories, but you can structure your data so that all text\-based attributes are stored in fields that end in `_t`, and all integer values are stored in fields that end in `_i`\. With dynamic fields, you can map the attribute fields to the appropriate field type without having to configure a field for every possible attribute\. This reduces the amount of configuration that you need to do up front, and eliminates the need to modify your domain configuration every time a product with a new attribute is added\. You can also use dynamic fields to essentially ignore new fields by mapping them to a field that is not searchable or returnable\.
 
-
+**Topics**
 + [Configuring Dynamic Fields in Amazon CloudSearch](#configuring-dynamic-fields)
 + [Using a Dynamic Field to Ignore Unrecognized Fields in Amazon CloudSearch](#ignoring-fields)
 + [Searching Dynamic Fields in Amazon CloudSearch](#searching-dynamic-fields)
@@ -11,15 +11,18 @@ Dynamic fields provide a way to index documents without knowing in advance exact
 
 You designate a field as a dynamic field by specifying a wildcard \(\*\) as the first, last, or only character in the field name\. Dynamic field names must either begin or end with a wildcard \(\*\)\. Multiple wildcards and wildcards embedded within a string are not supported\. 
 
-A dynamic field's name defines a pattern\. The wildcard matches zero or more arbitrary characters\. Any unrecognized fields that match that pattern are configured with the dynamic field's indexing options\. Regular index fields take precedence over dynamic fields\. If a document field name matches both a regular index field and a dynamic field pattern, it is mapped to the regular index field\. The options you can configure for dynamic fields are the same as for static fields\. 
+A dynamic field's name defines a pattern\. The wildcard matches zero or more arbitrary characters\. Any unrecognized fields that match that pattern are configured with the dynamic field's indexing options\. Regular index fields take precedence over dynamic fields\. If a document field name matches both a regular index field and a dynamic field pattern, it is mapped to the regular index field\.
 
-For example, if you establish the naming convention that `_i` is appended to the name of any new `int` field, you can define a dynamic field with the pattern `*_i` that sets the field type to `int` and configures a set of predefined indexing options for new `int` fields\. When you add a field such as `review_rating_i`, it's configured according to the `*_i` options and indexed automatically\. 
+**Note**  
+The options you can configure for dynamic fields are the same as for [static fields](configuring-index-fields.md)\. Similarly, document field names that match a dynamic field must meet all the same criteria as static field names\.
+
+For example, if you establish the naming convention that `_i` is appended to the name of any new `int` field, you can define a dynamic field with the pattern `*_i` that sets the field type to `int` and configures a set of predefined indexing options for new `int` fields\. When you add a field such as `review_rating_i`, it's configured according to the `*_i` options and indexed automatically\.
 
 If a document field matches more than one dynamic field pattern, the longest matching pattern is used\. If the patterns are the same length, the dynamic field that occurs first when the field names are sorted alphabetically is used\. 
 
-You can define \* as a dynamic field to match any fields that don't map to an explicitly defined field or a longer dynamic field pattern\. This is useful if you want to simply ignore unrecognized fields\. For more information, see [Ignoring Unrecognized Document Fields](#ignoring-fields)\.
+You can define \* as a dynamic field to match any fields that don't map to an explicitly defined field or a longer dynamic field pattern\. This is useful if you want to simply ignore unrecognized fields\. For more information, see [Using a Dynamic Field to Ignore Unrecognized Fields in Amazon CloudSearchIgnoring Unrecognized Document Fields](#ignoring-fields)\.
 
-Dynamic fields count toward the total number of fields defined for a domain\. A domain can have a maximum of 1,000 fields, which includes dynamic fields\. However, the pattern defined by a single dynamic field typically matches multiple document fields, so the total number of fields in your index can exceed 1,000\. When using dynamic fields, keep in mind that significantly increasing the number of fields in your index can impact query performance\. 
+Dynamic fields count toward the total number of fields defined for a domain\. A domain can have a maximum of 200 field definitions, which includes dynamic fields\. However, the pattern defined by a single dynamic field typically matches multiple document fields, so the total number of fields in your index can exceed 200\. For more information, see [Understanding Amazon CloudSearch Limits](limits.md)\. When using dynamic fields, keep in mind that significantly increasing the number of fields in your index can impact query performance\.
 
 Adding new fields to your domain configuration can affect how fields that were generated dynamically are validated during indexing\. If the validation fails, indexing will fail\. For example, if you define a dynamic field called `*_new` and upload documents that contain a field called `rating_new`, the `rating_new` field will be added to your index\. If you then explicitly configure a field called `rating_new`, that new field configuration will be used to validate the contents of your document's `rating_new` field when you run indexing\. If `*_new` is configured as a `text` field and you configure `rating_new` as an `int` field, validation will fail if the existing `rating_new` fields contain non\-integer data\.
 
@@ -34,9 +37,7 @@ Amazon CloudSearch requires that you configure an index field for every field th
 1. Configure the fields that you want to index, search, or return in the results\.
 
 1. Add a dynamic field that matches any other fields that are found in the documents and disables all indexing options for them:
-
    + Specify `*` as the name of the field, with no prefix or suffix string\. \(You can also specify a more specific pattern to selectively disable fields\.\)
-
    + Set the field type to `literal` and disable the `search`, `facet`, and `return` options\. Note that the maximum size of a literal field is 4096 Unicode code points\.
 
 Because longer dynamic field patterns are matched first, you can still use dynamic fields to configure options for fields that you want to use\. Any fields that don't map to a regular index field or a longer dynamic field will match the \* pattern\.

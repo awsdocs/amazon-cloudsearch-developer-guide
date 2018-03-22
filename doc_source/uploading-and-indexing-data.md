@@ -5,6 +5,6 @@ To make your data searchable, you need to format it in JSON or XML as described 
 **Important**  
 Rebuilding your index after data uploads is unnecessary and can cause your domain to incur additional charges\. You only need to rebuild your index after certain configuration changes\.
 
-
+**Topics**
 + [upload documents](uploading-data.md)
 + [rebuild the index](indexing.md)

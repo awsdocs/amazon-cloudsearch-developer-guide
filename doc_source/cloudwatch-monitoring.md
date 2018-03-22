@@ -4,7 +4,7 @@ Amazon CloudSearch automatically sends metrics to Amazon CloudWatch so that you 
 
 There is no charge for the Amazon CloudSearch metrics that are reported through CloudWatch\. If you set alarms on the metrics, you will be billed at standard [CloudWatch rates](http://aws.amazon.com/cloudwatch/pricing/)\. You can use the metrics in all regions supported by Amazon CloudSearch\.
 
-
+**Topics**
 + [Amazon CloudSearch Metrics](#cloudsearch-metrics)
 + [Dimensions for Amazon CloudSearch Metrics](#cloudsearch-metric-dimensions)
 + [Generating SDK for Java Metrics for Amazon CloudSearch](#java-sdk-metrics)

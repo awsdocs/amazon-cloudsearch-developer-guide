@@ -2,7 +2,7 @@
 
 If you store locations in your document data using a `latlon` field, you can use the `haversin` function in an Amazon CloudSearch expression to compute the distance between two locations\. Storing locations with your document data also enables you to easily search within particular areas\.
 
-
+**Topics**
 + [Searching Within an Area in Amazon CloudSearch](#within-area)
 + [Sorting Results by Distance in Amazon CloudSearch](#sorting-by-distance)
 

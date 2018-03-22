@@ -23,7 +23,7 @@ By default, access to a new domain's document and search endpoints is blocked fo
 
 You can create a search domain from the [Amazon CloudSearch console](#create-domain-console), using the `aws cloudsearch create-domain` command, or using one of the AWS SDKs\. 
 
-
+**Topics**
 + [Amazon CloudSearch console](#create-domain-console)
 + [create-domain](#create-domain-clt)
 + [Creating an Amazon CloudSearch Domain Using the AWS SDKs](#create-domain-sdk)
@@ -59,7 +59,6 @@ Until you configure access policies, you will only be able to upload documents a
 You use the `aws cloudsearch create-domain` command to create search domains\. For information about installing and setting up the AWS CLI, see the [AWS Command Line Interface User Guide](http://docs.aws.amazon.com/cli/latest/userguide/)\. 
 
 **To create a domain**
-
 + Run the `aws cloudsearch create-domain` command and specify the name of the domain you want to create with the `--domain-name` option\. For example, to create a domain called *movies*:  
 **Example**  
 

@@ -10,13 +10,9 @@ Type: string
 
  **AuthParams**   
 The parameters that are required to authenticate a Conditional request\. Contains:  
-
 + AWSAccessKeyID
-
 + SignatureVersion
-
 + Timestamp
-
 + Signature
 Default: None  
  Required: Conditional 

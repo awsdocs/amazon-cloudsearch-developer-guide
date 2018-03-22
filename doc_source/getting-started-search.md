@@ -46,15 +46,10 @@ By default, Amazon CloudSearch returns the response in JSON\. You can also get t
 ## Searching Numeric Fields<a name="getting-started-searching-numeric-fields"></a>
 
  You can use the structured query syntax, `q.parser=structured`, to find documents that have particular numeric attributes\. You can search for an exact value or a range of values within any numeric field \(`double`, `double-array`, `int`, `int-array`\)\. To search for a range, you specify the upper and lower bounds, separated by a comma, and enclose the range in brackets or braces\. Use square brackets \(\[,\]\) when you want to include the bounds, and curly braces \(\{,\}\) to exclude the bounds\. For example: 
-
 + `year:2000` matches documents whose year field contains the value 2000\.
-
 + `year:[2000,}` matches documents whose year field contains a value greater than or equal to 2000
-
 + `year:{,2000]` matches documents whose year field contains a value less than or equal to 2000
-
 + `year:[2000,2011]` matches documents whose year field contains a value between 2000 and 2011, inclusive\.
-
 + `year:{2000,2011}` matches documents whose year field contains a value between 2000 and 2011, exclusive\.
 
  You can also search date fields for a specific date or date range, but you must enclose each date string in single quotes: `release_date:['2000-01-01T00:00:00Z','2011-01-01T00:00:00Z']`\.
@@ -132,7 +127,6 @@ A facet is an index field that represents a category that you want to use to ref
 A facet can be any date, literal, or numeric field that has faceting enabled in your domain configuration\. For each facet, Amazon CloudSearch calculates the number of hits that share the same value\. You can define buckets to calculate facet counts for particular subsets of the facet values\. Only buckets that have matches are included in the facet results\.
 
 **To get facet counts with your search results**
-
 + Use the `facet.FIELD` option to specify a field for which you want to compute facets\. For the sample IMDb movies data faceting is enabled for the following fields: `genres`, `rank`, `rating`, `release_date`, `running_time_secs`, and `year`\. Facet options are specified as a JSON object\. If the JSON object is empty, `facet.FIELD={}`, facet counts are computed for all field values, the facets are sorted by facet count, and the top 10 facets are returned in the results:
 
   ```
@@ -185,7 +179,6 @@ For more information about specifying facet options, see [Getting and Using Face
 A search highlight is an excerpt of a text or text\-array field that shows where the search term occurs within the field\. 
 
 **To get highlight information with your search results**
-
 + Use the `highlight.FIELD` option to specify the text or text\-array field you want to get highlights for\. The field must be highlight enabled in your domain's indexing options\. For the sample IMDb movies data highlighting is enabled for the following fields: `actors`, `directors`, `plot`, and `title`\. Highlight options are specified as a JSON object\. If the JSON object is empty, `highlight.FIELD={}`, Amazon CloudSearch highlights all occurrences of the search term\(s\) by enclosing them in HTML emphasis tags, `<em>term</em>`, and the excerpts are returned as HTML\.
 
   ```

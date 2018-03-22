@@ -2,7 +2,7 @@
 
 You can define numeric expressions and use them to sort search results\. Expressions can also be returned in search results\. You can add expressions to the domain configuration or define expressions within search requests\. 
 
-
+**Topics**
 + [Writing Expressions for Amazon CloudSearch](#writing-expressions)
 + [query time expressions](defining-expressions-in-requests.md)
 + [Configuring Reusable Expressions for a Search Domain in Amazon CloudSearch](configuring-reusable-expressions.md)
@@ -11,31 +11,18 @@ You can define numeric expressions and use them to sort search results\. Express
 ## Writing Expressions for Amazon CloudSearch<a name="writing-expressions"></a>
 
 Amazon CloudSearch expressions can contain:
-
 + Single value, sort enabled numeric fields \(`int`, `double`, `date`\)\. \(You must specify a specific field, wildcards are not supported\.\)
-
 + Other expressions
-
 + The `_score` variable, which references a document's relevance score
-
 + The `_time` variable, which references the current epoch time
-
 + The `_rand` variable, which returns a randomly generated value
-
 + Integer, floating point, hex, and octal literals
-
 + Arithmetic operators: `+ - * / %`
-
 + Bitwise operators:` | & ^ ~ << >> >>>`
-
 + Boolean operators \(including the ternary operator\):` && || ! ?: `
-
 + Comparison operators:` < <= == >= > `
-
 + Mathematical functions: `abs ceil exp floor ln log10 logn max min pow sqrt `
-
 + Trigonometric functions: `acos acosh asin asinh atan atan2 atanh cos cosh sin sinh tanh tan`
-
 + The `haversin` distance function
 
 [ JavaScript order of precedence rules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#Table) apply for operators\. You can override operator precedence by using parentheses\.

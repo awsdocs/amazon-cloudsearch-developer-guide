@@ -1,16 +1,14 @@
 # Searching for Text in Amazon CloudSearch<a name="searching-text"></a>
 
 You can search both text and literal fields for a text string: 
-
 + `Text` and `text-array` fields are always searchable\. You can search for individual terms as well as phrases\. Searches within `text` and `text-array` fields are not case\-sensitive\.
-
 + `Literal` and `literal-array` fields can only be searched if they are search enabled in the domain's indexing options\. You can search for an exact match of your search string\. Searches in literal fields are case\-sensitive\.
 
 If you use the simple query parser or do not specify a field when searching with the structured query parser, by default all `text` and `text-array` fields are searched\. Literal fields are *not* searched by default\. You can specify which fields you want to search with the `q.options` parameter\. 
 
 You can search the unique document ID field like any text field\. To reference the document ID field in a search request, you use the field name `_id`\. Document IDs are always returned in the search results\. 
 
-
+**Topics**
 + [Searching for Individual Terms in Amazon CloudSearch](#searching-text-terms)
 + [Searching for Phrases in Amazon CloudSearch](#searching-text-phrases)
 + [Searching for Literal Strings in Amazon CloudSearch](#searching-text-literals)
@@ -73,11 +71,8 @@ q=star wars&q.options={fields: ['title^5','description']}
 ```
 
 When you use the simple query parser, you can use the following prefixes to designate individual terms as required, optional, or to be excluded from the search results: 
-
 + **`+`**—matching documents must contain the term\. This is the default—separating terms with a space is equivalent to preceding them with the `+` prefix\.
-
 + **`-`**—exclude documents that contain the term from the search results\. The `-` operator only applies to individual terms\. For example, to exclude documents that contain the term *star* in the default search field, specify: `-star`\. Searching for `search?q=-star wars` retrieves all documents that do not contain the term *star*, but do contain the term *wars*\. 
-
 + **`|`**—include documents that contain the term in the search results, even if they don't contain the other terms\. The `|` operator only applies to individual terms\. For example, to include documents that contain either of two terms, specify: `term1 |term2`\. Searching for `search?q=star wars |trek` includes documents that contain both *star* and *wars*, or the term *trek*\.
 
 These prefixes only apply to individual terms in a simple query\. To construct compound queries, you need to use the structured query parser, rather than the simple query parser\. For example, to search for the terms *star* and *wars* using the structured query parser you would specify:
@@ -143,9 +138,7 @@ You can use literal fields in conjunction with faceting to enable users to drill
 You can search `text`, `text-array`, `literal`, and `literal-array` fields for a *prefix* rather than for a complete term\. This matches results that contain the prefix followed by zero or more characters\. You must specify at least one character as the prefix\. \(To match all documents, use the `matchall` operator in a structured query\.\) In general, you should use a prefix that contains at least two characters to avoid matching an excessive number of documents\.
 
 When you search a `text` or `text-array` field, terms that match the prefix can occur anywhere within the contents of the field\. When you search literal fields, the entire search string, up to and including the prefix characters, must match exactly\. 
-
 + Simple query parser—use the `*` \(asterisk\) wildcard operator to search for a prefix, for example `pre*`\.
-
 + Structured query parser—use the `prefix` operator to search for a prefix, for example `prefix 'pre'` 
 
 For example, the following query searches for the prefix *oce* in the title field and returns the title of each hit:

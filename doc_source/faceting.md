@@ -1,6 +1,6 @@
 # Getting and Using Facet Information in Amazon CloudSearch<a name="faceting"></a>
 
-
+**Topics**
 + [Getting Facet Information in Amazon CloudSearch](#getting-facet-info)
 + [Using Facet Information in Amazon CloudSearch](#using-facet-info)
 
@@ -15,17 +15,13 @@ You can specify facet options to control the sorting of the facet values for eac
 To get facet information for a field, you use the `facet.FIELD` parameter\. `FIELD` is the name of a facet\-enabled field\. You specify facet options as a JSON object\. If the JSON object is empty \(`facet.FIELD={}`\), facet counts are computed for all field values, the facets are sorted by facet count, and the top 10 facets are returned in the results\. You can request facet information for multiple fields in the same request\.
 
 You can retrieve facet information in two ways:
-
 + `sort`—Returns facet information sorted either by facet counts or facet values\.
-
 + `buckets`—Returns facet information for particular facet values or ranges\.
 
 ### Sorting Facet Information<a name="sorting-facets"></a>
 
 You specify the `sort` option to control how the facet information is sorted\. There are two sort options: `count` and `bucket`: 
-
 + Use `count` to sort the facets by facet counts\. For example, `facet.year={sort:'count'}` counts the number of matches that have the same year value and sorts the facet information by that number\. 
-
 + Use `bucket` to sort the facets by the facet values\. For example, `facet.year={sort:'bucket'}` \. 
 
 When you use the `sort` option, you can specify the `size` option to control the maximum number of facet values returned in the results\. The `size` option is valid only when you use the `sort` option\.

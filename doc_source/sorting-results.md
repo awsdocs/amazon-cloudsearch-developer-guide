@@ -3,13 +3,9 @@
 By default, search results are sorted according to their relevance to the search request\. A document's relevance score \(`_score`\) is based on how often the search terms appear in the document compared to how common the term is across all documents in the domain\. Relevance scores are positive values that can vary widely depending on your data and queries\. The scores for each clause in your query are additive, so queries with more clauses will naturally have higher scores than queries with just one or two\. If you know what your typical queries will look like, you can do some test queries to get an idea of the range of scores you’re likely to see\. 
 
 To change how search results are sorted, you can:
-
 + Use a `text` or `literal` field to sort results alphabetically\. Note that Amazon CloudSearch sorts by Unicode codepoint, so numbers come before letters and uppercase letters come before lowercase letters\. Numbers are sorted as strings, not by value; for example, 10 will come before 2\. 
-
 + Use an `int` or `double` field to sort results numerically\. 
-
 + Use a `date` field to sort results by date\. 
-
 + Use a custom expression to sort results\.
 
 To use a field to sort the search results, you must configure the field to be `SortEnabled`\. Only single\-value fields can be `SortEnabled`—you cannot use the array\-type fields for sorting\. For more information about configuring fields, see [Configuring Index Fields](configuring-index-fields.md)\.

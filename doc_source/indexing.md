@@ -12,7 +12,7 @@ Depending on the volume of data, building a full index can take a considerable a
 
  You can initiate indexing from the [Amazon CloudSearch console](#indexing-console), using the `aws cloudsearch index-documents` command, or through the AWS SDKs\.
 
-
+**Topics**
 + [Amazon CloudSearch console](#indexing-console)
 + [Indexing Documents Using the Amazon CloudSearch AWS CLI](#indexing-clt)
 + [Indexing Documents with the AWS SDK](#indexing-sdk)
@@ -36,7 +36,6 @@ Depending on the volume of data, building a full index can take a considerable a
 You use the `aws cloudsearch index-documents` command to rebuild your domain's search index\. For information about installing and setting up the AWS CLI, see the [AWS Command Line Interface User Guide](http://docs.aws.amazon.com/cli/latest/userguide/)\. 
 
 **To explicitly index your domain**
-
 + Run the `aws cloudsearch index-documents` command\. The following example rebuilds the index for a domain called *movies*\.  
 **Example**  
 

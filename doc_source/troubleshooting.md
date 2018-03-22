@@ -2,7 +2,7 @@
 
 The following topics describe solutions to problems you might encounter when using Amazon CloudSearch\.
 
-
+**Topics**
 + [Uploading Documents](#ts.uploaddocs)
 + [Deleting All Documents in an Amazon CloudSearch Domain](#ts.cleardomain)
 + [Amazon CloudSearch Domain Not Scaling Down After Deleting Documents](#ts.notscalingdown)
@@ -24,19 +24,13 @@ The following topics describe solutions to problems you might encounter when usi
 ## Uploading Documents<a name="ts.uploaddocs"></a>
 
 If your document data is not formatted correctly or contains invalid values, you will get errors when you attempt to upload it or use it to configure fields for your domain\. Here are some common problems and their solutions:
-
 + **Invalid JSON**—if you are using JSON, the first thing to do is make sure there are no JSON syntax errors in your document batch\. To do that, run it through a validation tool such as the [JSON Validator](http://jsonlint.com)\. This will identify any fundamental issues with the data\.
-
 + **Invalid XML**—document batches must be well\-formed XML\. You are especially likely to encounter issues if your fields contain XML data—the data must be XML\-encoded or enclosed in CDATA sections\. To identify any problems, run your document batch through a validation tool such as the [W3C Markup Validation Service](http://validator.w3.org/)\.
-
 + **Not Recognized as a Document Batch**—if Amazon CloudSearch doesn’t recognize your data as a valid document batch when you upload data using the console, Amazon CloudSearch generates a valid batch that contains a single content field and generic metadata fields such as `content_encoding`, `content_type`, and `resourcename`\. Since these are not normally the fields configured for the domain, you get errors stating that the fields don't exist\. Similarly, if you attempt to configure a domain from an invalid batch, Amazon CloudSearch responds with the content and meta\-data fields instead of the fields in the batch\.
 
    First, make sure that the batch is valid XML or JSON\. If it is, check for invalid document IDs and make sure you have specified the operation type for each document\. For add operations, make sure that the type, ID, and at least one field are specified for each document\. Delete operations only need to specify the type and ID\. For more information about formatting your data, see [Creating Document Batches](preparing-data.md#creating-document-batches)\. 
-
 + **Document IDs with bad values**—A document ID can contain any letter or number and the following characters: \_ \- = \# ; : / ? @ &\. Document IDs must be at least 1 and no more than 128 characters long\.
-
 + **Multi\-valued fields without a value**—when specifying document data in JSON, you cannot specify an empty array as the value of a field\. Multi\-valued fields must contain at least one value\. 
-
 + **Bad characters**—one problem that can be difficult to detect if you do not filter your data while generating your document batch is that can contain characters that are invalid in XML\. Both JSON and XML batches can contain only UTF\-8 characters that are valid in XML\. You can use a validation tool such as the [JSON Validator](http://jsonlint.com) or [W3C Markup Validation Service](http://validator.w3.org/) to identify invalid characters\.
 
 ## Deleting All Documents in an Amazon CloudSearch Domain<a name="ts.cleardomain"></a>
@@ -113,7 +107,6 @@ If your 2011 policy granted access to particular domains or actions, you must in
 ## Search and Document Service Access Policies Not Working in Amazon CloudSearch<a name="troubleshooting-search-doc-access-policies"></a>
 
 If you have configured access policies for you domain's search and document service endpoints, but are getting the error *403 Request forbidden by administrative rules*, it is likely due to one of the following issues\.
-
 + Make sure the API version and resource name are specified in your requests\. For example, to upload documents with the 2013\-01\-01 API, you must append `/2013-01-01/documents/batch` to your domain's document service endpoint:
 
   ```
@@ -131,9 +124,7 @@ If you have configured access policies for you domain's search and document serv
   ```
   search-movies-123456789012.us-east-1.cloudsearch.amazonaws.com/2013-01-01/suggest?q=kat&suggester=mysuggester
   ```
-
 + If you are connecting from an EC2 instance, make sure the access policy specifies your EC2 instance's public IP address\. 
-
 + If the machine you are connecting from is behind a router, make sure the access policy specifies your public facing IP address\.
 
 For more information, see [Configuring Access for Amazon CloudSearch](configuring-access.md)\. 
@@ -165,21 +156,14 @@ SSL3_GET_SERVER_CERTIFICATE:certificate verify failed
 You can prevent these failures by keeping your computer's CA certificates and operating system up\-to\-date\. If you encounter this issue in a corporate environment and do not manage your own computer, you might need to ask an administrator to assist with the update process\.
 
 The following list shows minimum operating system and Java versions:
-
 + Microsoft Windows versions that have updates from January 2005 or later installed contain at least one of the required CAs in their trust list\.
-
 + Mac OS X 10\.4 with Java for Mac OS X 10\.4 Release 5 \(February 2007\), Mac OS X 10\.5 \(October 2007\), and later versions contain at least one of the required CAs in their trust list\.
-
 + Red Hat Enterprise Linux 5 \(March 2007\), 6, and 7 and CentOS 5, 6, and 7 all contain at least one of the required CAs in their default trusted CA list\.
-
 + Java 1\.4\.2\_12 \(May 2006\), 5 Update 2 \(March 2005\), and all later versions, including Java 6 \(December 2006\), 7, and 8, contain at least one of the required CAs in their default trusted CA list\.
 
 The three certificate authorities are:
-
 + Amazon Root CA 1
-
 + Starfield Services Root Certificate Authority \- G2
-
 + Starfield Class 2 Certification Authority
 
 Root certificates from the first two authorities are available from [Amazon Trust Services](https://www.amazontrust.com/repository/), but keeping your computer up\-to\-date is the more straightforward solution\. To learn more about ACM\-provided certificates, see [AWS Certificate Manager FAQs](https://aws.amazon.com/certificate-manager/faqs/#certificates)\.

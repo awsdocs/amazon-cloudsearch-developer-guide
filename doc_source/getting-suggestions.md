@@ -4,7 +4,7 @@ This section describes how to configure suggesters so you can retrieve suggestio
 
 For more information about the suggest API, see [Suggest](search-api.md#suggest) in the [Search API Reference](search-api.md)\.
 
-
+**Topics**
 + [Configuring Suggesters for Amazon CloudSearch](#configuring-suggesters)
 + [Retrieving Suggestions in Amazon CloudSearch](#retrieving-suggestions)
 
@@ -15,9 +15,7 @@ When you configure a suggester, you must specify the name of the text field you 
 Suggester names must begin with a letter and be at least three and no more than 64 characters long\. The allowed characters are: a\-z \(lower\-case letters\), 0\-9, and \_ \(underscore\)\. The suggester name is specified in the query string when you retrieve suggestions, so it's best to use short names\. The name *score* is reserved and cannot be used as a suggester name\. 
 
 Suggesters also support two options:
-
 + `FuzzyMatching`—You can set the level of fuzziness allowed when suggesting matches for a string to none, low, or high\. With none, the specified string is treated as an exact prefix\. With low, suggestions must differ from the specified string by no more than one character\. With high, suggestions can differ by up to two characters\. The default is none\. 
-
 + `SortExpression`—You can configure this expression to compute a score for each suggestion to control how they are sorted\. The scores are rounded to the nearest integer, with a floor of 0 and a ceiling of 2^31\-1\. A document's relevance score is not computed for suggestions, so sort expressions cannot reference the `_score` value\. To sort suggestions using a numeric field or existing expression, simply specify the name of the field or expression\. If no expression is configured for the suggester, the suggestions are sorted in alphabetical order\. Note that an expression defined within a suggester cannot be referenced in search requests or other expressions\. If want to use an expression for other purposes, add it to your domain configuration and reference it by name from the suggester\. For more information about expressions, see [Configuring Expressions](configuring-expressions.md)\.
 
 If you want to get suggestions from multiple text fields, you define a suggester for each field and submit separate suggestion requests to get matches from each suggester\. You can configure up to ten suggesters\. Suggesters can consume significant amounts of memory and disk space, particularly if you use text\-heavy source fields and set fuzzy matching to high\.
@@ -79,7 +77,6 @@ You can easily add, update, and delete suggesters through the Amazon CloudSearch
 You can add or update suggesters with the `aws cloudsearch define-suggester` command\. To remove a suggester, you use `aws cloudsearch delete-suggester`\.
 
 **To add or update a suggester**
-
 + Run the `aws cloudsearch define-suggester` command\. You specify the configuration of the suggester in JSON with the `--suggester` option\. The suggester configuration must be enclosed in quotes and all quotes within the configuration must be escaped with a backslash\. For the format of the suggester configuration, see [define\-suggester](http://docs.aws.amazon.com/cli/latest/reference/cloudsearch/define-suggester.html) in the AWS CLI Command Reference\. For example, the following command configures a suggester called `mysuggester` to return suggestions based on the `title` field\.
 
   ```
@@ -118,7 +115,6 @@ You can add or update suggesters with the `aws cloudsearch define-suggester` com
   ```
 
 **To delete a suggester**
-
 + Run the `aws cloudsearch delete-suggester` command and specify the `--name` option\. For example, to delete `mysuggester`:
 
   ```
@@ -141,13 +137,9 @@ amazonaws.com/2013-01-01/suggest?q=kat&suggester=mysuggester
 You must specify the API version in the request and the query string must be URL\-encoded\. The maximum size of a suggestion request is 8190 bytes, including the HTTP method, URI, and protocol version\.
 
  The `suggest` resource supports four parameters:
-
 + `q`—The string that you want to get suggestions for\. 
-
 + `suggester`—The name of the suggester you want to use\.
-
 + `size`—The number of suggestions to retrieve\. By default, the top ten suggestions are returned\. \(The suggestions are sorted according the sort expression defined in the suggester\. If no sort expression is defined in the suggester, the suggestions are sorted in alphabetical order\.\)
-
 + `format`—The content type of the response, `json` or `xml`\. By default, suggestions are returned in JSON\.
 
 The `q` and `suggester` parameters must be specified\. No suggestions are returned if you request suggestions for an empty string\. The `size` and `format` parameters are optional\. 

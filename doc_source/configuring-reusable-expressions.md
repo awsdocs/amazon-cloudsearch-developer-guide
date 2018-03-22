@@ -1,6 +1,6 @@
 # Configuring Reusable Expressions for a Search Domain in Amazon CloudSearch<a name="configuring-reusable-expressions"></a>
 
-
+**Topics**
 + [Amazon CloudSearch console](#configuring-expressions-console)
 + [aws cloudsearch define-expression](#configuring-expressions-clt)
 + [DefineRankExpression](#configuring-expressions-sdk)
@@ -32,7 +32,6 @@ When you add an expression to your domain configuration, it takes some time for 
 You use the `aws cloudsearch define-expression` command to define computed expressions for a domain\.
 
 **To configure an expression**
-
 + Run the `aws cloudsearch define-expression` command to define a new expression\. You specify a name for the expression with the `--name` option, and the numeric expression that you want to evaluate with the `--expression` option\. For example, the following request creates an expression called `popularhits` that takes into account a document's `popularity` and relevance `_score`\.
 
   ```

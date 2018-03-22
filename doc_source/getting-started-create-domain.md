@@ -3,11 +3,8 @@
 An Amazon CloudSearch domain encapsulates a collection of data you want to search, the search instances that process your search requests, and a configuration that controls how your data is indexed and searched\. You create a separate search domain for each collection of data you want to make searchable\. For each domain, you configure indexing options that describe the fields you want to include in your index and how you want to use them, analysis schemes that specify language\-specific text processing options for individual fields, expressions that you can use to customize how search results are ranked, and access policies that control access to the domain's document and search endpoints\. 
 
 You interact with a search domain to:
-
 + Configure index and search options
-
 + Submit data for indexing
-
 + Perform searches
 
 Each domain has a unique endpoint through which you submit search requests to the domain\. For example, the endpoint for a domain called *movies* created in the US East \(N\. Virginia\) region might be:
@@ -21,9 +18,7 @@ search-movies-mtshfsu2rje7ywr66uit3dei4m.us-east-1.cloudsearch.amazonaws.com
 When creating a search domain, you specify a unique name for the domain\. Domain names must start with a letter or number and be at least 3 and no more than 28 characters long\. The allowed characters are: a\-z, 0\-9, and hyphen \(\-\)\. By default, new domains are created in the US East \(N\. Virginia\) region\. To create a domain in another region, you must explicitly specify the region when creating the domain\.
 
 To configure the new domain, you must specify:
-
 + Indexing options for the data you want to search\. 
-
 + Access policies for the domain's document service and search service endpoints\. 
 
 This tutorial shows you how to create and interact with a domain using the Amazon CloudSearch console\. For information about how to use the command line tools and APIs, see [Creating a Search Domain](creating-domains.md)\.

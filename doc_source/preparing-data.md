@@ -4,7 +4,7 @@ You need to format your data in JSON or XML before you can upload it to your sea
 
 [Creating Document Batches](#creating-document-batches) describes how to format your data\. For a detailed description of the Amazon CloudSearch JSON and XML schemas, see the [Document Service API Reference](document-service-api.md)\. 
 
-
+**Topics**
 + [Mapping Document Data](#mapping-document-data)
 + [Creating Document Batches](#creating-document-batches)
 
@@ -28,11 +28,8 @@ A document batch is a collection of add and delete operations that represent the
  To get the best possible upload performance, group add and delete operations in batches that are close to the maximum batch size\. Submitting a large volume of single\-document batches to the document service can increase the time it takes for your changes to become visible in search results\. If you have a large amount of data to upload, you can send batches in parallel\. The number of simultaneous uploaders you can use depends on the search instance type\. You can prescale for bulk uploads by setting the desired instance type option for your domain\. For more information, see [Configuring Scaling Options](configuring-scaling-options.md)\. 
 
 For each document in a batch, you must specify:
-
 + The operation you want to perform: *add* or *delete*\. 
-
 + A unique ID for the document\. A document ID can contain any letter or number and the following characters: \_ \- = \# ; : / ? @ &\. Document IDs must be at least 1 and no more than 128 characters long\.
-
 + A name\-value pair for each document field\. To specify the value for a `latlon` field, you specify the latitude and longitude as a comma\-separated list; for example, `"location_field": "35.628611,-120.694152"`\. When specifying documents in JSON, the value for a field cannot be `null`\. \(You can, however, omit the field entirely\.\) 
 
 For example, the following JSON batch adds one document and deletes one document:

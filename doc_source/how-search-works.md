@@ -11,31 +11,20 @@ For information about how to format your data, see [Preparing Your Data](prepari
 ## Indexing in Amazon CloudSearch<a name="concepts-indexing"></a>
 
 To build a search index from your data, Amazon CloudSearch needs the following information:
-
 + Which document fields do you want to search?
-
 + Which document field values do you want to retrieve with the search results?
-
 + Which document fields represent categories that you want to use to refine and filter search results?
-
 + How should the text within a particular field be processed?
 
 You define this metadata in your domain configuration by configuring indexing options\. You use indexing options to specify the fields included in the search index and control how you can use those fields\. 
 
 You must configure a corresponding index field for each document field that occurs in your data—there's a one\-to\-one mapping between document fields and the fields in your Amazon CloudSearch index\. In addition to the index field name, you specify the following:
-
 + The index field type
-
 + Whether the field is searchable \(`text` and `text-array` fields are always searchable\)
-
 + Whether the field can be used as a category \(facet\)
-
 + Whether the field value can be returned with the search results
-
 + Whether the field can be used to sort the results
-
 + Whether highlights can be returned for the field
-
 + A default value to use if no value is specified in the document data\.
 
 For information about how to configure index fields for Amazon CloudSearch, see [Configuring Index Fields](configuring-index-fields.md)\.
@@ -65,13 +54,9 @@ For information about how to configure expressions for your domain, see [Configu
 You submit search requests to your domain's search endpoint as HTTP/HTTPS GET requests\. You can specify a variety of options to constrain your search, request facet information, control ranking, and specify what you want to be returned in the results\. You can get search results in either JSON or XML\. By default, Amazon CloudSearch returns results in JSON\.
 
 When you submit a search request, Amazon CloudSearch performs text processing on the search string\. The search string is processed to:
-
 + Convert all characters to lowercase
-
 + Split the string into separate terms on whitespace and punctuation boundaries 
-
 + Remove terms that are on the stopword list for the field being searched\.
-
 + Map stems and synonyms according to the stemming and synonym options configure for the field being searched\.
 
 After this preprocessing is complete, Amazon CloudSearch looks up the search terms in the index and identifies all of the documents that match the request\. To generate a response, Amazon CloudSearch processes this list of search hits to filter and sort the matching documents and compute facets\. Amazon CloudSearch then returns the response in JSON or XML\. 

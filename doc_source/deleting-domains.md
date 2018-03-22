@@ -4,7 +4,7 @@
 
 You can delete a domain from the Amazon CloudSearch console, using the `aws cloudsearch delete-domain` command, or using the AWS SDKs\.
 
-
+**Topics**
 + [Amazon CloudSearch console](#deleting-domains-console)
 + [Deleting a Domain Using the AWS CLI](#deleting-domains-clt)
 + [DeleteDomain](#deleting-domains-sdk)
@@ -28,7 +28,6 @@ You can easily delete a domain from the domain dashboard in the Amazon CloudSear
 You use the `aws cloudsearch delete-domain` command to delete a search domain and all of its resources\. For information about installing and setting up the AWS CLI, see the [AWS Command Line Interface User Guide](http://docs.aws.amazon.com/cli/latest/userguide/)\. 
 
 **To delete a domain**
-
 + Run the `aws cloudsearch delete-domain` command and specify the name of the domain you want to delete\. For example, to delete the *movies* domain, you specify `--domain-name movies`\.
 
   ```

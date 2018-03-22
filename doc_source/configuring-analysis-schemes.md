@@ -3,15 +3,10 @@
 Amazon CloudSearch enables you to configure a language\-specific analysis scheme for each `text` and `text-array` field\. An analysis scheme controls how the contents of the field are processed during indexing\. Although the defaults for each language work well in many cases, fine\-tuning the analysis options enables you to optimize the search results based on your knowledge of the data you are searching\. For a list of supported languages, see [Supported Languages](supported-languages.md)\.
 
 An analysis scheme specifies the language of the text to be processed and the following analysis options: 
-
 + **Algorithmic stemming**—specifies the level of algorithmic stemming to perform\. The available stemming levels vary depending on the language\.
-
 + **Japanese Tokenization Dictionary**—specifies overrides of the algorithmic tokenization when processing Japanese\. The dictionary specifies how particular sets of characters should be grouped into words\.
-
 + **Stemming dictionary**—specifies overrides for the results of the algorithmic stemming\. The dictionary maps specific related words to a common root word or stem\.
-
 + **Stopwords**—specifies words that should be ignored during indexing and searching\.
-
 + **Synonyms**—specifies words that have the same meaning as words that occur in your data and should produce the same search results\.
 
 During text processing, field values and search terms are converted to lowercase \(case\-folded\), so stopwords, stems, and synonyms are not case\-sensitive\. For more information about how Amazon CloudSearch processes text during indexing and when handling search requests, see [Text Processing in Amazon CloudSearch](text-processing.md)\.
@@ -22,7 +17,7 @@ The easiest way to define analysis schemes is through the **Analysis Schemes** p
 
 When you apply a new analysis scheme to an index field or modify an analysis scheme that's in use, you must explicitly [rebuild the index](indexing.md) for the changes to be reflected in search results\.
 
-
+**Topics**
 + [Stemming in Amazon CloudSearch](#word-stemming)
 + [Stopwords in Amazon CloudSearch](#stopwords)
 + [Synonyms in Amazon CloudSearch](#synonyms)
@@ -37,13 +32,9 @@ When you apply a new analysis scheme to an index field or modify an analysis sch
 Stemming is the process of mapping related words to a common stem\. A stem is typically the root or base word from which variants are derived\. For example, *run* is the stem of *running* and *ran*\. Stemming is performed during indexing as well as at query time\. Stemming reduces the number of terms that are included in the index, and facilitates matches when the search term is a variant of a term that occurs in the content being searched\. For example, if you map the term *running* to the stem *run* and then search for *running*, the request matches documents that contain *run* as well as *running*\. 
 
  Amazon CloudSearch supports both algorithmic stemming and explicit stemming dictionaries\. You configure algorithmic stemming by specifying the level of stemming that you want to use\. The available levels of algorithmic stemming vary depending on the language:
-
 + none—disable algorithmic stemming
-
 + minimal—perform basic stemming by removing plural suffixes
-
 + light—target the most common noun/adjective inflections and derived suffixes
-
 + full—aggressively stem inflections and suffixes
 
 In addition to controlling the degree of algorithmic stemming that's performed, you can specify a stemming dictionary that maps specific related words to a common stem\. You specify the dictionary as a JSON object that contains a collection of string:value pairs that map a term to its stem, for example, `{"term1": "stem1", "term2": "stem2", "term3": "stem3"}`\. The stemming dictionary is applied in addition to any algorithmic stemming\. This enables you to override the results of the algorithmic stemming to correct specific cases of overstemming or understemming\. The maximum size of a stemming dictionary is 500 KB\. Stemming dictionary entries must be lowercase\.
@@ -88,13 +79,9 @@ If you do not specify a stopwords dictionary in your analysis scheme, Amazon Clo
 ## Synonyms in Amazon CloudSearch<a name="synonyms"></a>
 
 You can configure synonyms for terms that appear in the data that you are searching\. That way, if a user searches for the synonym rather than the indexed term, the results will include documents that contain the indexed term\. For example, you might define custom synonyms to do the following:
-
 + Map common misspellings to the correct spelling 
-
 + Define equivalent terms, such as `film` and `movie`
-
 + Map a general term to a more specific one, such as `fish` and `barracuda`
-
 + Map multiple words to a single word or vice versa, such as `tool box` and `toolbox`
 
 When you define a synonym, the synonym is added to the index everywhere the base token occurs\. For example, if you define `fish` as a synonym of `barracuda`, the term `fish` is added to every document that contains the term `barracuda`\. Adding a large number of synonyms can increase the size of the index as well as query latency—synonyms increase the number of matches and the more matches, the longer it takes to process the results\. 
@@ -102,9 +89,7 @@ When you define a synonym, the synonym is added to the index everywhere the base
 The synonym dictionary is used during indexing to configure mappings for terms that occur in text fields\. No synonym processing is done on search requests\. By default, Amazon CloudSearch does not define any synonyms\. 
 
 You can specify synonyms in two ways:
-
 + As a *conflation group* where each term in the group is considered a synonym of every other term in the group\.
-
 + As an *alias* for a specific term\. An alias is considered a synonym of the specified term, but the term is not considered a synonym of the alias\. 
 
 A synonym dictionary is specified as a JSON object that defines the synonym groups and aliases\. The `groups` value is an array of arrays, where each sub\-array is a conflation group\. The `aliases` value is an object that contains a collection of string:value pairs where the string specifies a term and the array of values specifies each of the synonyms for that term\. The following example includes both conflation groups and aliases:
@@ -166,7 +151,6 @@ You use the `aws cloudsearch define-analysis-scheme` command to define language\
 You specify an analysis scheme as part of the configuration of each `text` or `text-array` field\. For more information, see [Configuring Index Fields](configuring-index-fields.md)\.
 
 **To define an analysis scheme**
-
 + Run the `aws cloudsearch define-analysis-scheme` command and specify the `--analysis-scheme` option and a JSON object that contains your analysis options\. The analysis scheme must be valid JSON\. The analysis option key and value pairs must be enclosed in quotes, and all quotes within the option values must be escaped with a backslash\. For the format of the analysis options, see [define\-analysis\-scheme](http://docs.aws.amazon.com/cli/latest/reference/cloudsearch/define-analysis-scheme.html) in the AWS CLI Command Reference\. See [Configuring Analysis Schemes](#configuring-analysis-schemes) for more information about specifying stemming, stopword, and synonym options\.
 
   If you specify Japanese \(`ja`\) as the language, you also have the option of specifying a custom tokenization dictionary that overrides the default tokenization of specific phrases\. For more information, see [Customizing Japanese Tokenization](#customizing-japanese-tokenization)\.

@@ -17,7 +17,7 @@ You can submit a document batch to a domain using the [Amazon CloudSearch consol
 
 For more information about the document service API, see the [Document Service API Reference](document-service-api.md)\.
 
-
+**Topics**
 + [Submitting Document Upload Requests to an Amazon CloudSearch Domain](submitting-doc-requests.md)
 + [Bulk Uploads in Amazon CloudSearch](#bulk-uploads)
 + [Amazon CloudSearch console](#uploading-data-console)
@@ -29,13 +29,10 @@ For more information about the document service API, see the [Document Service A
 Document batches are limited to one batch every 10 seconds and 5 MB per batch\. To learn more, see [Limits](limits.md)\. However, you can upload batches in parallel to reduce the amount of time it takes to upload all of your data\.
 
 To perform a bulk upload:
-
 + Set your desired instance type to a larger instance type than the default `search.m1.small`\. The number of upload threads you can use depends on the type of search instance your domain is using and the nature of your data and indexing options\. Larger instance types have a higher upload capacity\. Attempting to upload batches in parallel to a `search.m1.small` instance usually results in a high rate of 504 or 507 errors\. For more information about setting the desired instance type, see [Configuring Scaling Options](configuring-scaling-options.md)\.
-
 + Start uploading data once your configuration changes are active\. If you encounter a high rate of 5xx errors, you either need to reduce your upload rate or switch to a larger instance type\. If you are already using the largest instance type, you can increase the desired partition count to further increase upload capacity\. 
 **Important**  
 If you submit a large volume of updates while your domain is in the PROCESSING state, it can increase the amount of time it takes for the updates to be applied to your search index\. To avoid this update lag, wait until your domain is in the ACTIVE state before starting your bulk upload\.
-
 + When you are finished with your bulk upload, you can change the desired instance type back to a smaller instance type\. If your index fits on a smaller type, Amazon CloudSearch will automatically scale your domain back down\. Amazon CloudSearch will not scale to an instance type that's smaller than the desired instance type configured for your domain\. 
 
  For datasets of less than 1 GB of data or fewer than one million 1 KB documents, a small search instance should be sufficient\. To upload data sets between 1 GB and 8 GB, we recommend setting the desired instance type to `search.m3.large` before you begin uploading\. For datasets between 8 GB and 16 GB, start with a `search.m3.xlarge`\. For datasets between 16 GB and 32 GB, start with a `search.m3.2xlarge`\. If you have more than 32 GB to upload, select the `search.m3.2xlarge` instance type and increase the desired partition count to accommodate your data set\. Each partition can contain up to 32 GB of data\. Submit a [Service Increase Limit Request](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-cloudsearch-partitions-and-instances) if you need more upload capacity or have more than 500 GB to index\. 
@@ -43,11 +40,8 @@ If you submit a large volume of updates while your domain is in the PROCESSING s
 ## Uploading Data Using the Amazon CloudSearch Console<a name="uploading-data-console"></a>
 
 In the Amazon CloudSearch console, you can upload data from your local file system or Amazon S3 to your domain from the domain dashboard\. The console can automatically convert the following types of files to document batches during the upload process: 
-
 + Document batches formatted in JSON or XML \(\.json, \.xml\)
-
 + Comma Separated Value \(\.csv\)
-
 + Text Documents \(\.txt\)
 
 You can also convert and upload items from an DynamoDB table\. For more information, see [Uploading DynamoDB Data](searching-dynamodb-data.md#searching-dynamodb-data-console)\.
@@ -69,13 +63,9 @@ Uploading data to Amazon CloudSearch from an Amazon S3 bucket or DynamoDB table 
 1. At the top of the domain dashboard, click **Upload Documents\.**
 
 1. Select the location of the data you want to upload to your domain:
-
    + File\(s\) on my local disk
-
    + Object\(s\) from Amazon S3
-
    + Item\(s\) from DynamoDB
-
    + Predefined data
 
    If you upload data that isn't formatted as document batches, it will automatically be converted during the upload process\.
@@ -101,7 +91,6 @@ Uploading data to Amazon CloudSearch from an Amazon S3 bucket or DynamoDB table 
 You use the `aws cloudsearch upload-documents` command to send document batches to your search domain\. For information about installing and setting up the AWS CLI, see the [AWS Command Line Interface User Guide](http://docs.aws.amazon.com/cli/latest/userguide/)\. 
 
 **To send document batches to a domain for indexing**
-
 + Run the `aws cloudsearchdomain upload-documents` command to upload your batches to your domain\. You must specify at least one `--source` option to specify the location of the batch you want to upload\.
 
   ```

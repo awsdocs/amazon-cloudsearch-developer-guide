@@ -15,7 +15,7 @@ You can configure a domain's availability options through the Amazon CloudSearch
 **Important**  
 If your domain is running on a single search instance, enabling the Multi\-AZ option adds a second search instance in a different availability zone, which doubles the cost of running your domain\. Similarly, if your index is split across multiple partitions, a new instance is deployed in the second Availability Zone for each partition\. Additional replicas are added to ensure that either Availability Zone has enough capacity to handle all of your traffic—when Multi\-AZ is enabled, your domain will have at least one replica of each index partition\. If you set the desired number of replicas and enable the Multi\-AZ option, Amazon CloudSearch ensures that you have at least that many replicas available in total across the two availability zones\. You can monitor the number of instances being used for your domain from the domain dashboard\.
 
-
+**Topics**
 + [Configuring Availability Options through the Amazon CloudSearch Console](#configuring-availability-options-console)
 + [Configuring Amazon CloudSearch Availability Options Using the AWS CLI](#configuring-availability-options-clt)
 + [Configuring Availability Options through the AWS SDK](#configuring-availability-options-sdk)
@@ -35,7 +35,6 @@ If your domain is running on a single search instance, enabling the Multi\-AZ op
 You use the `aws cloudsearch update-availability-options` command to configure availability options for a search domain\. For information about installing and setting up the AWS CLI, see the [AWS Command Line Interface User Guide](http://docs.aws.amazon.com/cli/latest/userguide/)\. 
 
 **To configure a search domain's availability options**
-
 + Run the `aws cloudsearch update-availability-options` command and specify the `--multi-az` option to turn on MultiAZ for the domain, or `--no-multi-az` to turn MultiAZ off\. For example, the following request enables MultiAZ for the `movies` domain:
 
   ```

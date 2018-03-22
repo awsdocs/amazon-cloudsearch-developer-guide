@@ -10,6 +10,7 @@ The current Amazon CloudSearch limits are summarized in the following table\.
 | Batch size | The maximum batch size is 5 MB\. | 
 | Data loading volume | You can load one document batch every 10 seconds \(approximately 10,000 batches every 24 hours\), with each batch size up to 5 MB\.Exceeding this limit significantly increases the latency of document updates and could result in throttling\. To mitigate this risk, you can increase your update capacity by selecting a larger instance type\. For more information, see [Creating Document Batches](preparing-data.md#creating-document-batches)\. | 
 | Document size | The maximum document size is 1 MB\. | 
+| Document fields | Documents can have no more than 200 fields\. | 
 | Expressions | [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/limits.html)  | 
 | Highlighting | [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/limits.html)  | 
 | Index fields | [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/limits.html) | 

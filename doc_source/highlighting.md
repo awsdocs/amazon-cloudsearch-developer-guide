@@ -24,11 +24,7 @@ For more information about enabling a field to return highlights, see [Configuri
 You can control how many occurrences of the search term\(s\) within an excerpt are highlighted, how they should be highlighted, and whether the excerpt is returned as plain text or HTML\. When Amazon CloudSearch returns excerpts as HTML, non\-alphanumeric characters are escaped with HTML entity encoding\. This is done to minimize the risks associated with embedding untrusted HTML content, since the field might have originally been populated with user\-generated content\. 
 
 You specify highlight options as a JSON object\. If the JSON object is empty, `highlight.FIELD={}`, Amazon CloudSearch highlights all occurrences of the search term\(s\) by enclosing them in HTML emphasis tags, <em>*term*</em>, and the excerpts are returned as HTML\. 
-
 + To specify whether the excerpt should be returned as `text` or `html`, use the `format` option; for example, `highlight.plot={format:'text'}`\.
-
 + To specify the maximum number of occurrences of the search term\(s\) you want to highlight, use the `max_phrases` option; for example, `highlight.plot={max_phrases:3}`\. The default is 1, the maximum is 5\.
-
 + To specify the string to prepend to each highlighted term, use the `pre_tag` option; for example, `highlight.plot={pre_tag:'<strong>', post_tag:'</strong>'}`\.
-
 + To specify the string to append to each highlighted term, use the `post_tag` option; for example, `highlight.plot={pre_tag:'<strong>', post_tag:'</strong>'}`\.

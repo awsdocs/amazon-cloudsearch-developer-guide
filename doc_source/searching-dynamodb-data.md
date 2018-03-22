@@ -4,7 +4,7 @@ You can specify a DynamoDB table as a source when configuring indexing options o
 
 To keep your search domain in sync with changes to the table, you can send updates to both your table and your search domain, or you can periodically load the entire table into a new search domain\. 
 
-
+**Topics**
 + [Configuring an Amazon CloudSearch Domain to Search DynamoDB Data](#searching-dynamodb-data.configuring)
 + [Uploading Data to Amazon CloudSearch from DynamoDB](#searching-dynamodb-data.uploading)
 + [Synchronizing a Search Domain with a DynamoDB Table](#searching-dynamodb-data.sync)
@@ -38,9 +38,7 @@ You can use the Amazon CloudSearch console to analyze data from a DynamoDB table
 1. In the **Choose Source** step, select **Analyze sample item\(s\) from DynamoDB**\.
 
 1. From the **DynamoDB Table** list, select the DynamoDB table that you want to analyze\. 
-
    + To limit the read capacity units that can be consumed while reading from the table, enter the maximum percentage of read capacity units you want to use\.
-
    + To start reading from a particular item, specify a **Start Hash Key**\. If the table uses a hash and range type primary key, specify both the hash attribute and the range attribute for the item\. 
 
 1. When you finish specifying the table options, click **Continue**\.
@@ -62,31 +60,18 @@ You can upload data from more than one DynamoDB table to the same Amazon CloudSe
 When converting table data to document batches, Amazon CloudSearch generates a document for each item it reads from the table, and represents each item attribute as a document field\. The unique ID for each document is either read from the `docid` item attribute \(if it exists\) or assigned an alphanumeric value based on the primary key\. 
 
 When Amazon CloudSearch generates documents for table items:
-
 + Sets of strings and sets of numbers are represented as multi\-value fields\. If a DynamoDB set contains more than 100 values, only the first 100 values are added to the multi\-value field\.
-
 + DynamoDB binary attributes are ignored\.
-
 + Attribute names are modified to conform to the Amazon CloudSearch naming conventions for field names:
-
   + All uppercase letters are converted to lowercase\.
-
   + If the DynamoDB attribute name does not begin with a letter, the field name is prefixed with `f_`\.
-
   + Any characters other than a\-z, 0\-9, and \_ \(underscore\) are replaced by an underscore\. If this transformation results in a duplicate field name, a number is appended to make the field name unique\. For example, the attribute names `håt`, `h-t`, `hát` would be mapped to `h_t`, `h_t1`, and `h_t2` respectively\.
-
   + If the DynamoDB attribute name exceeds 64 characters, the first 56 characters of the attribute name are concatenated with the 8\-character MD5 hash of the full attribute name to form the field name\.
-
   + If the attribute name is `body`, it is mapped to the field name `f_body`\. 
-
   + If the attribute name is ` _score` it is mapped to the field name ` f_ _score`\.
-
 + Number attributes are mapped to Amazon CloudSearch int fields and the values are transformed to 32\-bit unsigned integers:
-
   + If a number attribute contains a decimal value, only the integral part of the value is stored\. Everything to the right of the decimal point is dropped\.
-
   + If the value is larger than can be stored as an unsigned integer, the value is truncated\. 
-
   + Negative integers are treated as unsigned positive integers\.
 
 ### Uploading DynamoDB Data to a Domain through the Amazon CloudSearch Console<a name="searching-dynamodb-data-console"></a>
@@ -104,9 +89,7 @@ You can use the Amazon CloudSearch console to upload up to 5 MB of data from a D
 1. In the **Document Source** step, select **Item\(s\) from DynamoDB**\.
 
 1. In the **DynamoDB Table** list, select the DynamoDB table that contains your data\. 
-
    + To limit the read capacity units that can be consumed while reading from the table, enter the maximum percentage of read capacity units\.
-
    + To start reading from a particular item, specify a **Start Hash Key**\. If the table uses a hash and range type primary key, specify both the hash attribute and the range attribute for the item\.
 
 1. When you finish specifying the table options, click **Continue**\.

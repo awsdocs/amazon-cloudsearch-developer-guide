@@ -4,33 +4,22 @@ Each document that you add to your search domain has a collection of fields that
 
 In your domain configuration, you define an index field for each of the fields that occur in your documents\. You cannot upload documents that contain unrecognized fields\. However, every document does not have to contain all fields—documents can contain a subset of the fields configured for the domain\.
 
-
+**Topics**
 + [Configuring Individual Index Fields with the AWS CLI](#configuring-index-fields-individually-clt)
 + [Configuring Index Fields Using the Amazon CloudSearch Console](#configuring-index-fields-console)
 + [DefineIndexField](#configuring-index-fields-sdk)
 
 Amazon CloudSearch supports the following index field types:
-
 + `date`—contains a timestamp\. Dates and times are specified in UTC \(Coordinated Universal Time\) according to [IETF RFC3339](http://tools.ietf.org/html/rfc3339): `yyyy-mm-ddTHH:mm:ss.SSSZ`\. In UTC, for example, 5:00 PM August 23, 1970 is: `1970-08-23T17:00:00Z`\. Note that you can also specify fractional seconds when specifying times in UTC\. For example, `1967-01-31T23:20:50.650Z.` 
-
 + `date-array`—a date field that can contain multiple values\. 
-
 + `double`—contains a double\-precision 64\-bit floating point value\.
-
 + `double-array`—a double field that can contain multiple values\. 
-
 + `int`—contains a 64\-bit signed integer value\. 
-
 + `int-array`—an integer field that can contain multiple values\. 
-
 + `latlon`—contains a location stored as a latitude and longitude value pair \(`lat, lon`\)\.
-
 + `literal`—contains an identifier or other data that you want to be able to match exactly\. Literal fields are case\-sensitive\.
-
 + `literal-array`—a literal field that can contain multiple values\. 
-
 + `text`—contains arbitrary alphanumeric data\. 
-
 + `text-array`—a text field that can contain multiple values\. 
 
 Regular index field names must begin with a letter and be at least 3 and no more than 64 characters long\. The allowed characters are: a\-z \(lower\-case letters\), 0\-9, and \_ \(underscore\)\. The name *score* is reserved and cannot be specified as a field name\. All field and expression names must be unique\. 
@@ -38,15 +27,10 @@ Regular index field names must begin with a letter and be at least 3 and no more
 Dynamic field names must either begin or end with a wildcard \(\*\)\. The string before or after the wildcard can contain the same set of characters as a regular index field\. For more information about dynamic fields, see [Using Dynamic Fields in Amazon CloudSearch](using-dynamic-fields.md)\.
 
 The options you can configure for a field vary according to the field type:
-
 + `HighlightEnabled`—You can get highlighting information for the search hits in any `HighlightEnabled` text field\. Valid for: `text`, `text-array`\.
-
 + `FacetEnabled`—You can get facet information for any `FacetEnabled` field\. Text fields cannot be used for faceting\. Valid for: `int`, `int-array`, `date`, `date-array`, `double`, `double-array`, `latlon`, `literal`, `literal-array`\. 
-
 + `ReturnEnabled`—You can retrieve the value of any `ReturnEnabled` field with your search results\. Note that this increases the size of your index, which can increase the cost of running your domain\. When possible, it's best to retrieve large amounts of data from an external source, rather than embedding it in your index\. Since it can take some time to apply document updates across the domain, critical data such as pricing information should be retrieved from an external source using the returned document IDs\. Valid for: `int`, `int-array`, `date`, `date-array`, `double`, `double-array`, `latlon`, `literal`, `literal-array`, `text`, `text-array`\. 
-
 + `SearchEnabled`—You can search the contents of any `SearchEnabled` field\. Text fields are always searchable\. Valid for: `int`, `int-array`, `date`, `date-array`, `double`, `double-array`, `latlon`, `literal`, `literal-array`, `text`, `text-array`\. 
-
 + `SortEnabled`—You can sort the search results alphabetically or numerically using any `SortEnabled` field\. Array\-type fields cannot be `SortEnabled`\. Only sort enabled numeric fields can be used in expressions\. Valid for: `int`, `date`, `latlon`, `double`, `literal`, `text`\.
 
 You can also specify a default value and a source for any field\. Specifying a default value can be important if you are using a numeric field in an expression and that field is not present in every document\. Specifying a source copies data from one field to another, enabling you to use the same source data in different ways by configuring different options for the fields\. You can use a wildcard \(\*\) when specifying the source name to copy data from all fields that match the specified pattern\. 
@@ -61,7 +45,6 @@ If you change the type of a field and have documents in your index that contain 
 You use the `aws cloudsearch define-index-field` command to configure individual index fields for a search domain\. For information about installing and setting up the AWS CLI, see the [AWS Command Line Interface User Guide](http://docs.aws.amazon.com/cli/latest/userguide/)\. 
 
 **To add an index field to your domain**
-
 + Run the `aws cloudsearch define-index-field` command and specify the name of the new field with the `--name` option, and the field type with the `--type` option\. The following example adds an `int` field called `year` to the movies domain\.  
 **Example**  
 

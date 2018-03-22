@@ -17,11 +17,8 @@ Amazon CloudSearch throttles excessive requests to the configuration service\. T
 ## Structure of a Configuration Request<a name="submitting-configuration-requests-structure"></a>
 
 This reference shows Amazon CloudSearch configuration requests as URLs, which can be used directly in a browser\. \(Although the GET requests are shown as URLs, the parameter values are shown unencoded to make them easier to read\. Keep in mind that you must URL encode parameter values when submitting requests\.\) The URL contains three parts:
-
 + Endpoint—the Web service entry point to act on, `cloudsearch.us-east-1.amazonaws.com`\. 
-
 + Action—the Amazon CloudSearch configuration action you want to perform\. For a complete list of actions, see [Actions](API_Operations.md)\. 
-
 + Parameters—any request parameters required for the specified action\. Each query request must also include some common parameters to handle authentication\. For more information, see [Request Authentication](#configuration-request-authentication)\.
 
 You must specify the `Version` parameter in every Amazon CloudSearch configuration request\. The current Amazon CloudSearch API version is 2013\-01\-01\.
