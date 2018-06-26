@@ -146,7 +146,7 @@ The JSON schema representation of a document service API response is shown below
 | --- | --- | 
 | status | The result status, which is either success or error\.  | 
 | adds | The number of add document operations that were performed\. Always zero when the status is error\.  | 
-| deletes | The number of delete document operations that were performed\. Always zero when the status is error\.  | 
+| deletes | The number of delete document operations that were performed\. Always zero when the status is error\. For information on permanently deleting documents, see [Deleting Documents in Amazon CloudSearch](preparing-data.md#deleting-documents)\. | 
 | errors | Provides information about a parsing or validation error\. Specified only if the status is error\.  | 
 | warning | Provides information about a warning generated during parsing or validation\.  | 
 

@@ -584,7 +584,7 @@ fields
 A list of returned fields\.   
 facets  
 Contains facet information and facet counts\.   
-`FACETFIELD`  
+FACETFIELD  
 A field for which facets were calculated\.   
 buckets  
 An array of the calculated facet values and counts\.  

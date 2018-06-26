@@ -118,7 +118,7 @@ You use the `Synonyms` key to define a custom synonym dictionary in an analysis 
     "AnalysisSchemeName": "myscheme",
     "AnalysisSchemeLanguage": "en",
     "AnalysisOptions": {
-        Synonyms": "{\"aliases\": {\"youth\": [\"child\",\"kid\"]}}"
+        "Synonyms": "{\"aliases\": {\"youth\": [\"child\",\"kid\"]}}"
     }
 }
 ```

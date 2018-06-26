@@ -82,21 +82,21 @@ You can add or update suggesters with the `aws cloudsearch define-suggester` com
   ```
   aws cloudsearch define-suggester --domain-name movies --suggester "{\"SuggesterName\": \"mysuggester\", \"DocumentSuggesterOptions\": {\"SourceField\":\"title\"}}" 
   {
-      "Suggester": {
-          "Status": {
-              "PendingDeletion": false, 
-              "State": "RequiresIndexDocuments", 
-              "CreationDate": "2014-06-26T17:26:43Z", 
-              "UpdateVersion": 27, 
-              "UpdateDate": "2014-06-26T17:26:43Z"
-          }, 
-          "Options": {
-              "DocumentSuggesterOptions": {
-                  "SourceField": "title"
-              }, 
-              "SuggesterName": "mysuggester"
-          }
+    "Suggester": {
+      "Status": {
+        "PendingDeletion": false,
+        "State": "RequiresIndexDocuments",
+        "CreationDate": "2014-06-26T17:26:43Z",
+        "UpdateVersion": 27,
+        "UpdateDate": "2014-06-26T17:26:43Z"
+      },
+      "Options": {
+        "DocumentSuggesterOptions": {
+          "SourceField": "title"
+        },
+        "SuggesterName": "mysuggester"
       }
+    }
   }
   ```
 
@@ -147,17 +147,31 @@ The `q` and `suggester` parameters must be specified\. No suggestions are return
 The following example gets suggestions for the string `oce` based on the contents of the `title` field\.
 
 ```
-http://search-imdb-hd6ebyouhw2lczkueyuqksnuzu.us-west-2.cloudsearch.amazonaws.com/2013-01-01/suggest -d"q=oce&suggester=suggest_title"
-        
-{"status":{"rid":"646f5s0oDAr8pVk=","time-ms":2},
- "suggest":{
-   "query":"oce",
-   "found":3,
-   "suggestions":[
-     {"suggestion":"Ocean's Eleven","score":0,"id":"tt0054135"},
-     {"suggestion":"Ocean's Thirteen","score":0,"id":"tt0496806"},
-     {"suggestion":"Ocean's Twelve","score":0,"id":"tt0349903"}
-   ]
- }
+http://search-imdb2-m2brrr7ex7z6sqhgwsjdmcuvd4.us-east-1.cloudsearch.amazonaws.com/2013-01-01/suggest?q=san&suggester=citystate
+{
+  "status": {
+    "rid": "646f5s0oDAr8pVk=",
+    "time-ms": 2
+  },
+  "suggest": {
+    "query": "oce",
+    "found": 3,
+    "suggestions": [{
+        "suggestion": "Ocean's Eleven",
+        "score": 0,
+        "id": "tt0054135"
+      },
+      {
+        "suggestion": "Ocean's Thirteen",
+        "score": 0,
+        "id": "tt0496806"
+      },
+      {
+        "suggestion": "Ocean's Twelve",
+        "score": 0,
+        "id": "tt0349903"
+      }
+    ]
+  }
 }
 ```

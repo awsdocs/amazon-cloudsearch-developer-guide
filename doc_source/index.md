@@ -74,6 +74,7 @@ Amazon's trademarks and trade dress may not be used in
       + [Comparing Expressions in Amazon CloudSearch](comparing-expressions.md)
    + [Getting Results as XML in Amazon CloudSearch](getting-xml-results.md)
    + [Paginating Results in Amazon CloudSearch](paginating-results.md)
++ [Integrating Amazon CloudSearch with API Gateway](api-gateway.md)
 + [Handling Errors in Amazon CloudSearch](error-handling.md)
 + [Amazon CloudSearch API Reference](api-ref.md)
    + [Configuration API Reference for Amazon CloudSearch](configuration-api.md)

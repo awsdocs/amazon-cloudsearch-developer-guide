@@ -51,10 +51,10 @@ The following list describes the variable elements in the ARN:
 + `ACCOUNT-ID` is your AWS account ID with no hyphens; for example, 111122223333\. 
 + `DOMAIN-NAME` identifies a specific search domain\. You can use a wildcard \(\*\) for the `DOMAIN-NAME` for all of your account's domains in the specified region\. If you have multiple domains whose names start with the same prefix, you can use a wildcard to match all of those domains\. For example, `dev-*` matches `dev-test`, `dev-movies`, `dev-sandbox`, and so on\. Note that if you name new domains with the same prefix, the policy also applies to those new domains\.
 
-For example, the following ARN identifies the `imdb-movies` domain in the `us-east-1` region owned by account 111122223333:
+For example, the following ARN identifies the `movies` domain in the `us-east-1` region owned by account 111122223333:
 
 ```
-arn:aws:cloudsearch:us-east-1:111122223333:domain/imdb-movies
+arn:aws:cloudsearch:us-east-1:111122223333:domain/movies
 ```
 
 The following example shows how the ARN is used to specify the resource in a user\-based policy\.
@@ -75,7 +75,7 @@ The following example shows how the ARN is used to specify the resource in a use
 A domain's ARN is displayed on the domain dashboard in the Amazon CloudSearch console and is also available by calling `DescribeDomains`\.
 
 **Important**  
-When specifying an ARN for a domain created with the 2011\-02\-01 API, you must use the former Amazon CloudSearch service name, `cs`\. For example, `arn:aws:cs:us-east-1:111122223333:domain/imdb-movies`\. If you need to define policies that configure access for both 2011 and 2013 domains, make sure to specify the correct ARN format for each domain\. For more information, see [Configuration Service Access Policies Not Working](troubleshooting.md#troubleshooting-configuration-access-policies)\.
+When specifying an ARN for a domain created with the 2011\-02\-01 API, you must use the former Amazon CloudSearch service name, `cs`\. For example, `arn:aws:cs:us-east-1:111122223333:domain/movies`\. If you need to define policies that configure access for both 2011 and 2013 domains, make sure to specify the correct ARN format for each domain\. For more information, see [Configuration Service Access Policies Not Working](troubleshooting.md#troubleshooting-configuration-access-policies)\.
 
 #### Amazon CloudSearch Actions<a name="cloudsearch-actions"></a>
 

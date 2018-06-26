@@ -35,7 +35,7 @@ The request contains invalid input or is missing required input\. Returns HTTP s
 InternalException  
 The processing of the request failed because of an internal service error\. Returns HTTP status code 500\.
 
-## Example<a name="w3ab1c26b7c14c81c10"></a>
+## Example<a name="w3ab1c28b7c14c81c10"></a>
 
 The following example deletes a resource tag with a tag key of `project` from the `logs` Amazon CloudSearch domain in the us\-west\-2 region:
 

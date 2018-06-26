@@ -21,7 +21,7 @@ Before uploading data to an Amazon CloudSearch domain, follow these guidelines:
 Group documents into *batches* before you upload them\. Continuously uploading batches that consist of only one document has a huge, negative impact on the speed at which Amazon CloudSearch can process your updates\. Instead, create batches that are as close to the limit as possible and upload them less frequently\. For more information on maximum batch size and upload frequency, see [Understanding Amazon CloudSearch Limits](limits.md)\.
 A domain's document and search endpoints remain the same for the life of the domain\. You should cache the endpoints rather than retrieving them before every upload or search request\. Querying the Amazon CloudSearch configuration service by calling `aws cloudsearch describe-domains` or `DescribeDomains` before every request will likely result in your requests being throttled\.
 
-You create document batches to describe the data that you want to make searchable\. When you send document batches to a domain, the data is indexed automatically according to the domain's indexing options\. The command line tools and Amazon CloudSearch console can automatically generate document batches from a variety of source documents\. 
+You create document batches to describe the data that you want to make searchable\. When you send document batches to a domain, the data is indexed automatically according to the domain's indexing options\. The Amazon CloudSearch console can automatically generate document batches from a variety of source documents\. 
 
 A document batch is a collection of add and delete operations that represent the documents you want to add, update, or delete from your domain\. Batches can be described in either JSON or XML\. See [Understanding Amazon CloudSearch Limits](limits.md) for maximum batch size and document size\.
 
@@ -40,7 +40,7 @@ For example, the following JSON batch adds one document and deletes one document
   "id":   "tt0484562",
   "fields": {
     "title": "The Seeker: The Dark Is Rising",
-    "directors": "Cunningham, David L.",
+    "directors": ["Cunningham, David L."],
     "genres": ["Adventure","Drama","Fantasy","Thriller"],
     "actors": ["McShane, Ian","Eccleston, Christopher","Conroy, Frances",
               "Crewson, Wendy","Ludwig, Alexander","Cosmo, James",
@@ -150,19 +150,22 @@ To delete documents, you upload document batches that contain delete operations\
 
 **To delete a document from a search domain**
 
-1. Specify a delete operation that contains the ID of the document you want to remove\. For example, the following operation would remove document tt0484575: 
+1. Specify a delete operation that contains the ID of the document you want to remove\. For example, the following operation would remove document `tt0484575`: 
 
    ```
-   { "type": "delete",
-     "id":   "tt0484575"
+   {
+     "type": "delete",
+     "id": "tt0484575"
    }
    ```
 
-1. Include the delete operation in a document batch and upload the batch to your domain\. You can upload batches through the Amazon CloudSearch console or by posting a request directly to the domain's document service endpoint\. For more information, see [Uploading Data to an Amazon CloudSearch Domain](uploading-data.md)\. 
+1. Include the delete operation in a document batch and upload the batch to your domain\. You can upload batches through the Amazon CloudSearch console or by posting a request directly to the domain's document service endpoint\. For more information, see [Uploading Data to an Amazon CloudSearch Domain](uploading-data.md)\.
+
+1. The delete operation removes documents from your index—they won't appear in search results—but to delete them entirely from Amazon CloudSearch, you must also [rebuild your index](API_IndexDocuments.md)\.
 
 ### Processing Your Source Data for Amazon CloudSearch<a name="processing-source-data"></a>
 
-To upload data for indexing, you need to format your data in either JSON or XML\. The command line tools and Amazon CloudSearch console provide a way to automatically generate properly formatted JSON or XML from several common file types: CSV, text, and HTML\. You can also process batches formatted for the Amazon CloudSearch 2011\-02\-01 API to convert them to the 2013\-01\-01 format\.
+To upload data for indexing, you need to format your data in either JSON or XML\. The Amazon CloudSearch console provide a way to automatically generate properly formatted JSON or XML from several common file types: CSV, text, and HTML\. You can also process batches formatted for the Amazon CloudSearch 2011\-02\-01 API to convert them to the 2013\-01\-01 format\.
 
 For most file types, each source file is represented as a separate document in the generated JSON or XML\. If metadata is available for the file, the metadata is mapped to corresponding document fields—the fields generated from the document metadata vary depending on the file type\. The contents of the source file are parsed into a single text field\. If the file contains more than 1 MB of data, the data mapped to the text field is truncated so that the document does not exceed 1 MB\.
 

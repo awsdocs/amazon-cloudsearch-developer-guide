@@ -21,7 +21,7 @@ To configure the new domain, you must specify:
 + Indexing options for the data you want to search\. 
 + Access policies for the domain's document service and search service endpoints\. 
 
-This tutorial shows you how to create and interact with a domain using the Amazon CloudSearch console\. For information about how to use the command line tools and APIs, see [Creating a Search Domain](creating-domains.md)\.
+This tutorial shows you how to create and interact with a domain using the Amazon CloudSearch console\. To learn more, see [Creating a Search Domain](creating-domains.md)\.
 
 **Important**  
 The domain you're about to create will be live and you will incur the standard Amazon CloudSearch usage fees for the domain until you delete it\. For more information about Amazon CloudSearch usage rates, go to the [Amazon CloudSearch detail page](http://aws.amazon.com/cloudsearch/)\.

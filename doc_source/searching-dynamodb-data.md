@@ -1,6 +1,6 @@
 # Searching DynamoDB Data with Amazon CloudSearch<a name="searching-dynamodb-data"></a>
 
-You can specify a DynamoDB table as a source when configuring indexing options or uploading data to a search domain through the console or command line tools\. This enables you to quickly set up a search domain to experiment with searching data stored in DynamoDB database tables\. 
+You can specify a DynamoDB table as a source when configuring indexing options or uploading data to a search domain through the console or AWS CLI\. This enables you to quickly set up a search domain to experiment with searching data stored in DynamoDB database tables\. 
 
 To keep your search domain in sync with changes to the table, you can send updates to both your table and your search domain, or you can periodically load the entire table into a new search domain\. 
 
@@ -13,8 +13,6 @@ To keep your search domain in sync with changes to the table, you can send updat
 
 The easiest way to configure a search domain to search DynamoDB data is to use the Amazon CloudSearch console\. The console's configuration wizard analyzes your table data and suggests indexing options based on the attributes in the table\. You can modify the suggested configuration to control which table attributes are indexed\.
 
-You can also use the command line tools to generate document batches from your table and automatically configure your domain, or you can configure indexing options manually\. For general information about configuring indexing options, see [Configuring Index Fields](configuring-index-fields.md)\.
-
 **Note**  
 To upload data from DynamoDB, you must have permission to access both the service and the resources you want to upload\. For more information, see [Using IAM to Control Access to DynamoDB Resources](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/UsingIAMWithDDB.html)\.
 
@@ -23,7 +21,7 @@ When you automatically configure a search domain from a DynamoDB table, a maximu
 **Important**  
 When you use a DynamoDB table to configure a domain, the data is not automatically uploaded to the domain for indexing\. You must upload the data for indexing as a separate step after you configure the domain\.
 
-### Configuring a Domain to Search DynamoDB using the Amazon CloudSearch Console<a name="w3ab1c17c27b9c12"></a>
+### Configuring a Domain to Search DynamoDB using the Amazon CloudSearch Console<a name="w3ab1c17c27b9c10"></a>
 
 You can use the Amazon CloudSearch console to analyze data from a DynamoDB table to configure a search domain\. A maximum of 5 MB is read from the table regardless of the table size\. By default, Amazon CloudSearch reads from the beginning of the table\. You can specify a start key to begin reading from a particular item\. 
 
