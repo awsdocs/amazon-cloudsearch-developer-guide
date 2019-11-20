@@ -66,7 +66,7 @@ A domain can be in one of five states:
 + Click the domain's **Indexing Options** link in the **Navigation** pane\. For more information about index fields, see [Configuring Index Fields](configuring-index-fields.md)\.
 
 **To view the scaling options configured for the domain**
-+ Click the domain's **Scaling Options** link in the **Navigation** pane\. For more information about index fields, see [Configuring Scaling Options](configuring-scaling-options.md)\.
++ Click the domain's **Scaling Options** link in the **Navigation** pane\. For more information about index fields, see [Configuring Scaling Options in Amazon CloudSearch](configuring-scaling-options.md)\.
 
 **To view the suggesters configured for the domain**
 + Click the domain's **Suggesters** link in the **Navigation** pane\. For more information about index fields, see [Configuring Suggesters for Amazon CloudSearch](getting-suggestions.md#configuring-suggesters)\.
@@ -79,7 +79,7 @@ A domain can be in one of five states:
 
 ## Getting Amazon CloudSearch Domain Information Using the AWS CLI<a name="getting-domain-info-clt"></a>
 
-You use the `aws cloudsearch describe-domains` command to get the status of your search domains\. To get specific information such as the access policies, availability options, and scaling options configured for a domain, you use the separate describe command for each option\. For information about installing and setting up the AWS CLI, see the [AWS Command Line Interface User Guide](http://docs.aws.amazon.com/cli/latest/userguide/)\. 
+You use the `aws cloudsearch describe-domains` command to get the status of your search domains\. To get specific information such as the access policies, availability options, and scaling options configured for a domain, you use the separate describe command for each option\. For information about installing and setting up the AWS CLI, see the [AWS Command Line Interface User Guide](https://docs.aws.amazon.com/cli/latest/userguide/)\. 
 
 **To get domain status information**
 + Run the `aws cloudsearch describe-domains` command to get information about all of your domains\. To get information about specific domains, use the `--domain-names` option to specify the domains that you are interested in\. For example, the following request gets the status of the `movies` domain:

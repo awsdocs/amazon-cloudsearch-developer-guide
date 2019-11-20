@@ -22,7 +22,7 @@ aws cloudsearchdomain --endpoint-url http://doc-movies-y6gelr4lv3jeu4rvoelunxsl2
  application/json --documents movie-data-2013.json
 ```
 
-For development and testing purposes, you can allow anonymous access to your domain's document service and submit unsigned HTTP POST requests directly to your domain's document service\. In a production environment, restrict access to your domain to specific IAM users, groups, or roles and submit signed requests\. For information about controlling access for Amazon CloudSearch, see [Configuring Access for Amazon CloudSearch](configuring-access.md)\. For more information about request signing, see [Signing AWS API Requests](http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html)\. 
+For development and testing purposes, you can allow anonymous access to your domain's document service and submit unsigned HTTP POST requests directly to your domain's document service\. In a production environment, restrict access to your domain to specific IAM users, groups, or roles and submit signed requests\. For information about controlling access for Amazon CloudSearch, see [Configuring Access for Amazon CloudSearch](configuring-access.md)\. For more information about request signing, see [Signing AWS API Requests](https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html)\. 
 
 For example, the following POST request uploads a batch of documents formatted in JSON to the domain endpoint doc\-movies\-123456789012\.us\-east\-1\.cloudsearch\.amazonaws\.com\.
 

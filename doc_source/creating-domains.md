@@ -6,7 +6,7 @@ When you create a search domain, you must give it a unique name\. Domain names m
 
 By default, all new domains are created using the 2013\-01\-01 API version\. If you have previously created search domains with the 2011\-02\-01 API version, you can opt to use the old API for your new domain\. However, we recommend using the 2013\-01\-01 API for all new use cases\. All domains will need to migrate to the 2013\-01\-01 API when the 2011\-02\-01 API is retired\.
 
-You can choose the AWS region where you want to create your search domain\. Typically, you should choose the region closest to your operations\. For example, if you reside in Europe, create your search domain in the EU \(Ireland\) region \(eu\-west\-1\)\. For a current list of supported regions and endpoints, see [Regions and Endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html)\. For more information about choosing a region, see [Regions and Endpoints for Amazon CloudSearch](what-is-cloudsearch.md#endpoints)\.
+You can choose the AWS region where you want to create your search domain\. Typically, you should choose the region closest to your operations\. For example, if you reside in Europe, create your search domain in the EU \(Ireland\) region \(eu\-west\-1\)\. For a current list of supported regions and endpoints, see [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html)\. For more information about choosing a region, see [Regions and Endpoints for Amazon CloudSearch](what-is-cloudsearch.md#endpoints)\.
 
 **Note**  
 Amazon CloudSearch domains in different regions are entirely independent\. For example, if you create a search domain called *my\-domain* in us\-east\-1, and another domain called *my\-domain* in eu\-west\-1, they are completely independent and do not share any data\.
@@ -40,7 +40,7 @@ You can create a search domain from the [Amazon CloudSearch console](#create-dom
 
 1. In the **NAME YOUR DOMAIN** step, enter a name for your new domain and click **Continue**\. Domain names must start with a letter or number and be at least 3 and no more than 28 characters long\. Domain names can contain the following characters: a\-z \(lower case\), 0\-9, and \- \(hyphen\)\. Upper case letters, underscores \(\_\), and other special characters are not allowed in domain names\.
 
-   Optionally, you can set the **Desired Instance Type** and **Desired Replication Count** to prescale your domain\. For more information, see [Configuring Scaling Options](configuring-scaling-options.md)\.
+   Optionally, you can set the **Desired Instance Type** and **Desired Replication Count** to prescale your domain\. For more information, see [Configuring Scaling Options in Amazon CloudSearch](configuring-scaling-options.md)\.
 
 1. In the **CONFIGURE INDEX** step, select **Manual Configuration** and click **Continue**\. You can configure index fields and access policies when you first create the domain, or simply create a domain and configure it later\. For more information about using the Amazon CloudSearch console to configure the domain, see [Configuring Index Fields](configuring-index-fields.md) and [Configuring Access for Amazon CloudSearch](configuring-access.md)\.
 
@@ -56,7 +56,7 @@ Until you configure access policies, you will only be able to upload documents a
 
 ## Creating a Domain Using the AWS CLI<a name="create-domain-clt"></a>
 
-You use the `aws cloudsearch create-domain` command to create search domains\. For information about installing and setting up the AWS CLI, see the [AWS Command Line Interface User Guide](http://docs.aws.amazon.com/cli/latest/userguide/)\. 
+You use the `aws cloudsearch create-domain` command to create search domains\. For information about installing and setting up the AWS CLI, see the [AWS Command Line Interface User Guide](https://docs.aws.amazon.com/cli/latest/userguide/)\. 
 
 **To create a domain**
 + Run the `aws cloudsearch create-domain` command and specify the name of the domain you want to create with the `--domain-name` option\. For example, to create a domain called *movies*:  

@@ -77,7 +77,7 @@ You can easily add, update, and delete suggesters through the Amazon CloudSearch
 You can add or update suggesters with the `aws cloudsearch define-suggester` command\. To remove a suggester, you use `aws cloudsearch delete-suggester`\.
 
 **To add or update a suggester**
-+ Run the `aws cloudsearch define-suggester` command\. You specify the configuration of the suggester in JSON with the `--suggester` option\. The suggester configuration must be enclosed in quotes and all quotes within the configuration must be escaped with a backslash\. For the format of the suggester configuration, see [define\-suggester](http://docs.aws.amazon.com/cli/latest/reference/cloudsearch/define-suggester.html) in the AWS CLI Command Reference\. For example, the following command configures a suggester called `mysuggester` to return suggestions based on the `title` field\.
++ Run the `aws cloudsearch define-suggester` command\. You specify the configuration of the suggester in JSON with the `--suggester` option\. The suggester configuration must be enclosed in quotes and all quotes within the configuration must be escaped with a backslash\. For the format of the suggester configuration, see [define\-suggester](https://docs.aws.amazon.com/cli/latest/reference/cloudsearch/define-suggester.html) in the AWS CLI Command Reference\. For example, the following command configures a suggester called `mysuggester` to return suggestions based on the `title` field\.
 
   ```
   aws cloudsearch define-suggester --domain-name movies --suggester "{\"SuggesterName\": \"mysuggester\", \"DocumentSuggesterOptions\": {\"SourceField\":\"title\"}}" 

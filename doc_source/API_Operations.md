@@ -1,7 +1,6 @@
 # Actions<a name="API_Operations"></a>
 
 The following actions are supported:
-+ [AddTags](API_AddTags.md)
 +  [BuildSuggesters](API_BuildSuggesters.md) 
 +  [CreateDomain](API_CreateDomain.md) 
 +  [DefineAnalysisScheme](API_DefineAnalysisScheme.md) 
@@ -23,8 +22,6 @@ The following actions are supported:
 +  [DescribeSuggesters](API_DescribeSuggesters.md) 
 +  [IndexDocuments](API_IndexDocuments.md) 
 +  [ListDomainNames](API_ListDomainNames.md) 
-+ [ListTags](API_ListTags.md)
-+ [RemoveTags](API_RemoveTags.md)
 +  [UpdateAvailabilityOptions](API_UpdateAvailabilityOptions.md) 
 +  [UpdateScalingParameters](API_UpdateScalingParameters.md) 
 +  [UpdateServiceAccessPolicies](API_UpdateServiceAccessPolicies.md) 

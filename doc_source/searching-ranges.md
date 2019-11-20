@@ -13,7 +13,13 @@ In a compound query, you use the `range` operator syntax to search for a range o
 To search for a range of dates \(or times\) in a `date` field, you use the same bracketed range syntax that you use for numeric values, but you must enclose the date string in single quotes\. For example, the following request searches the movie data for all movies with a release date of January 1, 2013 or later:
 
 ```
-release_date:['2013-01-01T00:00:00Z',}
+q.parser=structured&q=release_date:['2013-01-01T00:00:00Z',}
+```
+
+Use the following syntax to search for a fixed range:
+
+```
+q.parser=structured&q=release_date:['2013-01-01T00:00:00Z','2013-01-02T23:59:59Z']
 ```
 
 ## Searching for a Location Range<a name="searching-ranges-locations"></a>

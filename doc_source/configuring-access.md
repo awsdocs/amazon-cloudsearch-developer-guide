@@ -1,6 +1,6 @@
 # Configuring Access for Amazon CloudSearch<a name="configuring-access"></a>
 
-You use AWS Identity and Access Management \(IAM\) access policies to control access to the Amazon CloudSearch configuration service and each search domain's document, search, and suggest services\. An IAM access policy is a JSON document that explicitly lists permissions that define what actions people or processes are allowed to perform\. For an introduction to IAM access policies, see [Overview of AWS IAM Policies](http://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html)\. 
+You use AWS Identity and Access Management \(IAM\) access policies to control access to the Amazon CloudSearch configuration service and each search domain's document, search, and suggest services\. An IAM access policy is a JSON document that explicitly lists permissions that define what actions people or processes are allowed to perform\. For an introduction to IAM access policies, see [Overview of AWS IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html)\. 
 
 You control access to the Amazon CloudSearch configuration service APIs and the domain services APIs independently\. For example, you might choose to restrict who can modify the configuration of your production domain, but allow team members to create and manage their own domains for development and testing\. Similarly, you might configure your development and test domains to accept anonymous requests to the upload, search, and suggest services, but lock down your production domain so that it accepts only authenticated requests from your application\. 
 
@@ -24,10 +24,10 @@ Amazon CloudSearch supports both *user\-based policies* and *resource\-based pol
 
 In general, we recommend managing access to Amazon CloudSearch APIs by configuring user\-based policies\. This enables you to manage all of your permissions in one place and any changes you need to make take effect almost immediately\. However, to allow public access to a domain's search service or restrict access based on IP addresses, you must configure a resource\-based policy for the domain\. \(We recommend replacing your old IP based access policies with user\-based policies at your earliest convenience\.\) You can also use resource\-based policies to easily allow other accounts to access a domain\. Keep in mind that processing changes to a domain's resource\-based policies takes significantly longer than applying changes to user\-based policies\.
 
-You can use the [IAM Policy Generator](http://awspolicygen.s3.amazonaws.com/policygen.html) to write both user\-based and resource\-based policies for Amazon CloudSearch\. For more information, see [Managing IAM Policies](http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingPolicies.html)\. 
+You can use the [IAM Policy Generator](http://awspolicygen.s3.amazonaws.com/policygen.html) to write both user\-based and resource\-based policies for Amazon CloudSearch\. For more information, see [Managing IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingPolicies.html)\. 
 
 **Tip**  
-As a best practice, we recommend that you configure permissions for a group and assign IAM users to that group instead of defining permissions for individual users\. Similarly, you can assign permissions to roles for applications that run on Amazon EC2 instances rather than passing user credentials to each instance\. For more IAM recommendations for managing access to your AWS resources, see [IAM Best Practices](http://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html)\. 
+As a best practice, we recommend that you configure permissions for a group and assign IAM users to that group instead of defining permissions for individual users\. Similarly, you can assign permissions to roles for applications that run on Amazon EC2 instances rather than passing user credentials to each instance\. For more IAM recommendations for managing access to your AWS resources, see [IAM Best Practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html)\. 
 
 ### Contents of an Access Policy for Amazon CloudSearch<a name="access-policy-contents"></a>
 
@@ -36,7 +36,7 @@ You specify the following information in your access policies for Amazon CloudSe
 + `Resource` is the ARN \(Amazon Resource Name\) for the domain to which a user\-based policy applies\. `Resource` is not specified in resource\-based policies configured through the Amazon CloudSearch configuration service, because the policy is attached directly to the resource\. For more information about Amazon CloudSearch ARNs, see [Amazon CloudSearch ARNs](#cloudsearch-arns)\.
 + `Effect` specifies whether the statement authorizes or blocks access to the specified action\(s\)\. It must be `Allow` or `Deny`
 + `Sid` is an optional string that you can use to provide a descriptive name for the policy statement\.
-+ `Action` specifies which Amazon CloudSearch actions the statement applies to\. For the supported actions, see [Amazon CloudSearch Actions](#cloudsearch-actions)\. You can use a wildcard \(\*\) as the action to configure access for all actions when you need to grant administrative access to select users\. \(In this case, you might also want to enable multi\-factor authorization for additional security\. For more information, see [Configuring MFA\-Protected API Access](http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingMFA.html)\.\) Wildcards are also supported within action names\. For example, `"Action":["cloudsearch:Describe*]` matches all of the configuration service `Describe` actions, such as `DescribeDomains` and `DescribeServiceAccessPolicies`\.
++ `Action` specifies which Amazon CloudSearch actions the statement applies to\. For the supported actions, see [Amazon CloudSearch Actions](#cloudsearch-actions)\. You can use a wildcard \(\*\) as the action to configure access for all actions when you need to grant administrative access to select users\. \(In this case, you might also want to enable multi\-factor authorization for additional security\. For more information, see [Configuring MFA\-Protected API Access](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingMFA.html)\.\) Wildcards are also supported within action names\. For example, `"Action":["cloudsearch:Describe*]` matches all of the configuration service `Describe` actions, such as `DescribeDomains` and `DescribeServiceAccessPolicies`\.
 + `Condition` specifies conditions for when the policy is in effect\. When configuring anonymous, IP\-based access, you would specify the IP addresses that the access rule applies to, for example `"IpAddress": {"aws:SourceIp": ["192.0.2.0/32"]}`\.
 + `Principal` specifies who is allowed access to the domain in a resource\-based policy\. `Principal` is not specified in user\-based policies configured through IAM\. The `Principal` value for a resource\-based policy can specify other AWS accounts or IAM users in your own account\. For example, to grant access to the account 555555555555, you would specify `"Principal":{"AWS":["arn:aws:iam::555555555555:root"]}`\. Specifying a wildcard \(\*\) enables anonymous access to the domain\. Anonymous access is not recommended\. If you enable anonymous access, you should at least specify a condition to restrict which IP addresses can submit requests to the domain\. For more information, see [Granting Access to a Domain from Selected IP Addresses](#ip-based-policy)\.
 
@@ -156,7 +156,7 @@ You can grant access to all Amazon CloudSearch configuration service actions by 
 You can grant unrestricted access to all Amazon CloudSearch services, including all configuration service actions and all domain services with a user\-based policy\. To do this, you specify wildcards for the actions, region, and domain name\. The following policy enables the user to access all Amazon CloudSearch actions for any domain in any region that's owned by the 111122223333 account\. 
 
 **Note**  
-We recommend that when you give highly privileged access to IAM users, as illustrated in this policy, that you also enable multi\-factor authorization \(MFA\) for those users\. For more information, see [IAM Best Practices](http://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html) in the IAM User guide\.
+We recommend that when you give highly privileged access to IAM users, as illustrated in this policy, that you also enable multi\-factor authorization \(MFA\) for those users\. For more information, see [IAM Best Practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html) in the IAM User guide\.
 
 ```
 {
@@ -197,8 +197,8 @@ You have two options to configure cross\-account access for a CloudSearch domain
 
 | Option | Description | 
 | --- | --- | 
-| Configure an IAM role for cross\-account access\. | Increased security, but requires complex request signing\. For more information, see [Cross\-Account API Access Using IAM Roles](http://docs.aws.amazon.com/IAM/latest/UserGuide/cross-acct-access.html) in the IAM documentation\. | 
-| Attach a resource\-based policy to the CloudSearch domain and attach a user\-based managed policy to an IAM role\. | Easier to implement\. For more information, see [Creating a Role to Delegate Permissions to an IAM User](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html) and [Walkthrough: Delegating Access Across AWS Accounts For Accounts You Own Using IAM Roles](http://docs.aws.amazon.com/IAM/latest/UserGuide/walkthru_cross-account-with-roles.html) in the IAM documentation\. | 
+| Configure an IAM role for cross\-account access\. | Increased security, but requires complex request signing\. For more information, see [Cross\-Account API Access Using IAM Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/cross-acct-access.html) in the IAM documentation\. | 
+| Attach a resource\-based policy to the CloudSearch domain and attach a user\-based managed policy to an IAM role\. | Easier to implement\. For more information, see [Creating a Role to Delegate Permissions to an IAM User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html) and [Walkthrough: Delegating Access Across AWS Accounts For Accounts You Own Using IAM Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/walkthru_cross-account-with-roles.html) in the IAM documentation\. | 
 
 This topic provides an example of the second option, adding a resource\-based policy to the CloudSearch domain\. Assume that account \#1 is owned by account id `111111111111` and account \#2 is owned by account id `999999999999`\. Account \#1 wants to grant access to account \#2 to use the search service for the `movies` domain, which requires two steps:
 
@@ -293,7 +293,7 @@ For example, the following policy grants public access to the search action for 
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
-1. Configure Amazon CloudSearch permissions by attaching a policy to a user, group, or role\. For more information, see [Managing Policies \(AWS Management Console\)](http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingPolicies.html#AddingPermissions_Console)\. For more information about user\-based policies for Amazon CloudSearch see [Writing Access Policies for Amazon CloudSearch](#cloudsearch-access-policies)\.
+1. Configure Amazon CloudSearch permissions by attaching a policy to a user, group, or role\. For more information, see [Managing Policies \(AWS Management Console\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingPolicies.html#AddingPermissions_Console)\. For more information about user\-based policies for Amazon CloudSearch see [Writing Access Policies for Amazon CloudSearch](#cloudsearch-access-policies)\.
 
 **To configure resource\-based policies**
 
@@ -320,10 +320,10 @@ Updating resource\-based access policies takes some time to complete\. The state
 
 ## Configuring Access for Amazon CloudSearch with the AWS CLI<a name="configuring-access-clt"></a>
 
-You can configure both user\-based policies and resource\-based policies for Amazon CloudSearch with the AWS CLI\. For information about installing and setting up the AWS CLI, see the [AWS Command Line Interface User Guide](http://docs.aws.amazon.com/cli/latest/userguide/)\. 
+You can configure both user\-based policies and resource\-based policies for Amazon CloudSearch with the AWS CLI\. For information about installing and setting up the AWS CLI, see the [AWS Command Line Interface User Guide](https://docs.aws.amazon.com/cli/latest/userguide/)\. 
 
 **To configure user\-based policies**
-+ Configure Amazon CloudSearch permissions by attaching a policy to a user, group, or role with the `aws put-user-policy`, `aws put-group-policy`, or `aws put-role-policy` command\. For more information, see [Managing Policies \(AWS Management Console\)](http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingPolicies.html#AddingPermissions_Console)\. For more information about user\-based policies for Amazon CloudSearch see [Writing Access Policies for Amazon CloudSearch](#cloudsearch-access-policies)\.
++ Configure Amazon CloudSearch permissions by attaching a policy to a user, group, or role with the `aws put-user-policy`, `aws put-group-policy`, or `aws put-role-policy` command\. For more information, see [Managing Policies \(AWS Management Console\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingPolicies.html#AddingPermissions_Console)\. For more information about user\-based policies for Amazon CloudSearch see [Writing Access Policies for Amazon CloudSearch](#cloudsearch-access-policies)\.
 
 **To configure resource\-based policies**
 + Run the `aws cloudsearch update-service-access-policies` command and specify an access policy with the `--access-policies` option\. The access policy must be enclosed in quotes and all quotes within the access policy must be escaped with a backslash\. For more information about resource\-based policies for Amazon CloudSearch see [Writing Access Policies for Amazon CloudSearch](#cloudsearch-access-policies)\.

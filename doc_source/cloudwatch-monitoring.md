@@ -36,9 +36,9 @@ Amazon CloudSearch sends the ClientId and DomainName dimensions to CloudWatch\.
 
 ## Generating SDK for Java Metrics for Amazon CloudSearch<a name="java-sdk-metrics"></a>
 
-The AWS SDK for Java can generate performance metrics for your Amazon CloudSearch client and send them to CloudWatch for visualization\. For the Java VM arguments that enable this feature, see [Enabling Metrics for the AWS SDK for Java](http://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/generating-sdk-metrics.html) in the *AWS SDK for Java Developer Guide*\.
+The AWS SDK for Java can generate performance metrics for your Amazon CloudSearch client and send them to CloudWatch for visualization\. For the Java VM arguments that enable this feature, see [Enabling Metrics for the AWS SDK for Java](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/generating-sdk-metrics.html) in the *AWS SDK for Java Developer Guide*\.
 
-You can use the following code to test metrics generation\. The code creates a new CloudWatch client and performs 2,500 searches\. Because the SDK only sends metrics once per minute, long\-running clients work best\. The code uses the [default credential provider chain](http://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/credentials.html#credentials-default)\.
+You can use the following code to test metrics generation\. The code creates a new CloudWatch client and performs 2,500 searches\. Because the SDK only sends metrics once per minute, long\-running clients work best\. The code uses the [default credential provider chain](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/credentials.html#credentials-default)\.
 
 ```
 import com.amazonaws.client.builder.AwsClientBuilder;
@@ -80,7 +80,7 @@ To verify that the SDK is sending metrics to CloudWatch, check the **Metrics** p
 
 ## Viewing CloudWatch Metrics for an Amazon CloudSearch Domain<a name="viewing-metrics"></a>
 
-The Amazon CloudSearch console graphs the metrics reported to CloudWatch\. You can also access the metrics through the [CloudWatch console](https://console.aws.amazon.com/cloudwatch), AWS CLI, and AWS SDKs\. For more information, see [Viewing, Graphing, and Publishing Metrics](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/working_with_metrics.html) in the * Amazon CloudWatch Developer Guide*\.
+The Amazon CloudSearch console graphs the metrics reported to CloudWatch\. You can also access the metrics through the [CloudWatch console](https://console.aws.amazon.com/cloudwatch), AWS CLI, and AWS SDKs\. For more information, see [Viewing, Graphing, and Publishing Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/working_with_metrics.html) in the * Amazon CloudWatch Developer Guide*\.
 
 **To view metrics for a search domain using the Amazon CloudSearch console**
 

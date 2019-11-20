@@ -120,7 +120,7 @@ Similarly, you can specify an integer field with the `sort` parameter to sort th
 
 For more information about ranking results, see [Sorting Results in Amazon CloudSearch](sorting-results.md)
 
-## Getting Facet Information<a name="w3ab1b7c21c12"></a>
+## Getting Facet Information<a name="w3aab7c21c12"></a>
 
 A facet is an index field that represents a category that you want to use to refine and filter search results\. When you submit search requests to Amazon CloudSearch, you can request facet information to find out how many hits share the same value in a facet\. You can display this information along with the search results and use it to enable users to interactively refine their searches\. \(This is often referred to as faceted navigation or faceted search\.\)
 

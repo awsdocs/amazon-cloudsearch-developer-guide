@@ -8,7 +8,7 @@ When you create a search domain, a single instance is deployed for the domain\. 
 
 ![\[Scaling for Data and Traffic\]](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/images/cloudsearch-scaling-diagram.png)
 
-## Scaling for Data<a name="w3ab1b5c29c13"></a>
+## Scaling for Data<a name="w3aab5c29c13"></a>
 
 When the amount of data you add to your domain exceeds the capacity of the initial search instance type, Amazon CloudSearch scales your search domain to a larger search instance type\. After a domain exceeds the capacity of the largest search instance type, Amazon CloudSearch partitions the search index across multiple search instances\. \(The number of search instances required to hold the index partitions is sometimes referred to as the domain's *width*\.\) 
 
@@ -17,7 +17,7 @@ When the volume of data in your domain shrinks, Amazon CloudSearch scales down y
 **Note**  
 If your domain has scaled up to accommodate your index size and you delete a large number of documents, the domain scales down the next time the full index is rebuilt\. Although the index is automatically rebuilt periodically, to scale down as quickly as possible you can explicitly [run indexing](indexing.md) when you are done deleting documents\. 
 
-## Scaling for Traffic<a name="w3ab1b5c29c15"></a>
+## Scaling for Traffic<a name="w3aab5c29c15"></a>
 
 As your search request volume or complexity increases, it takes more processing power to handle the load\. A high volume of document uploads also increases the load on a domain's search instances\. When a search instance nears its maximum load, Amazon CloudSearch deploys a duplicate search instance to provide additional processing power\. \(The number of duplicate search instances is sometimes referred to as the domain's* depth*\.\) 
 

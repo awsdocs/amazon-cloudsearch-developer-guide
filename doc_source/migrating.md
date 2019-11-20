@@ -16,7 +16,7 @@ To create and interact with 2013\-01\-01 domains, you must use the AWS CLI tools
  You can configure 2013\-01\-01 domains through the console, command line tools, or AWS SDKs\. 2013\-01\-01 domains support several new configuration options:
 + **Analysis Schemes**—you configure analysis schemes to specify language\-specific text processing options for `text` and `text-array` fields\. Amazon CloudSearch now supports 33 languages, as well as an option for multi\-language fields\. For more information, see [Configuring Analysis Schemes](configuring-analysis-schemes.md)\. For the complete list of supported languages, see [Supported Languages](supported-languages.md)\.
 + **Availability Options**—you can enable the Multi\-AZ option to expand a domain into a second availability zone to ensure availability in the event of a service disruption\. For more information, see [Configuring Availability Options](configuring-availability-options.md)\.
-+ **Scaling Options**—you can set the desired instance type and desired replication count to increase upload or search capacity, speed up search requests, and improve fault tolerance\. For more information, see [Configuring Scaling Options](configuring-scaling-options.md)\.
++ **Scaling Options**—you can set the desired instance type and desired replication count to increase upload or search capacity, speed up search requests, and improve fault tolerance\. For more information, see [Configuring Scaling Options in Amazon CloudSearch](configuring-scaling-options.md)\.
 + **Suggesters**—you can configure suggesters to implement autocomplete functionality\. For more information, see [Configuring Suggesters for Amazon CloudSearch](getting-suggestions.md#configuring-suggesters)\.
 
 Access to the Amazon CloudSearch configuration service is managed through IAM and now enables you to control access to specific configuration actions\. Note that the Amazon CloudSearch ARN has also changed\. Access to your domain's document and search endpoints is managed through the Amazon CloudSearch configuration service\. For more information, see [Configuring Access for Amazon CloudSearch](configuring-access.md)\.
@@ -104,7 +104,7 @@ The following actions are not supported in the 2013\-01\-01 Configuration Servic
   application/json"
   ```
 
-The 2013\-01\-01 API supports prescaling your domain to increase upload capacity\. If you have a large amount of data to upload, configure your domain's scaling options and select a larger desired instance type\. Moving to a larger instance type enables you to upload batches in parallel and reduces the time it takes for the data to be indexed\. For more information, see [Configuring Scaling Options](configuring-scaling-options.md)\.
+The 2013\-01\-01 API supports prescaling your domain to increase upload capacity\. If you have a large amount of data to upload, configure your domain's scaling options and select a larger desired instance type\. Moving to a larger instance type enables you to upload batches in parallel and reduces the time it takes for the data to be indexed\. For more information, see [Configuring Scaling Options in Amazon CloudSearch](configuring-scaling-options.md)\.
 
 For more information about formatting your data, see [Preparing Your Data](preparing-data.md)\.
 

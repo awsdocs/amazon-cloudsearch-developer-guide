@@ -7,6 +7,7 @@
 + [configure access policies](configuring-access.md)
 + [Configuring Scaling Options in Amazon CloudSearch](configuring-scaling-options.md)
 + [Configuring Availability Options in Amazon CloudSearch](configuring-availability-options.md)
++ [Configuring Domain Endpoint Options in Amazon CloudSearch](configuring-domain-endpoint-options.md)
 + [Monitoring Amazon CloudSearch Domains](monitoring-domains.md)
 + [Deleting an Amazon CloudSearch Domain](deleting-domains.md)
 + [Tagging Amazon CloudSearch Domains](tagging-cloudsearch-domains.md)

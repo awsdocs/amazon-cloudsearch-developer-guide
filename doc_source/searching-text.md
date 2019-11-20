@@ -181,10 +181,10 @@ If you perform this search against the sample movie data, it returns as *Ocean's
 In a compound query, you use the `prefix` operator to search for prefixes\. For example, to search the `title` field for the prefix *oce*, you specify:
 
 ```
-(prefix field=title 'oce')
+q.parser=structured&q=(prefix field%3Dtitle 'oce')
 ```
 
-For more information, see [Constructing Compound Queries](searching-compound-queries.md)\.
+Note the URL encoding\. For more information, see [Constructing Compound Queries](searching-compound-queries.md)\.
 
 **Note**  
 When performing wildcard searches on text fields, keep in mind that Amazon CloudSearch tokenizes the text fields during indexing and performs stemming according to the analysis scheme configured for the field\. Normally, Amazon CloudSearch performs the same text processing on the search query\. However, when you search for a prefix with the wildcard operator \(\*\) or `prefix` operator, no stemming is performed on the prefix\. This means that a search for a prefix that ends in `s` won't match the singular version of the term\. This can happen for any term that ends in `s`, not just plurals\. For example, if you search the `actor` field in the sample movie data for `Anders`, there are three matching movies\. If you search for `Ander*`, you get those movies as well as several others\. However, if you search for `Anders*` there are no matches\. This is because the term is stored in the index as `ander`, `anders` does not appear in the index\. For more information about how Amazon CloudSearch processes text and how it can affect searches, see [Text Processing in Amazon CloudSearch](text-processing.md)\.

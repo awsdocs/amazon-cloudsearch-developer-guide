@@ -36,7 +36,7 @@ facet.genres={sort:'bucket', size:5}
 
 You can explicitly specify the facet values or ranges that you want to count by using the `buckets` option\. Buckets are specified as an array of values or ranges, for example, `facet.color={buckets:["red","green","blue"]}`\. 
 
- To specify a range of values, use a comma \(,\) to separate the upper and lower bounds and enclose the range using brackets or braces\. A square bracket, \[ or \], indicates that the bound is included in the range, a curly brace, \{ or \}, excludes the bound\. You can omit the upper or lower bound to specify an open\-ended range\. When omitting a bound, you must use a curly brace\. For example, `facet.year={buckets:["[1970,1979]","[1980,1989]", "[1990,1999]","[2000,2009]","[2010,}"]}`\.
+ To specify a range of values, use a comma \(,\) to separate the upper and lower bounds and enclose the range using brackets or braces\. A square bracket, \[ or \], indicates that the bound is included in the range, a curly brace, \{ or \}, excludes the bound\. You can omit the upper or lower bound to specify an open\-ended range\. When omitting a bound, you must use a curly brace\. For example, `facet.year={buckets:["[1970,1979]","[1980,1989]", "[1990,1999]","[2000,2009]","[2010,}"]}`\. For a timestamp, you can use `q=-poet&facet.release_date={buckets:["[\'1980-01-01T00:00:00Z\',\'1986-01-01T00:00:01Z\']"]}`\.
 
 The `sort` and `size` options are not valid if you specify buckets\.
 
@@ -252,7 +252,7 @@ There's no need to retrieve the matching documents, so the `size` parameter is s
 }
 ```
 
-To minimize the response time, you can send this request in parallel with the request to get the filtered results\. However, keep in mind that these additional requests can impact your overall query performance, and it might be necessary to scale your domain up to handle the additional traffic\. \(For more information about scaling, see [Configuring Scaling Options](configuring-scaling-options.md)\.\)
+To minimize the response time, you can send this request in parallel with the request to get the filtered results\. However, keep in mind that these additional requests can impact your overall query performance, and it might be necessary to scale your domain up to handle the additional traffic\. \(For more information about scaling, see [Configuring Scaling Options in Amazon CloudSearch](configuring-scaling-options.md)\.\)
 
 If the user further refines the search by selecting a genre or rating, you add that to the filter criteria to get the matching documents\. For example, the following request gets the movies released in 2013, 2012, or 1993 that have a rating of 6\.3:
 

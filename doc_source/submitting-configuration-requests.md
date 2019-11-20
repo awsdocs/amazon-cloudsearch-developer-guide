@@ -3,13 +3,13 @@
 **Important**  
 The easiest way to submit configuration requests is to use the Amazon CloudSearch console, Amazon CloudSearch command line tools, or the AWS SDK for Java, JavaScript, \.NET, PHP, Ruby, or Python \(Boto\)\. The command line tools and SDKs handle the signing process for you and ensure that Amazon CloudSearch configuration requests are properly formed\. For more information about the AWS SDKs, see [AWS Software Development Kits](http://aws.amazon.com/code)\. 
 
- You submit Amazon CloudSearch configuration requests to the Amazon CloudSearch endpoint for your region using the AWS Query protocol\. For the current list of supported regions and endpoints, see [Regions and Endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#cloudsearch_region)\.
+ You submit Amazon CloudSearch configuration requests to the Amazon CloudSearch endpoint for your region using the AWS Query protocol\. For the current list of supported regions and endpoints, see [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#cloudsearch_region)\.
 
  AWS Query requests are HTTP or HTTPS requests submitted via HTTP GET or POST with a Query parameter named Action\. You must specify the API version in all configuration requests and that version must match the API version specified when the domain was created\. 
 
-Requests submitted to the Configuration API are authenticated using your AWS access key ID and secret access key\. Use IAM user access keys instead of AWS root account access keys\. IAM lets you securely control access to AWS services and resources in your AWS account\. For more information about getting credentials, see [How Do I Get Security Credentials?](http://docs.aws.amazon.com/general/latest/gr/getting-aws-sec-creds.html) in the *AWS General Reference*\. 
+Requests submitted to the Configuration API are authenticated using your AWS access key ID and secret access key\. Use IAM user access keys instead of AWS root account access keys\. IAM lets you securely control access to AWS services and resources in your AWS account\. For more information about getting credentials, see [How Do I Get Security Credentials?](https://docs.aws.amazon.com/general/latest/gr/getting-aws-sec-creds.html) in the *AWS General Reference*\. 
 
-You must include authorization parameters and a digital signature in every request\. Amazon CloudSearch supports AWS Signature Version 4\. For detailed signing instructions, see [Signature V4 Signing Process](http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) in the AWS General Reference\.
+You must include authorization parameters and a digital signature in every request\. Amazon CloudSearch supports AWS Signature Version 4\. For detailed signing instructions, see [Signature V4 Signing Process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) in the AWS General Reference\.
 
 **Note**  
 Amazon CloudSearch throttles excessive requests to the configuration service\. Throttling occurs *by action*, so excessive `DescribeDomains` requests don't cause Amazon CloudSearch to throttle `DescribeIndexFields` requests\. The request limit changes based on the needs of the service, but allows many calls to each action per hour\.
@@ -41,7 +41,7 @@ _request
 
 ## Request Authentication<a name="configuration-request-authentication"></a>
 
-Requests submitted to the Configuration API are authenticated using your AWS access keys\. You must include authorization parameters and a digital signature in every request\. Amazon CloudSearch supports AWS Signature Version 4\. For detailed signing instructions, see [Signature V4 Signing Process](http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) in the AWS General Reference\.
+Requests submitted to the Configuration API are authenticated using your AWS access keys\. You must include authorization parameters and a digital signature in every request\. Amazon CloudSearch supports AWS Signature Version 4\. For detailed signing instructions, see [Signature V4 Signing Process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) in the AWS General Reference\.
 
 To create a signature for a request, you create a canonicalized version of the query string and compute an [RFC 2104\-compliant](http://www.ietf.org/rfc/rfc2104.txt) HMAC signature using a signing key derived from your AWS Secret Access key\. 
 

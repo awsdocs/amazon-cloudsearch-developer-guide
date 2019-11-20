@@ -41,7 +41,7 @@ You can include the distance calculated for each document in the search results 
 You can also use the distance value in more complex expressions to take other characteristics into account, such as a document's relevance `_score`\. In the following example, a second rank expression uses both the document's calculated `distance` and its relevance `_score`\.
 
 ```
-expr.distance=haversin(38.958687,-77.343149,latitude,longitude)&expr.myrank=_score/log10(distance)&sort=myrank+asc
+expr.distance=haversin(38.958687,-77.343149,latitude,longitude)&expr.myrank=_score/log10(distance)&sort=myrank+desc
 ```
 
 **Tip**  

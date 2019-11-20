@@ -146,12 +146,12 @@ To use an analysis scheme, you must apply it to one or more `text` or `text-arra
 
 ## Configuring Analysis Schemes Using the AWS CLI<a name="configuring-analysis-schemes-clt"></a>
 
-You use the `aws cloudsearch define-analysis-scheme` command to define language\-specific text processing options, including stemming options, stopwords, and synonyms\. For information about installing and setting up the AWS CLI, see the [AWS Command Line Interface User Guide](http://docs.aws.amazon.com/cli/latest/userguide/)\. 
+You use the `aws cloudsearch define-analysis-scheme` command to define language\-specific text processing options, including stemming options, stopwords, and synonyms\. For information about installing and setting up the AWS CLI, see the [AWS Command Line Interface User Guide](https://docs.aws.amazon.com/cli/latest/userguide/)\. 
 
 You specify an analysis scheme as part of the configuration of each `text` or `text-array` field\. For more information, see [Configuring Index Fields](configuring-index-fields.md)\.
 
 **To define an analysis scheme**
-+ Run the `aws cloudsearch define-analysis-scheme` command and specify the `--analysis-scheme` option and a JSON object that contains your analysis options\. The analysis scheme must be valid JSON\. The analysis option key and value pairs must be enclosed in quotes, and all quotes within the option values must be escaped with a backslash\. For the format of the analysis options, see [define\-analysis\-scheme](http://docs.aws.amazon.com/cli/latest/reference/cloudsearch/define-analysis-scheme.html) in the AWS CLI Command Reference\. See [Configuring Analysis Schemes](#configuring-analysis-schemes) for more information about specifying stemming, stopword, and synonym options\.
++ Run the `aws cloudsearch define-analysis-scheme` command and specify the `--analysis-scheme` option and a JSON object that contains your analysis options\. The analysis scheme must be valid JSON\. The analysis option key and value pairs must be enclosed in quotes, and all quotes within the option values must be escaped with a backslash\. For the format of the analysis options, see [define\-analysis\-scheme](https://docs.aws.amazon.com/cli/latest/reference/cloudsearch/define-analysis-scheme.html) in the AWS CLI Command Reference\. See [Configuring Analysis Schemes](#configuring-analysis-schemes) for more information about specifying stemming, stopword, and synonym options\.
 
   If you specify Japanese \(`ja`\) as the language, you also have the option of specifying a custom tokenization dictionary that overrides the default tokenization of specific phrases\. For more information, see [Customizing Japanese Tokenization](#customizing-japanese-tokenization)\.
 **Tip**  

@@ -1,6 +1,6 @@
 # Configuring Availability Options in Amazon CloudSearch<a name="configuring-availability-options"></a>
 
-You can expand an Amazon CloudSearch domain to an additional Availability Zone in the same region to increase fault tolerance in the event of a service disruption\. Availability Zones are physically separate locations with independent infrastructure engineered to be insulated from failures in other Availability Zones\. For more information, see [Regions and Availability Zones](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide//using-regions-availability-zones.html) in the Amazon EC2 User Guide for Linux Instances\.
+You can expand an Amazon CloudSearch domain to an additional Availability Zone in the same region to increase fault tolerance in the event of a service disruption\. Availability Zones are physically separate locations with independent infrastructure engineered to be insulated from failures in other Availability Zones\. For more information, see [Regions and Availability Zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide//using-regions-availability-zones.html) in the Amazon EC2 User Guide for Linux Instances\.
 
 When you turn on the Multi\-AZ option, Amazon CloudSearch provisions and maintains extra instances for your search domain in a second Availability Zone to ensure high availability\. The maximum number of Availability Zones a domain can be deployed in is two\.
 
@@ -32,7 +32,7 @@ If your domain is running on a single search instance, enabling the Multi\-AZ op
 
 ## Configuring Amazon CloudSearch Availability Options Using the AWS CLI<a name="configuring-availability-options-clt"></a>
 
-You use the `aws cloudsearch update-availability-options` command to configure availability options for a search domain\. For information about installing and setting up the AWS CLI, see the [AWS Command Line Interface User Guide](http://docs.aws.amazon.com/cli/latest/userguide/)\. 
+You use the `aws cloudsearch update-availability-options` command to configure availability options for a search domain\. For information about installing and setting up the AWS CLI, see the [AWS Command Line Interface User Guide](https://docs.aws.amazon.com/cli/latest/userguide/)\. 
 
 **To configure a search domain's availability options**
 + Run the `aws cloudsearch update-availability-options` command and specify the `--multi-az` option to turn on MultiAZ for the domain, or `--no-multi-az` to turn MultiAZ off\. For example, the following request enables MultiAZ for the `movies` domain:

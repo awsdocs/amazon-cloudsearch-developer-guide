@@ -29,7 +29,7 @@ For more information about the document service API, see the [Document Service A
 Document batches are limited to one batch every 10 seconds and 5 MB per batch\. To learn more, see [Limits](limits.md)\. However, you can upload batches in parallel to reduce the amount of time it takes to upload all of your data\.
 
 To perform a bulk upload:
-+ Set your desired instance type to a larger instance type than the default `search.m1.small`\. The number of upload threads you can use depends on the type of search instance your domain is using and the nature of your data and indexing options\. Larger instance types have a higher upload capacity\. Attempting to upload batches in parallel to a `search.m1.small` instance usually results in a high rate of 504 or 507 errors\. For more information about setting the desired instance type, see [Configuring Scaling Options](configuring-scaling-options.md)\.
++ Set your desired instance type to a larger instance type than the default `search.m1.small`\. The number of upload threads you can use depends on the type of search instance your domain is using and the nature of your data and indexing options\. Larger instance types have a higher upload capacity\. Attempting to upload batches in parallel to a `search.m1.small` instance usually results in a high rate of 504 or 507 errors\. For more information about setting the desired instance type, see [Configuring Scaling Options in Amazon CloudSearch](configuring-scaling-options.md)\.
 + Start uploading data once your configuration changes are active\. If you encounter a high rate of 5xx errors, you either need to reduce your upload rate or switch to a larger instance type\. If you are already using the largest instance type, you can increase the desired partition count to further increase upload capacity\. 
 **Important**  
 If you submit a large volume of updates while your domain is in the PROCESSING state, it can increase the amount of time it takes for the updates to be applied to your search index\. To avoid this update lag, wait until your domain is in the ACTIVE state before starting your bulk upload\.
@@ -47,7 +47,7 @@ In the Amazon CloudSearch console, you can upload data from your local file syst
 You can also convert and upload items from an DynamoDB table\. For more information, see [Uploading DynamoDB Data](searching-dynamodb-data.md#searching-dynamodb-data-console)\.
 
 **Note**  
-To upload data from Amazon S3 or DynamoDB, you must have permission to access both the service and the resources you want to upload\. For more information, see [Using Bucket Policies and User Policies](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingIAMPolicies.html) and [Using IAM to Control Access to DynamoDB Resources](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/UsingIAMWithDDB.html)\.
+To upload data from Amazon S3 or DynamoDB, you must have permission to access both the service and the resources you want to upload\. For more information, see [Using Bucket Policies and User Policies](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingIAMPolicies.html) and [Using IAM to Control Access to DynamoDB Resources](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/UsingIAMWithDDB.html)\.
 
 CSV files are parsed row\-by\-row and a separate document is generated for each row\. All other types of files are treated as a single document\. For more information about automatically generating document batches, see [Preparing Your Data](preparing-data.md)\.
 
@@ -88,13 +88,13 @@ Uploading data to Amazon CloudSearch from an Amazon S3 bucket or DynamoDB table 
 
 ## Uploading Data Using the AWS CLI<a name="uploading-data-clt"></a>
 
-You use the `aws cloudsearch upload-documents` command to send document batches to your search domain\. For information about installing and setting up the AWS CLI, see the [AWS Command Line Interface User Guide](http://docs.aws.amazon.com/cli/latest/userguide/)\. 
+You use the `aws cloudsearch upload-documents` command to send document batches to your search domain\. For information about installing and setting up the AWS CLI, see the [AWS Command Line Interface User Guide](https://docs.aws.amazon.com/cli/latest/userguide/)\. 
 
 **To send document batches to a domain for indexing**
-+ Run the `aws cloudsearchdomain upload-documents` command to upload your batches to your domain\. You must specify at least one `--source` option to specify the location of the batch you want to upload\.
++ Run the `aws cloudsearchdomain upload-documents` command to upload your batches to your domain:
 
   ```
-  aws cloudsearchdomain --endpoint-url http://doc-movies-y6gelr4lv3jeu4rvoelunxsl2e.us-east-1.cloudsearch.amazonaws.com upload-documents --content-type application/json --documents movie-data-2013.json
+  aws cloudsearchdomain upload-documents --endpoint-url http://doc-movies-y6gelr4lv3jeu4rvoelunxsl2e.us-east-1.cloudsearch.amazonaws.com --content-type application/json --documents document-batch.json
   {
       "status": "success", 
       "adds": 5000, 

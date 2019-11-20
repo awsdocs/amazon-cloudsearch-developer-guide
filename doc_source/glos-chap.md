@@ -1,3 +1,5 @@
+# <a name="glos-chap"></a>
+
 # AWS Glossary<a name="glos-chap"></a>
 
  [Numbers and Symbols](#numbers) \| [A](#A) \| [B](#B) \| [C](#C) \| [D](#D) \| [E](#E) \| [F](#F) \| [G](#G) \| [H](#H) \| [I](#I) \| [J](#J) \| [K](#K) \| [L](#L) \| [M](#M) \| [N](#N) \| [O](#O) \| [P](#P) \| [Q](#Q) \| [R](#R) \| [S](#S) \| [T](#T) \| [U](#U) \| [V](#V) \| [W](#W) \| [X, Y, Z](#XYZ) 
@@ -33,10 +35,14 @@ A method to increase security by changing the AWS access key ID\. This method en
 A language for writing documents \(that is, [*policies*](#policy)\) that specify who can access a particular AWS [resource](#resource) and under what conditions\.
 
 **account**<a name="account"></a>  
-A formal relationship with AWS that is associated with \(1\) the owner email address and password, \(2\) the control of [resource](#resource)s created under its umbrella, and \(3\) payment for the AWS activity related to those resources\. The AWS account has permission to do anything and everything with all the AWS account resources\. This is in contrast to a [user](#AWSUser), which is an entity contained within the account\.
+A formal relationship with AWS that is associated with all of the following:  
++ The owner email address and password
++ The control of [resource](#resource)s created under its umbrella
++ Payment for the AWS activity related to those resources
+The AWS account has permission to do anything and everything with all the AWS account resources\. This is in contrast to a [user](#AWSUser), which is an entity contained within the account\.
 
 **account activity**<a name="accountactivity"></a>  
-A web page showing your month\-to\-date AWS usage and costs\. The account activity page is located at [https://aws\.amazon\.com/account\-activity/](https://aws.amazon.com/account-activity/)\.
+A webpage showing your month\-to\-date AWS usage and costs\. The account activity page is located at [https://aws\.amazon\.com/account\-activity/](https://aws.amazon.com/account-activity/)\.
 
 **ACL**   
 See [access control list \(ACL\)](#ACL).
@@ -52,7 +58,7 @@ See [AWS Certificate Manager Private Certificate Authority \(ACM PCA\)](#acm-pca
 
 **action**<a name="action"></a>  
 An API function\. Also called *operation* or *call*\. The activity the [principal](#principal) has permission to perform\. The action is B in the statement "A has permission to do B to C where D applies\." For example, Jane sends a request to [Amazon SQS](#AmazonSimpleQueueService) with Action=ReceiveMessage\.   
-[Amazon CloudWatch](#AmazonCW): The response initiated by the change in an alarm's state: for example, from OK to ALARM\. The state change may be triggered by a metric reaching the alarm threshold, or by a SetAlarmState request\. Each alarm can have one or more actions assigned to each state\. Actions are performed once each time the alarm changes to a state that has an action assigned, such as an [Amazon Simple Notification Service](#SNS) notification, an [Auto Scaling](#AutoScaling) [policy](#policy) execution or an [Amazon EC2](#ec2) [instance](#instance) stop/terminate action\.
+[Amazon CloudWatch](#AmazonCW): The response initiated by the change in an alarm's state: for example, from OK to ALARM\. The state change may be triggered by a metric reaching the alarm threshold, or by a SetAlarmState request\. Each alarm can have one or more actions assigned to each state\. Actions are performed once each time the alarm changes to a state that has an action assigned, such as an [Amazon Simple Notification Service](#SNS) notification, an [Amazon EC2 Auto Scaling](#AutoScaling) [policy](#policy) execution or an [Amazon EC2](#ec2) [instance](#instance) stop/terminate action\.
 
 **active trusted signers**<a name="trustedsigner"></a>  
 A list showing each of the trusted signers you've specified and the IDs of the corresponding active key pairs that [Amazon CloudFront](#AmazonCF) is aware of\. To be able to create working signed URLs, a trusted signer must appear in this list with at least one key pair ID\.
@@ -61,10 +67,10 @@ A list showing each of the trusted signers you've specified and the IDs of the c
 Information that is checked for integrity but not encrypted, such as headers or other contextual metadata\.
 
 **administrative suspension**<a name="admin_suspension"></a>  
-[Auto Scaling](#AutoScaling) might suspend processes for [Auto Scaling group](#AutoScalingGroup) that repeatedly fail to launch instances\. Auto Scaling groups that most commonly experience administrative suspension have zero running instances, have been trying to launch instances for more than 24 hours, and have not succeeded in that time\. 
+[Amazon EC2 Auto Scaling](#AutoScaling) might suspend processes for [Auto Scaling group](#AutoScalingGroup) that repeatedly fail to launch instances\. Auto Scaling groups that most commonly experience administrative suspension have zero running instances, have been trying to launch instances for more than 24 hours, and have not succeeded in that time\. 
 
 **alarm**<a name="alarm"></a>  
-An item that watches a single metric over a specified time period, and triggers an [Amazon SNS](#SNS) [topic](#topic) or an [Auto Scaling](#AutoScaling) [policy](#policy) if the value of the metric crosses a threshold value over a predetermined number of time periods\.
+An item that watches a single metric over a specified time period and triggers an [Amazon SNS](#SNS) [topic](#topic) or an [Amazon EC2 Auto Scaling](#AutoScaling) [policy](#policy) if the value of the metric crosses a threshold value over a predetermined number of time periods\.
 
 **allow**<a name="allow"></a>  
 One of two possible outcomes \(the other is [deny](#deny)\) when an [IAM](#IAM) access [policy](#policy) is evaluated\. When a user makes a request to AWS, AWS evaluates the request based on all permissions that apply to the user and then returns either allow or deny\.
@@ -73,13 +79,21 @@ One of two possible outcomes \(the other is [deny](#deny)\) when an [IAM](#IAM) 
 A fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale\.   
 See also [https://aws\.amazon\.com/api\-gateway](https://aws.amazon.com/apigateway/).
 
-**Amazon AppStream**<a name="appstream"></a>  
-A web service for streaming existing Windows applications from the cloud to any device\.   
+**Amazon AppStream 2\.0**<a name="appstream"></a>  
+A fully managed, secure service for streaming desktop applications to users without rewriting those applications\.   
 See also [https://aws\.amazon\.com/appstream/](https://aws.amazon.com/appstream/).
 
+**Amazon Athena**<a name="athena"></a>  
+An interactive query service that makes it easy to analyze data in Amazon S3 using ANSI SQL\. Athena is serverless, so there is no infrastructure to manage\. Athena scales automatically and is simple to use, so you can start analyzing your datasets within seconds\.   
+See also [https://aws\.amazon\.com/athena/](https://aws.amazon.com/athena/).
+
 **Amazon Aurora**<a name="aurora"></a>  
-A fully managed MySQL\-compatible relational database engine that combines the speed and availability of commercial databases with the simplicity and cost\-effectiveness of open source databases\.   
+A fully managed MySQL\-compatible relational database engine that combines the speed and availability of commercial databases with the simplicity and cost\-effectiveness of open\-source databases\.   
 See also [https://aws\.amazon\.com/rds/aurora/](https://aws.amazon.com/rds/aurora/).
+
+**Amazon Chime**<a name="chime"></a>  
+A secure, real\-time, unified communications service that transforms meetings by making them more efficient and easier to conduct\.   
+See also [https://aws\.amazon\.com/chime/](https://aws.amazon.com/chime/).
 
 **Amazon Cloud Directory \(Cloud Directory\)**<a name="clouddirectory"></a>  
 A service that provides a highly scalable directory store for your application’s multihierarchical data\.   
@@ -90,7 +104,7 @@ An AWS content delivery service that helps you improve the performance, reliabil
 See also [https://aws\.amazon\.com/cloudfront](https://aws.amazon.com/cloudfront/).
 
 **Amazon CloudSearch**<a name="cloudSearch"></a>  
- A fully managed service in the AWS cloud that makes it easy to set up, manage, and scale a search solution for your website or application\. 
+ A fully managed service in the AWS Cloud that makes it easy to set up, manage, and scale a search solution for your website or application\. 
 
 **Amazon CloudWatch**<a name="AmazonCW"></a>  
 A web service that enables you to monitor and manage various metrics, and configure alarm actions based on data from those metrics\.   
@@ -101,12 +115,24 @@ A web service that enables you to deliver a timely stream of system events that 
 See also [https://aws\.amazon\.com/cloudwatch](https://aws.amazon.com/cloudwatch/).
 
 **Amazon CloudWatch Logs**<a name="AmazonCWL"></a>  
-A web service for monitoring and troubleshooting your systems and applications from your existing system, application, and custom log files\. You can send your existing log files to CloudWatch Logs and monitor these logs in near real\-time\.   
+A web service for monitoring and troubleshooting your systems and applications from your existing system, application, and custom log files\. You can send your existing log files to CloudWatch Logs and monitor these logs in near\-real time\.   
 See also [https://aws\.amazon\.com/cloudwatch](https://aws.amazon.com/cloudwatch/).
 
 **Amazon Cognito**<a name="cognito"></a>  
-A web service that makes it easy to save mobile user data, such as app preferences or game state, in the AWS cloud without writing any back\-end code or managing any infrastructure\. Amazon Cognito offers mobile identity management and data synchronization across devices\.    
+A web service that makes it easy to save mobile user data, such as app preferences or game state, in the AWS Cloud without writing any backend code or managing any infrastructure\. Amazon Cognito offers mobile identity management and data synchronization across devices\.    
 See also [https://aws\.amazon\.com/cognito/](https://aws.amazon.com/cognito/).
+
+**Amazon Connect**<a name="connect"></a>  
+A service solution that offers easy, self\-service configuration and enables dynamic, personal, and natural customer engagement at any scale\.   
+See also [https://aws\.amazon\.com/connect/](https://aws.amazon.com/connect/).
+
+**Amazon Corretto**<a name="AmazonCorretto"></a>  
+A no\-cost, multiplatform, production\-ready distribution of the Open Java Development Kit \(OpenJDK\)\.   
+See also [https://aws\.amazon\.com/corretto/](https://aws.amazon.com/corretto/).
+
+**Amazon DocumentDB \(with MongoDB compatibility\)**<a name="documentdb"></a>  
+A managed database service that you can use to set up, operate, and scale MongoDB\-compatible databases in the cloud\.   
+See also [https://aws\.amazon\.com/documentdb/](https://aws.amazon.com/documentdb/).
 
 **Amazon DynamoDB**<a name="dynamodb"></a>  
 A fully managed NoSQL database service that provides fast and predictable performance with seamless scalability\.    
@@ -142,8 +168,12 @@ A service for running and maintaining a specified number of [task](#task)s \(ins
 See [https://aws\.amazon\.com/ec2/vm\-import](https://aws.amazon.com/ec2/vm-import/).
 
 **Amazon Elastic Compute Cloud \(Amazon EC2\)**<a name="ec2"></a>  
-A web service that enables you to launch and manage Linux/UNIX and Windows server [instance](#instance)s in Amazon's data centers\.    
+A web service that enables you to launch and manage Linux/UNIX and Windows Server [instance](#instance)s in Amazon's data centers\.    
 See also [https://aws\.amazon\.com/ec2](https://aws.amazon.com/ec2/).
+
+**Amazon EC2 Auto Scaling**<a name="AutoScaling"></a>  
+A web service designed to launch or terminate [instance](#instance)s automatically based on user\-defined [policies](#policy), schedules, and [health check](#healthcheck)s\.   
+See also [https://aws\.amazon\.com/ec2/autoscaling](https://aws.amazon.com/ec2/autoscaling/).
 
 **Amazon Elastic File System \(Amazon EFS\)**<a name="efs"></a>  
 A file storage service for [EC2](#ec2) [instance](#instance)s\. Amazon EFS is easy to use and provides a simple interface with which you can create and configure file systems\. Amazon EFS storage capacity grows and shrinks automatically as you add and remove files\.   
@@ -154,7 +184,7 @@ A web service that makes it easy to process large amounts of data efficiently\. 
 See also [https://aws\.amazon\.com/elasticmapreduce](https://aws.amazon.com/elasticmapreduce/).
 
 **Amazon Elastic Transcoder**<a name="elastictranscoder"></a>  
-A cloud\-based media transcoding service\. Elastic Transcoder is a highly scalable tool for converting \(or *transcoding*\) media files from their source format into versions that will play on devices like smartphones, tablets, and PCs\.   
+A cloud\-based media transcoding service\. Elastic Transcoder is a highly scalable tool for converting \(or *transcoding*\) media files from their source format into versions that play on devices like smartphones, tablets, and PCs\.   
 See also [https://aws\.amazon\.com/elastictranscoder/](https://aws.amazon.com/elastictranscoder/).
 
 **Amazon ElastiCache**<a name="elasticache"></a>  
@@ -162,16 +192,16 @@ A web service that simplifies deploying, operating, and scaling an in\-memory ca
 See also [https://aws\.amazon\.com/elasticache/](https://aws.amazon.com/elasticache/).
 
 **Amazon Elasticsearch Service \(Amazon ES\)**<a name="AmazonElasticsearchService"></a>  
-An AWS managed service for deploying, operating, and scaling Elasticsearch, an open\-source search and analytics engine, in the AWS Cloud\. Amazon Elasticsearch Service \(Amazon ES\) also offers security options, high availability, data durability, and direct access to the Elasticsearch APIs\.   
+An AWS managed service for deploying, operating, and scaling Elasticsearch, an open\-source search and analytics engine, in the AWS Cloud\. Amazon Elasticsearch Service \(Amazon ES\) also offers security options, high availability, data durability, and direct access to the Elasticsearch API\.   
 See also [https://aws\.amazon\.com/elasticsearch\-service](https://aws.amazon.com/elasticsearch-service/).
+
+**Amazon EventBridge**<a name="eventbridge"></a>  
+A serverless event bus service that enables you to connect your applications with data from a variety of sources and routes that data to targets such as AWS Lambda\. You can set up routing rules to determine where to send your data to build application architectures that react in real time to all of your data sources\.   
+See also [https://aws\.amazon\.com/eventbridge/](https://aws.amazon.com/eventbridge/).
 
 **Amazon GameLift**<a name="gamelift"></a>  
 A managed service for deploying, operating, and scaling session\-based multiplayer games\.   
 See also [https://aws\.amazon\.com/gamelift/](https://aws.amazon.com/gamelift/).
-
-**Amazon Glacier**<a name="glacier"></a>  
-A secure, durable, and low\-cost storage service for data archiving and long\-term backup\. You can reliably store large or small amounts of data for significantly less than on\-premises solutions\. Amazon Glacier is optimized for infrequently accessed data, where a retrieval time of several hours is suitable\.   
-See also [https://aws\.amazon\.com/glacier/](https://aws.amazon.com/glacier/).
 
 **Amazon GuardDuty**<a name="guardduty"></a>  
 A continuous security monitoring service\. Amazon GuardDuty can help to identify unexpected and potentially unauthorized or malicious activity in your AWS environment\.   
@@ -198,7 +228,7 @@ Lightsail is designed to be the easiest way to launch and manage a virtual priva
 See also [https://aws\.amazon\.com/lightsail/](https://aws.amazon.com/lightsail/).
 
 **Amazon Lumberyard**<a name="lumberyard"></a>  
-A cross\-platform, 3D game engine for creating high\-quality games\. You can connect games to the compute and storage of the AWS cloud and engage fans on Twitch\.   
+A cross\-platform, 3D game engine for creating high\-quality games\. You can connect games to the compute and storage of the AWS Cloud and engage fans on Twitch\.   
 See also [https://aws\.amazon\.com/lumberyard/](https://aws.amazon.com/lumberyard/).
 
 **Amazon Machine Image \(AMI\)**<a name="AmazonMachineImage"></a>  
@@ -212,6 +242,10 @@ See also [http://aws\.amazon\.com/machine\-learning/](http://aws.amazon.com/mach
 A security service that uses machine learning to automatically discover, classify, and protect sensitive data in AWS\.   
 See also [http://aws\.amazon\.com/macie/](http://aws.amazon.com/macie/).
 
+**Amazon Managed Blockchain**<a name="managed-blockchain"></a>  
+A fully managed service for creating and managing scalable blockchain networks using popular open source frameworks\.   
+See also [http://aws\.amazon\.com/managed\-blockchain/](http://aws.amazon.com/managed-blockchain/).
+
 **Amazon ML**   
 See [Amazon Machine Learning](#machine-learning).
 
@@ -223,9 +257,13 @@ See also [https://aws\.amazon\.com/mobileanalytics](https://aws.amazon.com/mobil
 A managed message broker service for Apache ActiveMQ that makes it easy to set up and operate message brokers in the cloud\.   
 See also [https://aws\.amazon\.com/amazon\-mq/](https://aws.amazon.com/amazon-mq/).
 
+**Amazon Neptune**<a name="neptune"></a>  
+A managed graph database service that you can use to build and run applications that work with highly connected datasets\. Neptune supports the popular graph query languages Apache TinkerPop Gremlin and W3C’s SPARQL, enabling you to build queries that efficiently navigate highly connected datasets\.   
+See also [https://aws\.amazon\.com/neptune/](https://aws.amazon.com/neptune/).
+
 **Amazon QuickSight**<a name="quicksight"></a>  
 A fast, cloud\-powered business analytics service that makes it easy to build visualizations, perform analysis, and quickly get business insights from your data\.    
-See also [https://aws\.amazon\.com/quicksight/](https://aws.amazon.com/redshift/).
+See also [https://aws\.amazon\.com/quicksight/](https://aws.amazon.com/quicksight/).
 
 **Amazon Redshift**<a name="redshift"></a>  
 A fully managed, petabyte\-scale data warehouse service in the cloud\. With Amazon Redshift, you can analyze your data using your existing business intelligence tools\.   
@@ -248,15 +286,23 @@ See [Amazon Simple Storage Service \(Amazon S3\)](#AmazonSimpleStorageService).
 **Amazon S3\-Backed AMI**<a name="s3backed"></a>   
 See [instance store\-backed AMI](#instancebacked).
 
+**Amazon S3 Glacier**<a name="glacier"></a>  
+A secure, durable, and low\-cost storage service for data archiving and long\-term backup\. You can reliably store large or small amounts of data for significantly less than on\-premises solutions\. Glacier is optimized for infrequently accessed data, where a retrieval time of several hours is suitable\.   
+See also [https://aws\.amazon\.com/glacier/](https://aws.amazon.com/glacier/).
+
+**AWS Security Hub**<a name="securityhub"></a>  
+A service that provides a comprehensive view of the security state of your AWS resources\. Security Hub collects security data from AWS accounts and services and helps you analyze your security trends to identify and prioritize the security issues across your AWS environment\.   
+See also [https://aws\.amazon\.com/security\-hub/](https://aws.amazon.com/security-hub/).
+
 **Amazon Silk**<a name="silk"></a>  
-A next\-generation web browser available only on Fire OS tablets and phones\. Built on a split architecture that divides processing between the client and the AWS cloud, Amazon Silk is designed to create a faster, more responsive mobile browsing experience\.
+A next\-generation web browser available only on Fire OS tablets and phones\. Built on a split architecture that divides processing between the client and the AWS Cloud, Amazon Silk is designed to create a faster, more responsive mobile browsing experience\.
 
 **Amazon Simple Email Service \(Amazon SES\)**<a name="SES"></a>  
 An easy\-to\-use, cost\-effective email solution for applications\.    
 See also [https://aws\.amazon\.com/ses](https://aws.amazon.com/ses/).
 
 **Amazon Simple Notification Service \(Amazon SNS\)**<a name="SNS"></a>  
-A web service that enables applications, end\-users, and devices to instantly send and receive notifications from the cloud\.   
+A web service that enables applications, users, and devices to instantly send and receive notifications from the cloud\.   
 See also [https://aws\.amazon\.com/sns](https://aws.amazon.com/sns/).
 
 **Amazon Simple Queue Service \(Amazon SQS\)**<a name="AmazonSimpleQueueService"></a>  
@@ -275,8 +321,12 @@ See also [https://aws\.amazon\.com/swf/](https://aws.amazon.com/swf/).
 A set of tools for creating and running high\-quality 3D, augmented reality \(AR\), and virtual reality \(VR\) applications on the web\.   
 See also [https://aws\.amazon\.com/sumerian/](https://aws.amazon.com/sumerian/).
 
+**Amazon Textract**<a name="AmazonTextract"></a>  
+A service that automatically extracts text and data from scanned documents\. Amazon Textract goes beyond simple optical character recognition \(OCR\) to also identify the contents of fields in forms and information stored in tables\.   
+See also [https://aws\.amazon\.com/textract/](https://aws.amazon.com/textract/).
+
 **Amazon Virtual Private Cloud \(Amazon VPC\)**<a name="AmazonVirtualPrivateCloud"></a>  
-A web service for provisioning a logically isolated section of the AWS cloud where you can launch AWS [resource](#resource)s in a virtual network that you define\. You control your virtual networking environment, including selection of your own IP address range, creation of [subnet](#subnet)s, and configuration of [route table](#routetable)s and network gateways\.   
+A web service for provisioning a logically isolated section of the AWS Cloud where you can launch AWS [resource](#resource)s in a virtual network that you define\. You control your virtual networking environment, including selection of your own IP address range, creation of [subnet](#subnet)s, and configuration of [route table](#routetable)s and network gateways\.   
 See also [https://aws\.amazon\.com/vpc](https://aws.amazon.com/vpc/).
 
 **Amazon VPC**   
@@ -289,6 +339,10 @@ See also [https://aws\.amazon\.com/what\-is\-cloud\-computing/](https://aws.amaz
 **Amazon WorkDocs**<a name="workdocs"></a>  
 A managed, secure enterprise document storage and sharing service with administrative controls and feedback capabilities\.   
 See also [https://aws\.amazon\.com/workdocs/](https://aws.amazon.com/workdocs/).
+
+**Amazon WorkLink**<a name="worklink"></a>  
+A cloud\-based service that provides secure access to internal websites and web apps from mobile devices\.   
+See also [https://aws\.amazon\.com/worklink/](https://aws.amazon.com/worklink/).
 
 **Amazon WorkMail**<a name="workmail"></a>  
 A managed, secure business email and calendar service with support for existing desktop and mobile email clients\.    
@@ -310,16 +364,20 @@ See [Amazon Machine Image \(AMI\)](#AmazonMachineImage).
 
 **application**<a name="application"></a>  
 [AWS Elastic Beanstalk](#Beanstalk): A logical collection of components, including environments, versions, and environment configurations\. An application is conceptually similar to a folder\.  
-[AWS CodeDeploy \(CodeDeploy\)](#AWSCodeDeploy): A name that uniquely identifies the application to be deployed\. AWS CodeDeploy uses this name to ensure the correct combination of revision, deployment configuration, and deployment group are referenced during a deployment\.
+[AWS CodeDeploy](#AWSCodeDeploy): A name that uniquely identifies the application to be deployed\. AWS CodeDeploy uses this name to ensure the correct combination of revision, deployment configuration, and deployment group are referenced during a deployment\.
+
+**Application Auto Scaling**<a name="ApplicationAutoScaling"></a>  
+A web service that enables you to configure automatic scaling for AWS resources beyond Amazon EC2, such as Amazon ECS services, Amazon EMR clusters, and DynamoDB tables\.   
+See also [https://aws\.amazon\.com/autoscaling/](https://aws.amazon.com/autoscaling/).
 
 **Application Billing**<a name="AppBilling"></a>  
 The location where your customers manage the Amazon DevPay products they've purchased\. The web address is [http://www\.amazon\.com/dp\-applications](http://www.amazon.com/dp-applications)\.
 
 **application revision**<a name="applicationrevision"></a>  
-[AWS CodeDeploy \(CodeDeploy\)](#AWSCodeDeploy): An archive file containing source content—such as source code, web pages, executable files, and deployment scripts—along with an [application specification file](#applicationspecificationfile)\. Revisions are stored in [Amazon S3](#AmazonSimpleStorageService) [bucket](#bucket)s or [GitHub](#github) repositories\. For Amazon S3, a revision is uniquely identified by its Amazon S3 object key and its ETag, version, or both\. For GitHub, a revision is uniquely identified by its commit ID\.
+[AWS CodeDeploy](#AWSCodeDeploy): An archive file containing source content—such as source code, webpages, executable files, and deployment scripts—along with an [application specification file](#applicationspecificationfile)\. Revisions are stored in [Amazon S3](#AmazonSimpleStorageService) [bucket](#bucket)s or [GitHub](#github) repositories\. For Amazon S3, a revision is uniquely identified by its Amazon S3 object key and its ETag, version, or both\. For GitHub, a revision is uniquely identified by its commit ID\.
 
 **application specification file**<a name="applicationspecificationfile"></a>  
-[AWS CodeDeploy \(CodeDeploy\)](#AWSCodeDeploy): A YAML\-formatted file used to map the source files in an application revision to destinations on the instance; specify custom permissions for deployed files; and specify scripts to be run on each instance at various stages of the deployment process\.
+[AWS CodeDeploy](#AWSCodeDeploy): A YAML\-formatted file used to map the source files in an application revision to destinations on the instance\. The file is also used to specify custom permissions for deployed files and specify scripts to be run on each instance at various stages of the deployment process\.
 
 **application version**<a name="appversion"></a>  
 [AWS Elastic Beanstalk](#Beanstalk): A specific, labeled iteration of an application that represents a functionally consistent set of deployable application code\. A version points to an [Amazon S3](#AmazonSimpleStorageService) object \(a JAVA WAR file\) that contains the application code\. 
@@ -347,7 +405,7 @@ DynamoDB: A method of incrementing or decrementing the value of an existing attr
 
 **attribute**<a name="attribute"></a>  
 A fundamental data element, something that does not need to be broken down any further\. In DynamoDB, attributes are similar in many ways to fields or columns in other database systems\.  
- Amazon Machine Learning: A unique, named property within an observation in a data set\. In tabular data, such as spreadsheets or comma\-separated values \(\.csv\) files, the column headings represent the attributes, and the rows contain values for each attribute\.
+ Amazon Machine Learning: A unique, named property within an observation in a dataset\. In tabular data, such as spreadsheets or comma\-separated values \(\.csv\) files, the column headings represent the attributes, and the rows contain values for each attribute\.
 
 **Aurora**   
 See [Amazon Aurora](#aurora).
@@ -357,10 +415,6 @@ See [Amazon Aurora](#aurora).
 
 **authentication**<a name="authentication"></a>  
 The process of proving your identity to a system\.
-
-**Auto Scaling**<a name="AutoScaling"></a>  
-A web service designed to launch or terminate [instance](#instance)s automatically based on user\-defined [policies](#policy), schedules, and [health check](#healthcheck)s\.   
-See also [https://aws\.amazon\.com//autoscaling](https://aws.amazon.com//autoscaling/).
 
 **Auto Scaling group**<a name="AutoScalingGroup"></a>  
 A representation of multiple [EC2 instance](#ec2instance)s that share similar characteristics, and that are treated as a logical grouping for the purposes of instance scaling and management\.
@@ -379,9 +433,21 @@ See also [https://aws\.amazon\.com/about\-aws/whats\-new/2016/04/aws\-applicatio
 An enterprise level, fully managed GraphQL service with real\-time data synchronization and offline programming features\.   
 See also [https://aws\.amazon\.com/appsync/](https://aws.amazon.com/appsync/).
 
+**AWS Auto Scaling**<a name="AWSAutoScaling"></a>  
+A fully managed service that enables you to quickly discover the scalable AWS resources that are part of your application and configure dynamic scaling\.   
+See also [https://aws\.amazon\.com/autoscaling/](https://aws.amazon.com/autoscaling/).
+
+**AWS Backup**<a name="awsbackup"></a>  
+A managed backup service that you can use to centralize and automate the backup of data across AWS services in the cloud and on premises\.   
+See also [https://aws\.amazon\.com/backup/](https://aws.amazon.com/backup/).
+
 **AWS Billing and Cost Management**<a name="billing"></a>  
-The AWS cloud computing model in which you pay for services on demand and use as much or as little at any given time as you need\. While [resource](#resource)s are active under your account, you pay for the cost of allocating those resources and for any incidental usage associated with those resources, such as data transfer or allocated storage\.   
+The AWS Cloud computing model in which you pay for services on demand and use as much or as little as you need\. While [resource](#resource)s are active under your account, you pay for the cost of allocating those resources\. You also pay for any incidental usage associated with those resources, such as data transfer or allocated storage\.   
 See also [https://aws\.amazon\.com/billing/new\-user\-faqs/](https://aws.amazon.com/billing/new-user-faqs/).
+
+**AWS Blockchain Templates**<a name="blockchain-templates"></a>  
+A service for creating and deploying open\-source blockchain frameworks on AWS, such as Ethereum and Hyperledger Fabric\.   
+See also [https://aws\.amazon\.com/blockchain/templates/](https://aws.amazon.com/blockchain/templates/).
 
 **AWS Certificate Manager \(ACM\)**<a name="acm"></a>  
 A web service for provisioning, managing, and deploying Secure Sockets Layer/[Transport Layer Security](#transportlayersecurity) \(SSL/TLS\) certificates for use with AWS services\.   
@@ -390,6 +456,14 @@ See also [https://aws\.amazon\.com/certificate\-manager/](https://aws.amazon.com
 **AWS Certificate Manager Private Certificate Authority \(ACM PCA\)**<a name="acm-pca"></a>  
 A hosted private certificate authority service for issuing and revoking private digital [certificate](#certificate)s\.   
 See also [https://aws\.amazon\.com/certificate\-manager/private\-certificate\-authority/](https://aws.amazon.com/certificate-manager/private-certificate-authority/).
+
+**AWS Cloud Development Kit \(AWS CDK\)**<a name="AWSCDK"></a>  
+An open\-source software development framework for defining your cloud infrastructure in code and provisioning it through AWS CloudFormation\.   
+See also [https://aws\.amazon\.com/cdk/](https://aws.amazon.com/cdk/).
+
+**AWS Cloud Map**<a name="cloudmap"></a>  
+A service that you use to create and maintain a map of the backend services and resources that your applications depend on\. AWS Cloud Map lets you name and discover your cloud resources\.   
+See also [https://aws\.amazon\.com/cloud\-map](https://aws.amazon.com/cloud-map).
 
 **AWS Cloud9**<a name="AWSCloud9"></a>  
 A cloud\-based integrated development environment \(IDE\) that you use to write, run, and debug code\.   
@@ -400,23 +474,27 @@ A service for writing or changing templates that create and delete related AWS [
 See also [https://aws\.amazon\.com/cloudformation](https://aws.amazon.com/cloudformation/).
 
 **AWS CloudHSM**<a name="cloudhsm"></a>  
-A web service that helps you meet corporate, contractual, and regulatory compliance requirements for data security by using dedicated hardware security module \(HSM\) appliances within the AWS cloud\.   
+A web service that helps you meet corporate, contractual, and regulatory compliance requirements for data security by using dedicated hardware security module \(HSM\) appliances within the AWS Cloud\.   
 See also [https://aws\.amazon\.com/cloudhsm/](https://aws.amazon.com/cloudhsm/).
 
 **AWS CloudTrail**<a name="cloudtrail"></a>  
 A web service that records AWS API calls for your account and delivers log files to you\. The recorded information includes the identity of the API caller, the time of the API call, the source IP address of the API caller, the request parameters, and the response elements returned by the AWS service\.   
 See also [https://aws\.amazon\.com/cloudtrail/](https://aws.amazon.com/cloudtrail/).
 
+**AWS CodeBuild**<a name="AWSCodeBuild"></a>  
+A fully managed continuous integration service that compiles source code, runs tests, and produces software packages that are ready to deploy\.   
+See also [https://aws\.amazon\.com/codebuild](https://aws.amazon.com/codebuild/).
+
 **AWS CodeCommit**<a name="AWSCodeCommit"></a>  
 A fully managed source control service that makes it easy for companies to host secure and highly scalable private Git repositories\.   
 See also [https://aws\.amazon\.com/codecommit](https://aws.amazon.com/codecommit/).
 
-**AWS CodeDeploy \(CodeDeploy\)**<a name="AWSCodeDeploy"></a>  
+**AWS CodeDeploy**<a name="AWSCodeDeploy"></a>  
 A service that automates code deployments to any instance, including [EC2 instance](#ec2instance)s and [instance](#instance)s running on\-premises\.   
 See also [https://aws\.amazon\.com/codedeploy](https://aws.amazon.com/codedeploy/).
 
 **AWS CodeDeploy agent**<a name="AWSCodeDeployagent"></a>  
-A software package that, when installed and configured on an instance, enables that instance to be used in AWS CodeDeploy deployments\.
+A software package that, when installed and configured on an instance, enables that instance to be used in CodeDeploy deployments\.
 
 **AWS CodePipeline**<a name="AWSCodePipeline"></a>  
 A continuous delivery service for fast and reliable application updates\.   
@@ -429,26 +507,6 @@ See also [https://aws\.amazon\.com/cli/](https://aws.amazon.com/cli/).
 **AWS Config**<a name="config"></a>  
 A fully managed service that provides an AWS [resource](#resource) inventory, configuration history, and configuration change notifications for better security and governance\. You can create rules that automatically check the configuration of AWS resources that AWS Config records\.   
 See also [https://aws\.amazon\.com/config/](https://aws.amazon.com/config/).
-
-**AWS Elemental MediaConvert**<a name="AWSElementalMediaConvert"></a>  
-A file\-based video conversion service that transforms media into formats required for traditional broadcast and for internet streaming to multi\-screen devices\.   
-See also [https://aws\.amazon\.com/mediaconvert](https://aws.amazon.com/mediaconvert).
-
-**AWS Elemental MediaLive**<a name="AWSElementalMediaLive"></a>  
-A video service that lets you easily create live outputs for broadcast and streaming delivery\.   
-See also [https://aws\.amazon\.com/medialive](https://aws.amazon.com/medialive).
-
-**AWS Elemental MediaPackage**<a name="AWSElementalMediaPackage"></a>  
-A just\-in\-time packaging and origination service that lets you format highly secure and reliable live outputs for a variety of devices\.   
-See also [https://aws\.amazon\.com/mediapackage](https://aws.amazon.com/mediapackage).
-
-**AWS Elemental MediaStore**<a name="AWSElementalMediaStore"></a>  
-A storage service optimized for media that provides the performance, consistency, and low latency required to deliver live and on\-demand video content at scale\.   
-See also [https://aws\.amazon\.com/mediastore](https://aws.amazon.com/mediastore).
-
-**AWS Elemental MediaTailor**<a name="AWSElementalMediaTailor"></a>  
-A video service that lets you serve targeted ads to viewers while maintaining broadcast quality in over\-the\-top \(OTT\) video applications\.   
-See also [https://aws\.amazon\.com/mediatailor](https://aws.amazon.com/mediatailor).
 
 **AWS Database Migration Service**<a name="AWSDatabaseMigrationService"></a>  
 A web service that can help you migrate data to and from many widely used commercial and open\-source databases\.   
@@ -467,12 +525,44 @@ A web service that simplifies establishing a dedicated network connection from y
 See also [ https://aws\.amazon\.com/directconnect](https://aws.amazon.com/directconnect/).
 
 **AWS Directory Service**<a name="AWSDirectoryService"></a>  
-A managed service for connecting your AWS [resource](#resource)s to an existing on\-premises Microsoft Active Directory or to set up and operate a new, standalone directory in the AWS cloud\.   
+A managed service for connecting your AWS [resource](#resource)s to an existing on\-premises Microsoft Active Directory or to set up and operate a new, standalone directory in the AWS Cloud\.   
 See also [ https://aws\.amazon\.com/directoryservice](https://aws.amazon.com/directoryservice/).
 
 **AWS Elastic Beanstalk**<a name="Beanstalk"></a>  
 A web service for deploying and managing applications in the AWS Cloud without worrying about the infrastructure that runs those applications\.   
 See also [https://aws\.amazon\.com/elasticbeanstalk](https://aws.amazon.com/elasticbeanstalk/).
+
+**AWS Elemental MediaConnect**<a name="mediaconnect"></a>  
+A service that lets broadcasters and other premium video providers reliably ingest live video into the AWS Cloud and distribute it to multiple destinations inside or outside the AWS Cloud\.   
+See also [https://aws\.amazon\.com/mediaconnect](https://aws.amazon.com/mediaconnect/).
+
+**AWS Elemental MediaConvert**<a name="AWSElementalMediaConvert"></a>  
+A file\-based video conversion service that transforms media into formats required for traditional broadcast and for internet streaming to multi\-screen devices\.   
+See also [https://aws\.amazon\.com/mediaconvert](https://aws.amazon.com/mediaconvert).
+
+**AWS Elemental MediaLive**<a name="AWSElementalMediaLive"></a>  
+A video service that lets you create live outputs for broadcast and streaming delivery\.   
+See also [https://aws\.amazon\.com/medialive](https://aws.amazon.com/medialive).
+
+**AWS Elemental MediaPackage**<a name="AWSElementalMediaPackage"></a>  
+A just\-in\-time packaging and origination service that lets you format highly secure and reliable live outputs for a variety of devices\.   
+See also [https://aws\.amazon\.com/mediapackage](https://aws.amazon.com/mediapackage).
+
+**AWS Elemental MediaStore**<a name="AWSElementalMediaStore"></a>  
+A storage service optimized for media that provides the performance, consistency, and low latency required to deliver live and on\-demand video content at scale\.   
+See also [https://aws\.amazon\.com/mediastore](https://aws.amazon.com/mediastore).
+
+**AWS Elemental MediaTailor**<a name="AWSElementalMediaTailor"></a>  
+A video service that lets you serve targeted ads to viewers while maintaining broadcast quality in over\-the\-top \(OTT\) video applications\.   
+See also [https://aws\.amazon\.com/mediatailor](https://aws.amazon.com/mediatailor).
+
+**AWS Firewall Manager**<a name="firewallmanager"></a>  
+A service that you use with AWS WAF to simplify your AWS WAF administration and maintenance tasks across multiple accounts and resources\. With AWS Firewall Manager, you set up your firewall rules just once\. The service automatically applies your rules across your accounts and resources, even as you add new resources\.   
+See also [https://aws\.amazon\.com/firewall\-manager](https://aws.amazon.com/firewall-manager/).
+
+**AWS Global Accelerator**<a name="globalaccelerator"></a>  
+A network layer service that you use to create accelerators that direct traffic to optimal endpoints over the AWS global network\. This improves the availability and performance of your internet applications that are used by a global audience\.   
+See also [https://aws\.amazon\.com/global\-accelerator](https://aws.amazon.com/global-accelerator/).
 
 **AWS Glue**<a name="Glue"></a>  
 A fully managed [extract, transform, and load \(ETL\)](#extracttransformload) service that you can use to catalog data and load it for analytics\. With AWS Glue, you can discover your data, develop scripts to transform sources into targets, and schedule and run ETL jobs in a serverless environment\.   
@@ -482,10 +572,6 @@ See also [https://aws\.amazon\.com/glue](https://aws.amazon.com/glue/).
 An isolated AWS Region designed to host sensitive workloads in the cloud, ensuring that this work meets the US government's regulatory and compliance requirements\. The AWS GovCloud \(US\) Region adheres to United States International Traffic in Arms Regulations \(ITAR\), Federal Risk and Authorization Management Program \(FedRAMP\) requirements, Department of Defense \(DOD\) Cloud Security Requirements Guide \(SRG\) Levels 2 and 4, and Criminal Justice Information Services \(CJIS\) Security Policy requirements\.   
 See also [https://aws\.amazon\.com/govcloud\-us/](https://aws.amazon.com/govcloud-us/).
 
-**AWS Glue**<a name="Greengrass"></a>  
-Software that lets you run local compute, messaging, data caching, sync, and ML inference capabilities for connected devices in a secure way\.   
-See also [https://aws\.amazon\.com/greengrass](https://aws.amazon.com/greengrass/).
-
 **AWS Identity and Access Management \(IAM\)**<a name="IAM"></a>  
 A web service that enables [Amazon Web Services \(AWS\)](#amazonwebservices) customers to manage users and user permissions within AWS\.   
 See also [https://aws\.amazon\.com/iam](https://aws.amazon.com/iam/).
@@ -494,7 +580,7 @@ See also [https://aws\.amazon\.com/iam](https://aws.amazon.com/iam/).
 A service for transferring large amounts of data between AWS and portable storage devices\.    
 See also [https://aws\.amazon\.com/importexport](https://aws.amazon.com/importexport/).
 
-**AWS IoT**<a name="AWSIoT"></a>  
+**AWS IoT Core**<a name="AWSIoT"></a>  
 A managed cloud platform that lets connected devices easily and securely interact with cloud applications and other devices\.   
 See also [https://aws\.amazon\.com/iot](https://aws.amazon.com/iot/).
 
@@ -506,20 +592,36 @@ See also [https://aws\.amazon\.com/iot\-1\-click](https://aws.amazon.com/iot-1-c
 A fully managed service used to run sophisticated analytics on massive volumes of IoT data\.   
 See also [https://aws\.amazon\.com/iot\-analytics](https://aws.amazon.com/iot-analytics/).
 
+**AWS IoT Device Defender**<a name="AWSIoTDeviceDefender"></a>  
+An AWS IoT security service that allows you to audit the configuration of your devices, monitor your connected devices to detect abnormal behavior, and to mitigate security risks\.   
+See also [https://aws\.amazon\.com/iot\-device\-defender](https://aws.amazon.com/iot-device-defender/).
+
 **AWS IoT Device Management**<a name="AWSIoTDeviceManagement"></a>  
 A service used to securely onboard, organize, monitor, and remotely manage IoT devices at scale\.   
 See also [https://aws\.amazon\.com/iot\-device\-management](https://aws.amazon.com/iot-device-management/).
+
+**AWS IoT Events**<a name="AWSIoTEvents"></a>  
+A fully managed AWS IoT service that makes it easy to detect and respond to events from IoT sensors and applications\.   
+See also [https://aws\.amazon\.com/iot\-events](https://aws.amazon.com/iot-events/).
+
+**AWS IoT Greengrass**<a name="Greengrass"></a>  
+Software that lets you run local compute, messaging, data caching, sync, and ML inference capabilities for connected devices in a secure way\.   
+See also [https://aws\.amazon\.com/greengrass](https://aws.amazon.com/greengrass/).
+
+**AWS IoT Things Graph**<a name="AWSIoTThingsGraph"></a>  
+A service that makes it easy to visually connect different devices and web services to build IoT applications\.   
+See also [https://aws\.amazon\.com/iot\-things\-graph](https://aws.amazon.com/iot-things-graph/).
 
 **AWS Key Management Service \(AWS KMS\)**<a name="AWS_KMS"></a>  
 A managed service that simplifies the creation and control of [encryption](#encrypt) keys that are used to encrypt data\.   
 See also [ https://aws\.amazon\.com/kms](https://aws.amazon.com/kms/).
 
 **AWS Lambda**<a name="lambda"></a>  
-A web service that lets you run code without provisioning or managing servers\. You can run code for virtually any type of application or back\-end service with zero administration\. You can set up your code to automatically trigger from other AWS services or call it directly from any web or mobile app\.   
+A web service that lets you run code without provisioning or managing servers\. You can run code for virtually any type of application or backend service with zero administration\. You can set up your code to automatically trigger from other AWS services or call it directly from any web or mobile app\.   
 See also [https://aws\.amazon\.com/lambda/](https://aws.amazon.com/lambda/).
 
 **AWS managed key**<a name="AWS_managed_key"></a>  
-One of two types of [customer master key \(CMK\)](#customer_master_key)s in [AWS Key Management Service \(AWS KMS\)](#AWS_KMS)\. 
+One type of [customer master key \(CMK\)](#customer_master_key) in [AWS Key Management Service \(AWS KMS\)](#AWS_KMS)\. 
 
 **AWS managed policy**<a name="AWS_managed_policy"></a>  
 An [IAM](#IAM) [managed policy](#managed_policy) that is created and managed by AWS\.
@@ -529,11 +631,11 @@ A graphical interface to manage compute, storage, and other cloud [resource](#re
 See also [https://aws\.amazon\.com/console](https://aws.amazon.com/console/).
 
 **AWS Management Portal for vCenter**<a name="mgtportal"></a>  
-A web service for managing your AWS [resource](#resource)s using VMware vCenter\. You install the portal as a vCenter plug\-in within your existing vCenter environment\. Once installed, you can migrate VMware VMs to [Amazon EC2](#ec2) and manage AWS resources from within vCenter\.   
+A web service for managing your AWS [resource](#resource)s using VMware vCenter\. You install the portal as a vCenter plugin within your existing vCenter environment\. Once installed, you can migrate VMware VMs to [Amazon EC2](#ec2) and manage AWS resources from within vCenter\.   
 See also [https://aws\.amazon\.com/ec2/vcenter\-portal/](https://aws.amazon.com/ec2/vcenter-portal/).
 
 **AWS Marketplace**<a name="marketplace"></a>  
-A web portal where qualified partners to market and sell their software to AWS customers\. AWS Marketplace is an online software store that helps customers find, buy, and immediately start using the software and services that run on AWS\.   
+A web portal where qualified partners market and sell their software to AWS customers\. AWS Marketplace is an online software store that helps customers find, buy, and immediately start using the software and services that run on AWS\.   
 See also [https://aws\.amazon\.com/partners/aws\-marketplace/](https://aws.amazon.com/partners/aws-marketplace/).
 
 **AWS Mobile Hub**<a name="AWSMobileHub"></a>  
@@ -541,7 +643,7 @@ An integrated console that for building, testing, and monitoring mobile apps\.
 See also [https://aws\.amazon\.com/mobile](https://aws.amazon.com/console/).
 
 **AWS Mobile SDK**<a name="mobilesdk"></a>  
-A software development kit whose libraries, code samples, and documentation help you build high quality mobile apps for the iOS, Android, Fire OS, Unity, and Xamarin platforms\.   
+A software development kit whose libraries, code examples, and documentation help you build high quality mobile apps for the iOS, Android, Fire OS, Unity, and Xamarin platforms\.   
 See also [https://aws\.amazon\.com/mobile/sdk](https://aws.amazon.com/mobile/sdk).
 
 **AWS OpsWorks**<a name="opsworks"></a>  
@@ -552,8 +654,15 @@ See also [https://aws\.amazon\.com/opsworks/](https://aws.amazon.com/opsworks/).
 An account management service that enables you to consolidate multiple AWS accounts into an organization that you create and centrally manage\.    
 See also [https://aws\.amazon\.com/organizations/](https://aws.amazon.com/organizations/).
 
+**AWS Resource Access Manager**<a name="awsram"></a>  
+A service that lets you share your resources with any AWS account or organization in AWS Organizations\.   
+See also [https://aws\.amazon\.com/ram/](https://aws.amazon.com/ram/).
+
+**AWS ParallelCluster**<a name="parallelcluster"></a>  
+An AWS supported open source cluster management tool that helps you to deploy and manage high performance computing \(HPC\) clusters in the AWS Cloud\.
+
 **AWS SDK for C\+\+**<a name="sdkcpp"></a>  
-A software development kit for that provides C\+\+ APIs for many AWS services including [Amazon S3](#AmazonSimpleStorageService), [Amazon EC2](#ec2), [Amazon DynamoDB](#dynamodb), and more\. The single, downloadable package includes the AWS C\+\+ library, code samples, and documentation\.   
+A software development kit for that provides C\+\+ APIs for many AWS services including [Amazon S3](#AmazonSimpleStorageService), [Amazon EC2](#ec2), [Amazon DynamoDB](#dynamodb), and more\. The single, downloadable package includes the AWS C\+\+ library, code examples, and documentation\.   
 See also [https://aws\.amazon\.com/sdk\-for\-cpp/](https://aws.amazon.com/sdk-for-cpp/).
 
 **AWS SDK for Go**<a name="sdkgo"></a>  
@@ -561,27 +670,27 @@ A software development kit for integrating your Go application with the full sui
 See also [https://aws\.amazon\.com/sdk\-for\-go/](https://aws.amazon.com/sdk-for-go/).
 
 **AWS SDK for Java**<a name="sdkjava"></a>  
-A software development kit that provides Java APIs for many AWS services including [Amazon S3](#AmazonSimpleStorageService), [Amazon EC2](#ec2), [Amazon DynamoDB](#dynamodb), and more\. The single, downloadable package includes the AWS Java library, code samples, and documentation\.    
+A software development kit that provides Java APIs for many AWS services including [Amazon S3](#AmazonSimpleStorageService), [Amazon EC2](#ec2), [Amazon DynamoDB](#dynamodb), and more\. The single, downloadable package includes the AWS Java library, code examples, and documentation\.    
 See also [https://aws\.amazon\.com/sdk\-for\-java/](https://aws.amazon.com/sdk-for-java/).
 
 **AWS SDK for JavaScript in the Browser**<a name="sdkjavabrowser"></a>  
 A software development kit for accessing AWS services from JavaScript code running in the browser\. Authenticate users through Facebook, Google, or Login with Amazon using web identity federation\. Store application data in [Amazon DynamoDB](#dynamodb), and save user files to [Amazon S3](#AmazonSimpleStorageService)\.   
-See also [http://docs\.aws\.amazon\.com/sdk\-for\-javascript/v2/developer\-guide/](http://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/).
+See also [https://docs\.aws\.amazon\.com/sdk\-for\-javascript/v2/developer\-guide/](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/).
 
 **AWS SDK for JavaScript in Node\.js**<a name="sdkjavanodejs"></a>  
 A software development kit for accessing AWS services from JavaScript in Node\.js\. The SDK provides JavaScript objects for AWS services, including [Amazon S3](#AmazonSimpleStorageService), [Amazon EC2](#ec2), [Amazon DynamoDB](#dynamodb), and [Amazon Simple Workflow Service \(Amazon SWF\)](#swf) \. The single, downloadable package includes the AWS JavaScript library and documentation\.   
-See also [http://docs\.aws\.amazon\.com/sdk\-for\-javascript/v2/developer\-guide/](http://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/).
+See also [https://docs\.aws\.amazon\.com/sdk\-for\-javascript/v2/developer\-guide/](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/).
 
 **AWS SDK for \.NET**<a name="sdkdotnet"></a>  
 A software development kit that provides \.NET API actions for AWS services including [Amazon S3](#AmazonSimpleStorageService), [Amazon EC2](#ec2), [IAM](#IAM), and more\. You can download the SDK as multiple service\-specific packages on NuGet\.   
 See also [https://aws\.amazon\.com/sdk\-for\-net/](https://aws.amazon.com/sdk-for-net/).
 
 **AWS SDK for PHP**<a name="sdkphp"></a>  
-A software development kit and open\-source PHP library for integrating your PHP application with AWS services like [Amazon S3](#AmazonSimpleStorageService), [Amazon Glacier](#glacier), and [Amazon DynamoDB](#dynamodb)\.   
+A software development kit and open\-source PHP library for integrating your PHP application with AWS services like [Amazon S3](#AmazonSimpleStorageService), [Amazon S3 Glacier](#glacier), and [Amazon DynamoDB](#dynamodb)\.   
 See also [https://aws\.amazon\.com/sdk\-for\-php/](https://aws.amazon.com/sdk-for-php/).
 
 **AWS SDK for Python \(Boto\)**<a name="sdkpython"></a>  
-A software development kit for using Python to access AWS services like [Amazon EC2](#ec2), [Amazon EMR](#AmazonElasticMapReduce), [Auto Scaling](#AutoScaling), [Amazon Kinesis](#AmazonKinesis), [AWS Lambda](#lambda), and more\.   
+A software development kit for using Python to access AWS services like [Amazon EC2](#ec2), [Amazon EMR](#AmazonElasticMapReduce), [Amazon EC2 Auto Scaling](#AutoScaling), [Amazon Kinesis](#AmazonKinesis), [AWS Lambda](#lambda), and more\.   
 See also [http://boto\.readthedocs\.org/en/latest/](http://boto.readthedocs.org/en/latest/).
 
 **AWS SDK for Ruby**<a name="sdkruby"></a>  
@@ -596,6 +705,10 @@ See also [https://aws\.amazon\.com/iam/](https://aws.amazon.com/iam/).
 A web service that helps organizations create and manage catalogs of IT services that are approved for use on AWS\. These IT services can include everything from virtual machine images, servers, software, and databases to complete multitier application architectures\.   
 See also [https://aws\.amazon\.com/servicecatalog/](https://aws.amazon.com/servicecatalog/).
 
+**AWS Shield**<a name="shield"></a>  
+A service that helps to protect your resources—such as Amazon EC2 instances, Elastic Load Balancing load balancers, Amazon CloudFront distributions, and Route 53 hosted zones—against DDoS attacks\. AWS Shield is automatically included at no extra cost beyond what you already pay for AWS WAF and your other AWS services\. For added protection against DDoS attacks, AWS offers AWS Shield Advanced\.    
+See also [https://aws\.amazon\.com/shield](https://aws.amazon.com/shield/).
+
 **AWS Single Sign\-On**<a name="aws-sso"></a>  
 A cloud\-based service that simplifies managing SSO access to AWS accounts and business applications\. You can control SSO access and user permissions across all your AWS accounts in AWS Organizations\.   
 See also [https://aws\.amazon\.com/single\-sign\-on/](https://aws.amazon.com/single-sign-on/).
@@ -609,16 +722,24 @@ A petabyte\-scale data transport solution that uses devices designed to be secur
 See also [https://aws\.amazon\.com/snowball](https://aws.amazon.com/importexport/).
 
 **AWS Storage Gateway**<a name="storagegateway"></a>  
-A web service that connects an on\-premises software appliance with cloud\-based storage to provide seamless and secure integration between an organization’s on\-premises IT environment and AWS’s storage infrastructure\.   
+A web service that connects an on\-premises software appliance with cloud\-based storage\. AWS Storage Gateway provides seamless and secure integration between an organization’s on\-premises IT environment and AWS storage infrastructure\.   
 See also [https://aws\.amazon\.com/storagegateway/](https://aws.amazon.com/storagegateway/).
 
 **AWS Toolkit for Eclipse**<a name="toolkiteclipse"></a>  
-An open\-source plug\-in for the Eclipse Java IDE that makes it easier for developers to develop, debug, and deploy Java applications using Amazon Web Services\.   
+An open\-source plugin for the Eclipse Java integrated development environment \(IDE\) that makes it easier to develop, debug, and deploy Java applications using Amazon Web Services\.   
 See also [https://aws\.amazon\.com/eclipse/](https://aws.amazon.com/eclipse/).
 
+**AWS Toolkit for JetBrains**<a name="toolkitjetbrains"></a>  
+An open\-source plugin for the integrated development environments \(IDEs\) from JetBrains that makes it easier to develop, debug, and deploy serverless applications using Amazon Web Services\.   
+See also [https://aws\.amazon\.com/intellij/](https://aws.amazon.com/intellij/)[https://aws\.amazon\.com/pycharm/](https://aws.amazon.com/pycharm/).
+
 **AWS Toolkit for Visual Studio**<a name="toolkitvisualstudio"></a>  
-An extension for Microsoft Visual Studio that helps developers develop, debug, and deploy \.NET applications using Amazon Web Services\.    
+An extension for Visual Studio that helps in developing, debugging, and deploying \.NET applications using Amazon Web Services\.    
 See also [https://aws\.amazon\.com/visualstudio/](https://aws.amazon.com/visualstudio/).
+
+**AWS Toolkit for Visual Studio Code**<a name="toolkitvscode"></a>  
+An open\-source plugin for the Visual Studio Code \(VS Code\) editor that makes it easier to develop, debug, and deploy applications using Amazon Web Services\.   
+See also [https://aws\.amazon\.com/visualstudiocode/](https://aws.amazon.com/visualstudiocode/).
 
 **AWS Tools for Windows PowerShell**<a name="toolspowershell"></a>  
 A set of PowerShell cmdlets to help developers and administrators manage their AWS services from the Windows PowerShell scripting environment\.   
@@ -636,11 +757,11 @@ See also [https://aws\.amazon\.com/premiumsupport/trustedadvisor/](https://aws.a
 Enables secure communication between branch offices using a simple hub\-and\-spoke model, with or without a [VPC](#VPC)\.
 
 **AWS WAF**<a name="awswaf"></a>  
-A web application firewall service that controls access to content by allowing or blocking web requests based on criteria that you specify, such as header values or the IP addresses that the requests originate from\. AWS WAF helps protect web applications from common web exploits that could affect application availability, compromise security, or consume excessive resources\.   
+A web application firewall service that controls access to content by allowing or blocking web requests based on criteria that you specify\. For example, you can filter access based on the header values or the IP addresses that the requests originate from\. AWS WAF helps protect web applications from common web exploits that could affect application availability, compromise security, or consume excessive resources\.   
 See also [https://aws\.amazon\.com/waf/](https://aws.amazon.com/waf/).
 
 **AWS X\-Ray**<a name="awsxray"></a>  
-A web service that collects data about requests that your application serves, and provides tools you can use to view, filter, and gain insights into that data to identify issues and opportunities for optimization\.   
+A web service that collects data about requests that your application serves\. X\-Ray provides tools that you can use to view, filter, and gain insights into that data to identify issues and opportunities for optimization\.   
 See also [https://aws\.amazon\.com/xray/](https://aws.amazon.com/xray/).
 
 ### B<a name="B"></a>
@@ -674,7 +795,7 @@ Amazon Machine Learning: A machine learning model that predicts the answer to qu
 A list of IP addresses, email addresses, or domains that an [internet service provider](#internetserviceprovider) suspects to be the source of [spam](#spam)\. The ISP blocks incoming email from these addresses or domains\.
 
 **block**<a name="block"></a>  
-A data set\. [Amazon EMR](#AmazonElasticMapReduce) breaks large amounts of data into subsets\. Each subset is called a data block\. Amazon EMR assigns an ID to each block and uses a hash table to keep track of block processing\.
+A dataset\. [Amazon EMR](#AmazonElasticMapReduce) breaks large amounts of data into subsets\. Each subset is called a data block\. Amazon EMR assigns an ID to each block and uses a hash table to keep track of block processing\.
 
 **block device**<a name="blockdevice"></a>  
 A storage device that supports reading and \(optionally\) writing data in fixed\-size blocks, sectors, or clusters\.
@@ -683,7 +804,7 @@ A storage device that supports reading and \(optionally\) writing data in fixed\
 A mapping structure for every [AMI](#AmazonMachineImage) and [instance](#instance) that specifies the block devices attached to the instance\.
 
 **blue/green deployment**<a name="bluegreendeployment"></a>  
-AWS CodeDeploy: A deployment method in which the instances in a deployment group \(the original environment\) are replaced by a different set of instances \(the replacement environment\)\.
+CodeDeploy: A deployment method in which the instances in a deployment group \(the original environment\) are replaced by a different set of instances \(the replacement environment\)\.
 
 **bootstrap action**<a name="bootstrapact"></a>  
 A user\-specified default or custom action that runs a script or an application on all nodes of a job flow before [Hadoop](#Hadoop) starts\.
@@ -695,7 +816,7 @@ See [BGP ASN](#BGPASN).
 A failed email delivery attempt\.
 
 **breach**<a name="breach"></a>  
-[Auto Scaling](#AutoScaling): The condition in which a user\-set threshold \(upper or lower boundary\) is passed\. If the duration of the breach is significant, as set by a breach duration parameter, it can possibly start a [scaling activity](#ScalingActivity)\. 
+[Amazon EC2 Auto Scaling](#AutoScaling): The condition in which a user\-set threshold \(upper or lower boundary\) is passed\. If the duration of the breach is significant, as set by a breach duration parameter, it can possibly start a [scaling activity](#ScalingActivity)\. 
 
 **bucket**<a name="bucket"></a>  
 [Amazon Simple Storage Service \(Amazon S3\)](#AmazonSimpleStorageService): A container for stored objects\. Every object is contained in a bucket\. For example, if the object named `photos/puppy.jpg` is stored in the `johnsmith` bucket, then authorized users can access the object with the URL `http://johnsmith.s3.amazonaws.com/photos/puppy.jpg`\.
@@ -729,7 +850,7 @@ An [EC2 instance](#ec2instance) type used to run the cache node\.
 A container for cache engine parameter values that can be applied to one or more cache clusters\.
 
 **cache security group**<a name="CacheSecurityGroup"></a>  
-A group maintained by ElastiCache that combines ingress authorizations to cache nodes for hosts belonging to [Amazon EC2](#ec2) [security group](#SecurityGroup)s specified through the console or the API or command line tools\.
+A group maintained by ElastiCache that combines inbound authorizations to cache nodes for hosts belonging to [Amazon EC2](#ec2) [security group](#SecurityGroup)s specified through the console or the API or command line tools\.
 
 **canned access policy**<a name="cannedaccesspol"></a>  
 A standard access control policy that you can apply to a [bucket](#bucket) or object\. Options include: private, public\-read, public\-read\-write, and authenticated\-read\.
@@ -740,10 +861,10 @@ The process of converting data into a standard format that a service such as [Am
 **capacity**<a name="capacity"></a>  
 The amount of available compute size at a given time\. Each [Auto Scaling group](#AutoScalingGroup) is defined with a minimum and maximum compute size\. A [scaling activity](#ScalingActivity) increases or decreases the capacity within the defined minimum and maximum values\.
 
-**cartesian product processor**<a name="cartesian-product-processor"></a>  
-A processor that calculates a cartesian product\. Also known as a *cartesian data processor*\.
+**Cartesian product processor**<a name="cartesian-product-processor"></a>  
+A processor that calculates a Cartesian product\. Also known as a *Cartesian data processor*\.
 
-**cartesian product**<a name="cartesian-product"></a>  
+**Cartesian product**<a name="cartesian-product"></a>  
 A mathematical operation that returns a product from multiple sets\.
 
 **CDN**   
@@ -768,7 +889,7 @@ See also .
 See also .
 
 **classification**<a name="classification"></a>  
-In machine learning, a type of problem that seeks to place \(classify\) a data sample into a single category or “class\.” Often, classification problems are modeled to choose one category \(class\) out of two\. These are binary classification problems\. Problems where more than two categories \(classes\) are available are called "multiclass classification" problems\.   
+In machine learning, a type of problem that seeks to place \(classify\) a data sample into a single category or “class\.” Often, classification problems are modeled to choose one category \(class\) out of two\. These are binary classification problems\. Problems with more than two available categories \(classes\) are called "multiclass classification" problems\.   
 See also . 
 See also .
 
@@ -859,7 +980,7 @@ A software development practice in which developers regularly merge code changes
 See also [https://aws\.amazon\.com/devops/continuous\-integration/](https://aws.amazon.com/devops/continuous-integration/).
 
 **cooldown period**<a name="cooldown"></a>  
-Amount of time during which [Auto Scaling](#AutoScaling) does not allow the desired size of the [Auto Scaling group](#AutoScalingGroup) to be changed by any other notification from an [Amazon CloudWatch](#AmazonCW) [alarm](#alarm)\.
+Amount of time during which [Amazon EC2 Auto Scaling](#AutoScaling) does not allow the desired size of the [Auto Scaling group](#AutoScalingGroup) to be changed by any other notification from an [Amazon CloudWatch](#AmazonCW) [alarm](#alarm)\.
 
 **core node**<a name="corenode"></a>  
 An [EC2 instance](#ec2instance) that runs [Hadoop](#Hadoop) map and reduce tasks and stores data using the Hadoop Distributed File System \(HDFS\)\. Core nodes are managed by the [master node](#masternode), which assigns Hadoop tasks to nodes and monitors their status\. The EC2 instances you assign as core nodes are capacity that must be allotted for the entire job flow run\. Because core nodes store data, you can't remove them from a job flow\. However, you can add more core nodes to a running job flow\.   
@@ -869,13 +990,13 @@ Core nodes run both the DataNodes and TaskTracker Hadoop daemons\.
 [Amazon CloudSearch](#cloudSearch): A collection of data that you want to search\.
 
 **credential helper**<a name="credentialhelper"></a>  
-[AWS CodeCommit](#AWSCodeCommit): A program that stores credentials for repositories and supplies them to Git when making connections to those repositories\. The [AWS CLI](#awscli) includes a credential helper that you can use with Git when connecting to AWS CodeCommit repositories\.
+[AWS CodeCommit](#AWSCodeCommit): A program that stores credentials for repositories and supplies them to Git when making connections to those repositories\. The [AWS CLI](#awscli) includes a credential helper that you can use with Git when connecting to CodeCommit repositories\.
 
 **credentials**<a name="accesscredentials"></a>  
 Also called *access credentials* or *security credentials*\. In authentication and authorization, a system uses credentials to identify who is making a call and whether to allow the requested access\. In AWS, these credentials are typically the [access key ID](#accesskeyID) and the [secret access key](#SecretAccessKey)\.
 
 **cross\-account access**<a name="crossaccountaccess"></a>  
-The process of permitting limited, controlled use of [resource](#resource)s in one AWS [account](#account) by a user in another AWS account\. For example, in [AWS CodeCommit](#AWSCodeCommit) and [AWS CodeDeploy \(CodeDeploy\)](#AWSCodeDeploy) you can configure cross\-account access so that a user in AWS account A can access an AWS CodeCommit repository created by account B\. Or a pipeline in [AWS CodePipeline](#AWSCodePipeline) created by account A can use AWS CodeDeploy resources created by account B\. In [IAM](#IAM) you use a [role](#role) to [delegate](#delegation) temporary access to a [user](#AWSUser) in one account to resources in another\.
+The process of permitting limited, controlled use of [resource](#resource)s in one AWS [account](#account) by a user in another AWS account\. For example, in [AWS CodeCommit](#AWSCodeCommit) and [AWS CodeDeploy](#AWSCodeDeploy) you can configure cross\-account access so that a user in AWS account A can access an CodeCommit repository created by account B\. Or a pipeline in [AWS CodePipeline](#AWSCodePipeline) created by account A can use CodeDeploy resources created by account B\. In [IAM](#IAM) you use a [role](#role) to [delegate](#delegation) temporary access to a [user](#AWSUser) in one account to resources in another\.
 
 **cross\-Region replication**<a name="cross-region-replication"></a>  
 A client\-side solution for maintaining identical copies of [Amazon DynamoDB](#dynamodb) tables across different AWS [Region](#region)s, in near real time\.
@@ -925,7 +1046,7 @@ The name of a database hosted in a [DB instance](#dbinstance)\. A DB instance ca
 See also .
 
 **DB compute class**<a name="DBComputeclass"></a>  
-Size of the database compute platform used to run the instance\.
+The size of the database compute platform used to run the instance\.
 
 **DB instance**<a name="dbinstance"></a>  
 An isolated database environment running in the cloud\. A DB instance can contain multiple user\-created databases\.
@@ -937,7 +1058,7 @@ User\-supplied identifier for the DB instance\. The identifier must be unique fo
 A container for database engine parameter values that apply to one or more [DB instance](#dbinstance)s\.
 
 **DB security group**<a name="DBSecurityGroup"></a>  
-A method that controls access to the [DB instance](#dbinstance)\. By default, network access is turned off to DB instances\. After ingress is configured for a [security group](#SecurityGroup), the same rules apply to all DB instances associated with that group\.
+A method that controls access to the [DB instance](#dbinstance)\. By default, network access is turned off to DB instances\. After inbound traffic is configured for a [security group](#SecurityGroup), the same rules apply to all DB instances associated with that group\.
 
 **DB snapshot**<a name="DBSnapshot"></a>  
 A user\-initiated point backup of a [DB instance](#dbinstance)\.
@@ -974,10 +1095,10 @@ The number of email messages, sent through [Amazon SES](#SES), that were accepte
 The result of a [policy](#policy) statement that includes deny as the effect, so that a specific action or actions are expressly forbidden for a user, group, or role\. Explicit deny take precedence over explicit [allow](#allow)\. 
 
 **deployment configuration**<a name="deploymentconfiguration"></a>  
-[AWS CodeDeploy \(CodeDeploy\)](#AWSCodeDeploy): A set of deployment rules and success and failure conditions used by the service during a deployment\.
+[AWS CodeDeploy](#AWSCodeDeploy): A set of deployment rules and success and failure conditions used by the service during a deployment\.
 
 **deployment group**<a name="deploymentgroup"></a>  
-[AWS CodeDeploy \(CodeDeploy\)](#AWSCodeDeploy): A set of individually tagged [instance](#instance)s, [EC2 instance](#ec2instance)s in [Auto Scaling group](#AutoScalingGroup)s, or both\.
+[AWS CodeDeploy](#AWSCodeDeploy): A set of individually tagged [instance](#instance)s, [EC2 instance](#ec2instance)s in [Auto Scaling group](#AutoScalingGroup)s, or both\.
 
 **detailed monitoring**<a name="detailedmonitoring"></a>  
 Monitoring of AWS provided metrics derived at a 1\-minute frequency\.
@@ -989,7 +1110,7 @@ A property added to parameters, [resource](#resource)s, resource properties, map
 A name–value pair \(for example, InstanceType=m1\.small, or EngineName=mysql\), that contains additional information to identify a metric\.
 
 **discussion forums**<a name="discussionforums"></a>  
-A place where AWS users can post technical questions and feedback to help accelerate their development efforts and to engage with the AWS community\. The discussion forums are located at [https://aws\.amazon\.com/forums/](https://aws.amazon.com/forums/)\.
+A place where AWS users can post technical questions and feedback to help accelerate their development efforts and to engage with the AWS community\. The discussion forums are located at [https://forums\.aws\.amazon\.com/](https://forums.aws.amazon.com/)\.
 
 **distribution**<a name="distribution"></a>  
 A link between an origin server \(such as an [Amazon S3](#AmazonSimpleStorageService) [bucket](#bucket)\) and a domain name, which [CloudFront](#AmazonCF) automatically assigns\. Through this link, CloudFront identifies the object you have stored in your [origin server](#originserver)\. 
@@ -1075,10 +1196,10 @@ A web service that improves an application's availability by distributing incomi
 See also [https://aws\.amazon\.com/elasticloadbalancing](https://aws.amazon.com/elasticloadbalancing/).
 
 **elastic network interface**<a name="elasticnetworkinterface"></a>  
-An additional network interface that can be attached to an [instance](#instance)\. Elastic network interfaces include a primary private IP address, one or more secondary private IP addresses, an elastic IP address \(optional\), a MAC address, membership in specified [security group](#SecurityGroup)s, a description, and a source/destination check flag\. You can create an elastic network interface, attach it to an instance, detach it from an instance, and attach it to another instance\. 
+An additional network interface that can be attached to an [instance](#instance)\. Elastic network interfaces include a primary private IP address, one or more secondary private IP addresses, an Elastic IP Address \(optional\), a MAC address, membership in specified [security group](#SecurityGroup)s, a description, and a source/destination check flag\. You can create an elastic network interface, attach it to an instance, detach it from an instance, and attach it to another instance\. 
 
 **Elasticsearch**<a name="Elasticsearch"></a>  
-An open source, real\-time distributed search and analytics engine used for full\-text search, structured search, and analytics\. Elasticsearch was developed by the Elastic company\.  
+An open\-source, real\-time distributed search and analytics engine used for full\-text search, structured search, and analytics\. Elasticsearch was developed by the Elastic company\.  
 Amazon Elasticsearch Service \(Amazon ES\) is an AWS managed service for deploying, operating, and scaling Elasticsearch in the AWS Cloud\.   
 See also . 
 See also .
@@ -1107,7 +1228,7 @@ The use of a master key and a data key to algorithmically protect data\. The mas
 
 **environment**<a name="environment"></a>  
 [AWS Elastic Beanstalk](#Beanstalk): A specific running instance of an [application](#application)\. The application has a CNAME and includes an application version and a customizable configuration \(which is inherited from the default container type\)\.  
-[AWS CodeDeploy \(CodeDeploy\)](#AWSCodeDeploy): Instances in a deployment group in a blue/green deployment\. At the start of a blue/green deployment, the deployment group is made up of instances in the original environment\. At the end of the deployment, the deployment group is made up of instances in the replacement environment\.
+[AWS CodeDeploy](#AWSCodeDeploy): Instances in a deployment group in a blue/green deployment\. At the start of a blue/green deployment, the deployment group is made up of instances in the original environment\. At the end of the deployment, the deployment group is made up of instances in the replacement environment\.
 
 **environment configuration**<a name="environmentconfiguration"></a>  
 A collection of parameters and settings that define how an environment and its associated resources behave\.
@@ -1135,7 +1256,7 @@ See also .
 See also .
 
 **eventually consistent read**<a name="eventually-consistent-read"></a>  
-A read process that returns data from only one region and might not show the most recent write information\. However, if you repeat your read request after a short time, the response should eventually return the latest data\.   
+A read process that returns data from only one Region and might not show the most recent write information\. However, if you repeat your read request after a short time, the response should eventually return the latest data\.   
 See also . 
 See also . 
 See also .
@@ -1260,7 +1381,7 @@ A persistent email delivery failure such as "mailbox does not exist\."
 A hardware\-based IPsec VPN connection over the internet\.
 
 **health check**<a name="healthcheck"></a>  
-A system call to check on the health status of each instance in an [Auto Scaling](#AutoScaling) group\.
+A system call to check on the health status of each instance in an [Amazon EC2 Auto Scaling](#AutoScaling) group\.
 
 **high\-quality email**<a name="highqualityemail"></a>  
 Email that recipients find valuable and want to receive\. Value means different things to different recipients and can come in the form of offers, order confirmations, receipts, newsletters, etc\.
@@ -1279,6 +1400,9 @@ Hash\-based Message Authentication Code\. A specific construction for calculatin
 
 **hosted zone**<a name="hostedzone"></a>  
 A collection of [resource record](#resourcerecord) sets that [Amazon Route 53](#Route53) hosts\. Like a traditional DNS zone file, a hosted zone represents a collection of records that are managed together under a single domain name\.
+
+**HTTP\-Query**<a name="HTTPquery"></a>   
+See [Query](#Query).
 
 **HVM virtualization**<a name="HVM"></a>  
 Hardware Virtual Machine virtualization\. Allows the guest VM to run as though it is on a native hardware platform, except that it still uses paravirtual \(PV\) network and storage drivers for improved performance\.   
@@ -1322,7 +1446,7 @@ A machine that uploads or downloads your data to or from [Amazon S3](#AmazonSimp
 A report that contains details about how [AWS Import/Export](#AWSImportExport) processed your data\.
 
 **in\-place deployment**<a name="inplacedeployment"></a>  
-AWS CodeDeploy: A deployment method in which the application on each instance in the deployment group is stopped, the latest application revision is installed, and the new version of the application is started and validated\. You can choose to use a load balancer so each instance is deregistered during its deployment and then restored to service after the deployment is complete\.
+CodeDeploy: A deployment method in which the application on each instance in the deployment group is stopped, the latest application revision is installed, and the new version of the application is started and validated\. You can choose to use a load balancer so each instance is deregistered during its deployment and then restored to service after the deployment is complete\.
 
 **index**<a name="index"></a>   
 See [search index](#searchindex).
@@ -1340,7 +1464,7 @@ An [IAM](#IAM) [policy](#policy) that is embedded in a single IAM [user](#AWSUse
 Amazon Machine Learning: The observations that you provide to Amazon Machine Learning to train and evaluate a machine learning model and generate predictions\.
 
 **instance**<a name="instance"></a>  
-A copy of an [Amazon Machine Image \(AMI\)](#AmazonMachineImage) running as a virtual server in the AWS cloud\.
+A copy of an [Amazon Machine Image \(AMI\)](#AmazonMachineImage) running as a virtual server in the AWS Cloud\.
 
 **instance family**<a name="instancefamily"></a>  
 A general [instance type](#instancetype) grouping using either storage or CPU capacity\. 
@@ -1435,7 +1559,7 @@ See [AWS Key Management Service \(AWS KMS\)](#AWS_KMS).
 In machine learning, data for which you already know the target or “correct” answer\.
 
 **launch configuration**<a name="launchconfiguration"></a>  
-A set of descriptive parameters used to create new [EC2 instance](#ec2instance)s in an [Auto Scaling](#AutoScaling) activity\.   
+A set of descriptive parameters used to create new [EC2 instance](#ec2instance)s in an [Amazon EC2 Auto Scaling](#AutoScaling) activity\.   
 A template that an [Auto Scaling group](#AutoScalingGroup) uses to launch new EC2 instances\. The launch configuration contains information such as the [Amazon Machine Image \(AMI\)](#AmazonMachineImage) ID, the instance type, key pairs, [security group](#SecurityGroup)s, and block device mappings, among other configuration settings\.
 
 **launch permission**<a name="launchpermission"></a>  
@@ -1485,7 +1609,7 @@ The default [route table](#routetable) that any new [VPC](#VPC) [subnet](#subnet
 A standalone [IAM](#IAM) [policy](#policy) that you can attach to multiple [user](#AWSUser)s, [group](#group)s, and [role](#role)s in your IAM [account](#account)\. Managed policies can either be AWS managed policies \(which are created and managed by AWS\) or customer managed policies \(which you create and manage in your AWS account\)\.
 
 **manifest**<a name="manifest"></a>  
-When sending a *create job* request for an import or export operation, you describe your job in a text file called a manifest\. The manifest file is a YAML\-formatted file that specifies how to transfer data between your storage device and the AWS cloud\.
+When sending a *create job* request for an import or export operation, you describe your job in a text file called a manifest\. The manifest file is a YAML\-formatted file that specifies how to transfer data between your storage device and the AWS Cloud\.
 
 **manifest file**<a name="manifest-file"></a>  
 Amazon Machine Learning: The file used for describing batch predictions\. The manifest file relates each input data file with its associated batch prediction results\. It is stored in the Amazon S3 output location\.
@@ -1600,6 +1724,9 @@ See also .
 **n\-gram transformation**<a name="n-gram-transformation"></a>  
 Amazon Machine Learning: A transformation that aids in text string analysis\. An n\-gram transformation takes a text variable as input and outputs strings by sliding a window of size *n* words, where *n* is specified by the user, over the text, and outputting every string of words of size *n* and all smaller sizes\. For example, specifying the n\-gram transformation with window size =2 returns all the two\-word combinations and all of the single words\.
 
+**NICE Desktop Cloud Visualization**<a name="dcv"></a>  
+A remote visualization technology for securely connecting users to graphic\-intensive 3D applications hosted on a remote, high\-performance server\. 
+
 **node**<a name="node"></a>  
 [Amazon Elasticsearch Service \(Amazon ES\)](#AmazonElasticsearchService): An Elasticsearch instance\. A node can be either a data instance or a dedicated master instance\.   
 See also .
@@ -1649,7 +1776,7 @@ Also called OAI\. When using [Amazon CloudFront](#AmazonCF) to serve content wit
 The [Amazon S3](#AmazonSimpleStorageService) [bucket](#bucket) or custom origin containing the definitive original version of the content you deliver through [CloudFront](#AmazonCF)\.
 
 **original environment**<a name="originalenvironment"></a>  
-The instances in a deployment group at the start of an AWS CodeDeploy blue/green deployment\.
+The instances in a deployment group at the start of an CodeDeploy blue/green deployment\.
 
 **OSB transformation**<a name="osb-transformation"></a>  
 Orthogonal sparse bigram transformation\. In machine learning, a transformation that aids in text string analysis and that is an alternative to the n\-gram transformation\. OSB transformations are generated by sliding the window of size *n* words over the text, and outputting every pair of words that includes the first word in the window\.   
@@ -1699,7 +1826,7 @@ A contraction of peta binary byte, a pebibyte is 2^50 or 1,125,899,906,842,624 b
 See [sampling period](#SamplingPeriod).
 
 **permission**<a name="permission"></a>  
-A statement within a [policy](#policy) that allows or denies access to a particular [resource](#resource)\. You can state any permission like this: "A has permission to do B to C\." For example, Jane \(A\) has permission to read messages \(B\) from John's [Amazon SQS](#AmazonSimpleQueueService) queue \(C\)\. Whenever Jane sends a request to Amazon SQS to use John's queue, the service checks to see if she has permission and if the request satisfies the conditions John set forth in the permission\.
+A statement within a [policy](#policy) that allows or denies access to a particular [resource](#resource)\. You can state any permission like this: "A has permission to do B to C\." For example, Jane \(A\) has permission to read messages \(B\) from John's [Amazon SQS](#AmazonSimpleQueueService) queue \(C\)\. Whenever Jane sends a request to Amazon SQS to use John's queue, the service checks to see if she has permission\. It further checks to see if the request satisfies the conditions John set forth in the permission\.
 
 **persistent storage**<a name="persistentstorage"></a>  
 A data storage solution where the data remains intact until it is deleted\. Options within [AWS](#amazonwebservices) include: [Amazon S3](#AmazonSimpleStorageService), [Amazon RDS](#AmazonRelationalDatabaseService), [Amazon DynamoDB](#dynamodb), and other services\.
@@ -1715,7 +1842,7 @@ Information that has not been [encrypted](#encrypt), as opposed to [ciphertext](
 
 **policy**<a name="policy"></a>  
 [IAM](#IAM): A document defining permissions that apply to a user, group, or role; the permissions in turn determine what users can do in AWS\. A policy typically [allow](#allow)s access to specific actions, and can optionally grant that the actions are allowed for specific [resource](#resource)s, like [EC2 instance](#ec2instance)s, [Amazon S3](#AmazonSimpleStorageService) [bucket](#bucket)s, and so on\. Policies can also explicitly [deny](#deny) access\.  
-[Auto Scaling](#AutoScaling): An object that stores the information needed to launch or terminate instances for an Auto Scaling group\. Executing the policy causes instances to be launched or terminated\. You can configure an [alarm](#alarm) to invoke an Auto Scaling policy\.
+[Amazon EC2 Auto Scaling](#AutoScaling): An object that stores the information needed to launch or terminate instances for an Auto Scaling group\. Executing the policy causes instances to be launched or terminated\. You can configure an [alarm](#alarm) to invoke an Auto Scaling policy\.
 
 **policy generator**<a name="policy_generator"></a>  
 A tool in the [IAM](#IAM) [AWS Management Console](#AWSManagementConsole) that helps you build a [policy](#policy) by selecting elements from lists of available options\. 
@@ -1751,7 +1878,7 @@ The [user](#AWSUser), service, or [account](#account) that receives permissions 
 When using [Amazon CloudFront](#AmazonCF) to serve content with an [Amazon S3](#AmazonSimpleStorageService) [bucket](#bucket) as the origin, a method of controlling access to your content by requiring users to use signed URLs\. Signed URLs can restrict user access based on the current date and time and/or the IP addresses that the requests originate from\.
 
 **private IP address**<a name="privateIP"></a>  
-A private numerical address \(for example, 192\.0\.2\.44\) that networked devices use to communicate with one another using the Internet Protocol \(IP\)\. All [EC2 instance](#ec2instance)ss are assigned two IP addresses at launch, which are directly mapped to each other through Network Address Translation \([NAT](#nat)\): a private address \(following RFC 1918\) and a public address\. *Exception:* Instances launched in [Amazon VPC](#AmazonVirtualPrivateCloud) are assigned only a private IP address\.
+A private numerical address \(for example, 192\.0\.2\.44\) that networked devices use to communicate with one another using the Internet Protocol \(IP\)\. All [EC2 instance](#ec2instance)ss are assigned two IP addresses at launch, which are directly mapped to each other through network address translation \([NAT](#nat)\): a private address \(following RFC 1918\) and a public address\. *Exception:* Instances launched in [Amazon VPC](#AmazonVirtualPrivateCloud) are assigned only a private IP address\.
 
 **private subnet**<a name="privateSubnet"></a>  
 A [VPC](#VPC) [subnet](#subnet) whose instances cannot be reached from the internet\.
@@ -1774,12 +1901,12 @@ A predefined setting, such as `AWS:StackName` that can be used in [AWS CloudForm
 **public AMI**<a name="publicAMI"></a>  
 An [Amazon Machine Image \(AMI\)](#AmazonMachineImage) that all AWS [account](#account)s have permission to launch\.
 
-**public data set**<a name="publicdataset"></a>  
-A large collection of public information that can be seamlessly integrated into AWS cloud\-based applications\. Amazon stores public data sets at no charge to the community and, like all AWS services, users pay only for the compute and storage they use for their own applications\. These data sets currently include data from the Human Genome Project, the U\.S\. Census, Wikipedia, and other sources\.    
+**public dataset**<a name="publicdataset"></a>  
+A large collection of public information that can be seamlessly integrated into applications that are based in the AWS Cloud\. Amazon stores public datasets at no charge to the community and, like all AWS services, users pay only for the compute and storage they use for their own applications\. These datasets currently include data from the Human Genome Project, the U\.S\. Census, Wikipedia, and other sources\.    
 See also [https://aws\.amazon\.com/publicdatasets](https://aws.amazon.com/publicdatasets/).
 
 **public IP address**<a name="publicIP"></a>  
-A pubic numerical address \(for example, 192\.0\.2\.44\) that networked devices use to communicate with one another using the Internet Protocol \(IP\)\. [EC2 instance](#ec2instance)s are assigned two IP addresses at launch, which are directly mapped to each other through Network Address Translation \([NAT](#nat)\): a private address \(following RFC 1918\) and a public address\. *Exception:* Instances launched in [Amazon VPC](#AmazonVirtualPrivateCloud) are assigned only a private IP address\.
+A public numerical address \(for example, 192\.0\.2\.44\) that networked devices use to communicate with one another using the Internet Protocol \(IP\)\. [EC2 instance](#ec2instance)s are assigned two IP addresses at launch, which are directly mapped to each other through Network Address Translation \([NAT](#nat)\): a private address \(following RFC 1918\) and a public address\. *Exception:* Instances launched in [Amazon VPC](#AmazonVirtualPrivateCloud) are assigned only a private IP address\.
 
 **public subnet**<a name="publicSubnet"></a>  
 A [subnet](#subnet) whose instances can be reached from the internet\.
@@ -1845,7 +1972,7 @@ The entity that consists of the network systems, software, and policies that man
 [Amazon Simple Email Service \(Amazon SES\)](#SES): The person or entity receiving an email message\. For example, a person named in the "To" field of a message\.
 
 **Redis**<a name="redis"></a>  
-A fast, open source, in\-memory key\-value data structure store\. Redis comes with a set of versatile in\-memory data structures with which you can easily create a variety of custom applications\.
+A fast, open\-source, in\-memory key\-value data structure store\. Redis comes with a set of versatile in\-memory data structures with which you can easily create a variety of custom applications\.
 
 **reference**<a name="prop_reference"></a>  
 A means of inserting a property from one AWS [resource](#resource) into another\. For example, you could insert an [Amazon EC2](#ec2) [security group](#SecurityGroup) property into an [Amazon RDS](#AmazonRelationalDatabaseService) resource\.
@@ -1863,7 +1990,7 @@ A type of machine learning model that predicts a numeric value, such as the exac
 A machine learning \(ML\) parameter that you can tune to obtain higher\-quality ML models\. Regularization helps prevent ML models from memorizing training data examples instead of learning how to generalize the patterns it sees \(called overfitting\)\. When training data is overfitted, the ML model performs well on the training data but does not perform well on the evaluation data or on new data\.
 
 **replacement environment**<a name="replacementenvironment"></a>  
-The instances in a deployment group after the AWS CodeDeploy blue/green deployment\.
+The instances in a deployment group after the CodeDeploy blue/green deployment\.
 
 **replica shard**<a name="replica-shard"></a>   
 See [shard](#shard).
@@ -1912,9 +2039,6 @@ See also .
 **RESTful web service**<a name="RESTful"></a>  
 Also known as RESTful API\. A web service that follows [REST](#REST) architectural constraints\. The API operations must use HTTP methods explicitly; expose hierarchical URIs; and transfer either XML, [JSON](#json), or both\. 
 
-**HTTP\-Query**<a name="HTTPquery"></a>   
-See [Query](#Query).
-
 **return enabled**<a name="returnenabled"></a>  
 [Amazon CloudSearch](#cloudSearch): An index field option that enables the field's values to be returned in the search results\.
 
@@ -1943,7 +2067,7 @@ A [volume](#volume) that contains the image used to boot the [instance](#instanc
 A set of routing rules that controls the traffic leaving any [subnet](#subnet) that is associated with the route table\. You can associate multiple subnets with a single route table, but a subnet can be associated with only one route table at a time\.
 
 **row identifier**<a name="row-identifier"></a>  
-row ID\.Amazon Machine Learning: An attribute in the input data that you can include in the evaluation or prediction output to make it easier to associate a prediction with an observation\.
+Amazon Machine Learning: An attribute in the input data that you can include in the evaluation or prediction output to make it easier to associate a prediction with an observation\.
 
 **rule**<a name="rule"></a>  
 [AWS WAF](#awswaf): A set of conditions that AWS WAF searches for in web requests to AWS [resource](#resource)s such as [Amazon CloudFront](#AmazonCF) distributions\. You add rules to a [web ACL](#webacl), and then specify whether you want to allow or block web requests based on each rule\.
@@ -1983,7 +2107,7 @@ A process that changes the size, configuration, or makeup of an [Auto Scaling gr
 Amazon Machine Learning: The information needed to interpret the input data for a machine learning model, including attribute names and their assigned data types, and the names of special attributes\.
 
 **score cut\-off value**<a name="score-cut-off-value"></a>  
-Amazon Machine Learning: A binary classification models output a score that ranges from 0 to 1\. To decide whether an observation should be classified as 1 or 0, you pick a classification threshold, or cut\-off, and Amazon ML compares the score against it\. Observations with scores higher than the cut\-off are predicted as target equals 1, and scores lower than the cut\-off are predicted as target equals 0\.
+Amazon Machine Learning: A binary classification model outputs a score that ranges from 0 to 1\. To decide whether an observation should be classified as 1 or 0, you pick a classification threshold, or cut\-off, and Amazon ML compares the score against it\. Observations with scores higher than the cut\-off are predicted as target equals 1, and scores lower than the cut\-off are predicted as target equals 0\.
 
 **SCP**   
 See [service control policy](#service-control-policy).
@@ -2047,6 +2171,9 @@ See [endpoint](#endpoint).
 
 **service health dashboard**<a name="servicehealthdashboard"></a>  
 A web page showing up\-to\-the\-minute information about AWS service availability\. The dashboard is located at [http://status\.aws\.amazon\.com/](http://status.aws.amazon.com/)\.
+
+**Service Quotas**<a name="servicequotas"></a>  
+A service for viewing and managing your quotas easily and at scale as your AWS workloads grow\. Quotas, also referred to as limits, are the maximum number of resources that you can create in an AWS account\.
 
 **service role**<a name="servicerole"></a>  
 An [IAM](#IAM) [role](#role) that grants permissions to an AWS service so it can access AWS [resource](#resource)s\. The policies that you attach to the service role determine which AWS resources the service can access and what it can do with those resources\.
@@ -2136,8 +2263,7 @@ Unsolicited bulk email\.
 An email address that is set up by an anti\-[spam](#spam) entity, not for correspondence, but to monitor unsolicited email\. This is also called a *honeypot*\.
 
 **SPF**<a name="SPF"></a>  
-Sender Policy Framework\. A standard for authenticating email\.    
-See also [http://www\.openspf\.org](http://www.openspf.org).
+Sender Policy Framework\. A standard for authenticating email\. 
 
 **Spot Instance**<a name="SpotInstance"></a>  
  A type of [EC2 instance](#ec2instance) that you can bid on to take advantage of unused [Amazon EC2](#ec2) capacity\.
@@ -2193,7 +2319,7 @@ A feature of the [Elastic Load Balancing](#ELB) load balancer that binds a user'
 The process of filtering stop words from an index or search request\.
 
 **stopword**<a name="stopword"></a>  
-A word that is not indexed and is automatically filtered out of search requests because it is either insignificant or so common that including it would result in too many matches to be useful\. Stop words are language\-specific\. 
+A word that is not indexed and is automatically filtered out of search requests because it is either insignificant or so common that including it would result in too many matches to be useful\. Stopwords are language specific\. 
 
 **streaming**<a name="streaming"></a>  
 [Amazon EMR \(Amazon EMR\)](#AmazonElasticMapReduce): A utility that comes with [Hadoop](#Hadoop) that enables you to develop MapReduce executables in languages other than Java\.   
@@ -2212,7 +2338,7 @@ Before you calculate an [HMAC](#HMAC) signature, you first assemble the required
 [AWS WAF](#awswaf): An attribute that specifies the strings that AWS WAF searches for in a web request, such as a value in a header or a query string\. Based on the specified strings, you can configure AWS WAF to allow or block web requests to AWS [resource](#resource)s such as [CloudFront](#AmazonCF) distributions\.
 
 **strongly consistent read**<a name="strongly-consistent-read"></a>  
-A read process that returns a response with the most up\-to\-date data, reflecting the updates from all prior write operations that were successful—regardless of the region\.   
+A read process that returns a response with the most up\-to\-date data, reflecting the updates from all prior write operations that were successful—regardless of the Region\.   
 See also . 
 See also . 
 See also .
@@ -2249,7 +2375,7 @@ See also .
 A type of [bounce](#bounce) that occurs while the email servers of the [sender](#sender) and [receiver](#receiver) are actively communicating\.
 
 **synonym**<a name="synonym"></a>  
-A word that is the same or nearly the same as an indexed word and that should produce the same results when specified in a search request\. For example, a search for "Rocky Four" or "Rocky 4" should return the fourth *Rocky* movie\. This can be done by designating that `four` and `4` are synonyms for `IV`\. Synonyms are language\-specific\. 
+A word that is the same or nearly the same as an indexed word and that should produce the same results when specified in a search request\. For example, a search for "Rocky Four" or "Rocky 4" should return the fourth *Rocky* movie\. This can be done by designating that `four` and `4` are synonyms for `IV`\. Synonyms are language specific\. 
 
 ### T<a name="T"></a>
 
@@ -2269,7 +2395,7 @@ Tagging resources: Applying a [tag](#tag) to an AWS [resource](#resource)\.
 Amazon Machine Learning \(Amazon ML \): The attribute in the input data that contains the “correct” answers\. Amazon ML uses the target attribute to learn how to make predictions on new data\. For example, if you were building a model for predicting the sale price of a house, the target attribute would be “target sale price in USD\.”
 
 **target revision**<a name="targetrevision"></a>  
-[AWS CodeDeploy \(CodeDeploy\)](#AWSCodeDeploy): The most recent version of the application revision that has been uploaded to the repository and will be deployed to the instances in a deployment group\. In other words, the application revision currently targeted for deployment\. This is also the revision that will be pulled for automatic deployments\.
+[AWS CodeDeploy](#AWSCodeDeploy): The most recent version of the application revision that has been uploaded to the repository and will be deployed to the instances in a deployment group\. In other words, the application revision currently targeted for deployment\. This is also the revision that will be pulled for automatic deployments\.
 
 **task**<a name="task"></a>  
  An instantiation of a [task definition](#task_definition) that is running on a [container instance](#container_instance)\. 
@@ -2297,19 +2423,23 @@ Authentication information that is provided by [AWS STS](#STS) when you call an 
 The automatic restricting or slowing down of a process based on one or more limits\. Examples: [Amazon Kinesis Data Streams](#AmazonKinesisStreams) throttles operations if an application \(or group of applications operating on the same stream\) attempts to get data from a shard at a rate faster than the shard limit\. [Amazon API Gateway](#APIGateway) uses throttling to limit the steady\-state request rates for a single account\. [Amazon SES](#SES) uses throttling to reject attempts to send email that exceeds the [sending limits](#sendinglimits)\.
 
 **time series data**<a name="timeseriesdata"></a>  
-Data provided as part of a metric\. The time value is assumed to be when the value occurred\. A metric is the fundamental concept for [Amazon CloudWatch](#AmazonCW) and represents a time\-ordered set of data points\. You publish metric data points into CloudWatch and later retrieve statistics about those data points as a time\-series ordered data set\.
+Data provided as part of a metric\. The time value is assumed to be when the value occurred\. A metric is the fundamental concept for [Amazon CloudWatch](#AmazonCW) and represents a time\-ordered set of data points\. You publish metric data points into CloudWatch and later retrieve statistics about those data points as a time\-series ordered dataset\.
 
-**time stamp**<a name="timestamp"></a>  
+**timestamp**<a name="timestamp"></a>  
 A date/time string in ISO 8601 format\.
 
 **TLS**   
 See [Transport Layer Security](#transportlayersecurity).
 
 **tokenization**<a name="tokenization"></a>  
-The process of splitting a stream of text into separate tokens on detectable boundaries such as whitespace and hyphens\.
+The process of splitting a stream of text into separate tokens on detectable boundaries such as white space and hyphens\.
 
 **topic**<a name="topic"></a>  
 A communication channel to send messages and subscribe to notifications\. It provides an access point for publishers and subscribers to communicate with each other\.
+
+**Traffic Mirroring**<a name="trafficmirroring"></a>  
+An Amazon VPC feature that you can use to copy network traffic from an elastic network interface of Amazon EC2 instances, and then send it to out\-of\-band security and monitoring appliances for content inspection, threat monitoring, and troubleshooting\.   
+See also [https://aws\.amazon\.com/vpc/](https://aws.amazon.com/vpc/).
 
 **training datasource**<a name="training-datasource"></a>  
 A datasource that contains the data that Amazon Machine Learning uses to train the machine learning model to make predictions\.
@@ -2400,7 +2530,7 @@ A fixed amount of storage on an [instance](#instance)\. You can share volume dat
 Virtual private cloud\. An elastic network populated by infrastructure, platform, and application services that share common security and interconnection\.
 
 **VPC endpoint**<a name="VPCendpoint"></a>  
-A feature that enables you to create a private connection between your [VPC](#VPC) and an another AWS service without requiring access over the internet, through a [NAT](#nat) instance, a [VPN connection](#VPNconnection), or [AWS Direct Connect](#AWSDirectConnect)\. 
+A feature that enables you to create a private connection between your [VPC](#VPC) and another AWS service without requiring access over the internet, through a [NAT](#nat) instance, a [VPN connection](#VPNconnection), or [AWS Direct Connect](#AWSDirectConnect)\. 
 
 **VPG**<a name="VPG"></a>   
 See [virtual private gateway](#VPNgateway).
@@ -2409,7 +2539,7 @@ See [virtual private gateway](#VPNgateway).
 See [AWS VPN CloudHub](#awsvpncloudhub).
 
 **VPN connection**<a name="VPNconnection"></a>  
-[Amazon Web Services \(AWS\)](#amazonwebservices): The IPsec connection between a [VPC](#VPC) and some other network, such as a corporate data center, home network, or co\-location facility\.
+[Amazon Web Services \(AWS\)](#amazonwebservices): The IPsec connection between a [VPC](#VPC) and some other network, such as a corporate data center, home network, or colocation facility\.
 
 ### W<a name="W"></a>
 
@@ -2432,7 +2562,7 @@ See also .
 ### X, Y, Z<a name="XYZ"></a>
 
 **X\.509 certificate**<a name="X509"></a>  
-An digital document that uses the X\.509 public key infrastructure \(PKI\) standard to verify that a public key belongs to the entity described in the [certificate](#certificate)\.
+A digital document that uses the X\.509 public key infrastructure \(PKI\) standard to verify that a public key belongs to the entity described in the [certificate](#certificate)\.
 
 **yobibyte**<a name="yobibyte"></a>  
 A contraction of yotta binary byte, a yobibyte is 2^80 or 1,208,925,819,614,629,174,706,176 bytes\. A yottabyte \(YB\) is 10^24 or 1,000,000,000,000,000,000,000,000 bytes\.

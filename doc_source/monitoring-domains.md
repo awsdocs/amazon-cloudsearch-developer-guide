@@ -5,5 +5,5 @@ The AWS Management Console enables you to easily monitor the status and configur
 **Topics**
 + [Getting Information About an Amazon CloudSearch Domain](getting-domain-info.md)
 + [Monitoring an Amazon CloudSearch Domain with Amazon CloudWatch](cloudwatch-monitoring.md)
-+ [Logging Amazon CloudSearch Configuration Service Calls Using AWS CloudTrail](logging-config-api-calls.md)
++ [Logging Amazon CloudSearch Configuration API Calls with AWS CloudTrail](logging-config-api-calls.md)
 + [Tracking your Amazon CloudSearch Usage and Charges](tracking-usage.md)

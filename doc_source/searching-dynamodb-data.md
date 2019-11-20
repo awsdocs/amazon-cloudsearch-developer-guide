@@ -14,14 +14,14 @@ To keep your search domain in sync with changes to the table, you can send updat
 The easiest way to configure a search domain to search DynamoDB data is to use the Amazon CloudSearch console\. The console's configuration wizard analyzes your table data and suggests indexing options based on the attributes in the table\. You can modify the suggested configuration to control which table attributes are indexed\.
 
 **Note**  
-To upload data from DynamoDB, you must have permission to access both the service and the resources you want to upload\. For more information, see [Using IAM to Control Access to DynamoDB Resources](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/UsingIAMWithDDB.html)\.
+To upload data from DynamoDB, you must have permission to access both the service and the resources you want to upload\. For more information, see [Using IAM to Control Access to DynamoDB Resources](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/UsingIAMWithDDB.html)\.
 
 When you automatically configure a search domain from a DynamoDB table, a maximum of 200 unique attributes can be mapped to index fields\. \(You cannot configure more than 200 fields for a search domain, so you can only upload data from DynamoDB tables with 200 or fewer attributes\.\) When Amazon CloudSearch detects an attribute that has a small number of distinct values, the field is facet enabled in the suggested configuration\. 
 
 **Important**  
 When you use a DynamoDB table to configure a domain, the data is not automatically uploaded to the domain for indexing\. You must upload the data for indexing as a separate step after you configure the domain\.
 
-### Configuring a Domain to Search DynamoDB using the Amazon CloudSearch Console<a name="w3ab1c17c27b9c10"></a>
+### Configuring a Domain to Search DynamoDB using the Amazon CloudSearch Console<a name="w3aac17c27b9c10"></a>
 
 You can use the Amazon CloudSearch console to analyze data from a DynamoDB table to configure a search domain\. A maximum of 5 MB is read from the table regardless of the table size\. By default, Amazon CloudSearch reads from the beginning of the table\. You can specify a start key to begin reading from a particular item\. 
 

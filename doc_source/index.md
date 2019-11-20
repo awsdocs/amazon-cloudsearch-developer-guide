@@ -1,7 +1,7 @@
 # Amazon CloudSearch Developer Guide
 
 -----
-*****Copyright &copy; 2018 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; 2019 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -29,10 +29,11 @@ Amazon's trademarks and trade dress may not be used in
    + [Configuring Access for Amazon CloudSearch](configuring-access.md)
    + [Configuring Scaling Options in Amazon CloudSearch](configuring-scaling-options.md)
    + [Configuring Availability Options in Amazon CloudSearch](configuring-availability-options.md)
+   + [Configuring Domain Endpoint Options in Amazon CloudSearch](configuring-domain-endpoint-options.md)
    + [Monitoring Amazon CloudSearch Domains](monitoring-domains.md)
       + [Getting Information About an Amazon CloudSearch Domain](getting-domain-info.md)
       + [Monitoring an Amazon CloudSearch Domain with Amazon CloudWatch](cloudwatch-monitoring.md)
-      + [Logging Amazon CloudSearch Configuration Service Calls Using AWS CloudTrail](logging-config-api-calls.md)
+      + [Logging Amazon CloudSearch Configuration API Calls with AWS CloudTrail](logging-config-api-calls.md)
       + [Tracking your Amazon CloudSearch Usage and Charges](tracking-usage.md)
    + [Deleting an Amazon CloudSearch Domain](deleting-domains.md)
    + [Tagging Amazon CloudSearch Domains](tagging-cloudsearch-domains.md)
@@ -80,7 +81,6 @@ Amazon's trademarks and trade dress may not be used in
    + [Configuration API Reference for Amazon CloudSearch](configuration-api.md)
       + [Submitting Configuration Requests in Amazon CloudSearch](submitting-configuration-requests.md)
       + [Actions](API_Operations.md)
-         + [AddTags](API_AddTags.md)
          + [BuildSuggesters](API_BuildSuggesters.md)
          + [CreateDomain](API_CreateDomain.md)
          + [DefineAnalysisScheme](API_DefineAnalysisScheme.md)
@@ -98,14 +98,14 @@ Amazon's trademarks and trade dress may not be used in
          + [DescribeExpressions](API_DescribeExpressions.md)
          + [DescribeIndexFields](API_DescribeIndexFields.md)
          + [DescribeScalingParameters](API_DescribeScalingParameters.md)
+         + [DescribeDomainEndpointOptions](API_DescribeDomainEndpointOptions.md)
          + [DescribeServiceAccessPolicies](API_DescribeServiceAccessPolicies.md)
          + [DescribeSuggesters](API_DescribeSuggesters.md)
          + [IndexDocuments](API_IndexDocuments.md)
          + [ListDomainNames](API_ListDomainNames.md)
          + [UpdateAvailabilityOptions](API_UpdateAvailabilityOptions.md)
-         + [ListTags](API_ListTags.md)
-         + [RemoveTags](API_RemoveTags.md)
          + [UpdateScalingParameters](API_UpdateScalingParameters.md)
+         + [UpdateDomainEndpointOptions](API_UpdateDomainEndpointOptions.md)
          + [UpdateServiceAccessPolicies](API_UpdateServiceAccessPolicies.md)
       + [Data Types](API_Types.md)
          + [AccessPoliciesStatus](API_AccessPoliciesStatus.md)
@@ -135,6 +135,8 @@ Amazon's trademarks and trade dress may not be used in
          + [DescribeServiceAccessPoliciesResult](API_DescribeServiceAccessPoliciesResult.md)
          + [DescribeSuggestersResult](API_DescribeSuggestersResult.md)
          + [DocumentSuggesterOptions](API_DocumentSuggesterOptions.md)
+         + [DomainEndpointOptions](API_DomainEndpointOptions.md)
+         + [DomainEndpointOptionsStatus](API_DomainEndpointOptionsStatus.md)
          + [DomainStatus](API_DomainStatus.md)
          + [DoubleArrayOptions](API_DoubleArrayOptions.md)
          + [DoubleOptions](API_DoubleOptions.md)
@@ -156,7 +158,6 @@ Amazon's trademarks and trade dress may not be used in
          + [ServiceEndpoint](API_ServiceEndpoint.md)
          + [Suggester](API_Suggester.md)
          + [SuggesterStatus](API_SuggesterStatus.md)
-         + [TagList](API_TagList.md)
          + [TextArrayOptions](API_TextArrayOptions.md)
          + [TextOptions](API_TextOptions.md)
          + [UpdateAvailabilityOptionsResult](API_UpdateAvailabilityOptionsResult.md)
@@ -172,4 +173,4 @@ Amazon's trademarks and trade dress may not be used in
 + [Understanding Amazon CloudSearch Limits](limits.md)
 + [Amazon CloudSearch Resources](resources.md)
 + [Document History for Amazon CloudSearch](document-history.md)
-+ [AWS Glossary](glos-chap.md)
++ [](glos-chap.md)

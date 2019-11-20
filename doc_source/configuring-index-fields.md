@@ -42,7 +42,7 @@ If you change the type of a field and have documents in your index that contain 
 
 ## Configuring Individual Index Fields with the AWS CLI<a name="configuring-index-fields-individually-clt"></a>
 
-You use the `aws cloudsearch define-index-field` command to configure individual index fields for a search domain\. For information about installing and setting up the AWS CLI, see the [AWS Command Line Interface User Guide](http://docs.aws.amazon.com/cli/latest/userguide/)\. 
+You use the `aws cloudsearch define-index-field` command to configure individual index fields for a search domain\. For information about installing and setting up the AWS CLI, see the [AWS Command Line Interface User Guide](https://docs.aws.amazon.com/cli/latest/userguide/)\. 
 
 **To add an index field to your domain**
 + Run the `aws cloudsearch define-index-field` command and specify the name of the new field with the `--name` option, and the field type with the `--type` option\. The following example adds an `int` field called `year` to the movies domain\.  
@@ -72,7 +72,7 @@ When you add fields or modify existing fields, you must explicitly issue a reque
 
 ## Configuring Index Fields Using the Amazon CloudSearch Console<a name="configuring-index-fields-console"></a>
 
-You can easily [configure individual index fields](#configuring-index-fields-individually-console) for your domain through the **Indexing Options** panel in the Amazon CloudSearch console\. 
+You can easily [configure individual index fields](#configuring-index-fields-individually-console) for your domain through the **Indexing Options** panel in the Amazon CloudSearch console\. Configuring index fields in the console requires the `DefineIndexFields` action, which the AWS CLI doesn't support\.
 
 ### Configuring Individual Fields Using the Amazon CloudSearch Console<a name="configuring-index-fields-individually-console"></a>
 
