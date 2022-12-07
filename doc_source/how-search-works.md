@@ -43,7 +43,7 @@ During indexing, Amazon CloudSearch processes the contents of `text` and `text-a
 
 ## Sorting Results in Amazon CloudSearch<a name="concepts-result-ranking"></a>
 
-You can customize how search results are ranked by defining expressions that calculate custom values for every document that matches your search criteria\. For example, you might define an expression that takes into account the value in a document's `popularity` field as well as the default relevance score calculated by Amazon CloudSearch Expressions are simply numeric expressions that use standard numeric operators and functions\. Expressions can reference `int` and `double` fields, other expressions, a document's relevance score \(\_score\), as well as the epoch time \(\_time\)\. When you submit search requests, you specify the expression\(s\) you want to use to sort the search results\. You can also reference expressions within your search criteria\. 
+You can customize how search results are ranked by defining expressions that calculate custom values for every document that matches your search criteria\. For example, you might define an expression that takes into account the value in a document's `popularity` field as well as the default relevance score calculated by Amazon CloudSearch. Expressions are simply numeric expressions that use standard numeric operators and functions\. Expressions can reference `int` and `double` fields, other expressions, a document's relevance score \(\_score\), as well as the epoch time \(\_time\)\. When you submit search requests, you specify the expression\(s\) you want to use to sort the search results\. You can also reference expressions within your search criteria\. 
 
 A document's relevance `_score` indicates how relevant a particular search hit is to the search request\. To calculate the relevance score, Amazon CloudSearch takes into account how many times the search terms appear in a document relative to the other documents in the index\.
 
@@ -57,7 +57,7 @@ When you submit a search request, Amazon CloudSearch performs text processing on
 + Convert all characters to lowercase
 + Split the string into separate terms on whitespace and punctuation boundaries 
 + Remove terms that are on the stopword list for the field being searched\.
-+ Map stems and synonyms according to the stemming and synonym options configure for the field being searched\.
++ Map stems and synonyms according to the stemming and synonym options configured for the field being searched\.
 
 After this preprocessing is complete, Amazon CloudSearch looks up the search terms in the index and identifies all of the documents that match the request\. To generate a response, Amazon CloudSearch processes this list of search hits to filter and sort the matching documents and compute facets\. Amazon CloudSearch then returns the response in JSON or XML\. 
 
