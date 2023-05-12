@@ -5,7 +5,7 @@ When you send document updates to your domain, Amazon CloudSearch automatically 
 **Important**  
 If you change the type of a field and have documents in your index that contain data that is incompatible with the new field type, all fields being processed are put in the `FailedToValidate` state when you run indexing and the indexing operation fails\. Rolling back the incompatible configuration change will enable you to successfully rebuild your index\. If the change is necessary, you must update or remove the incompatible documents from your index to use the new configuration\.
 
-When you make changes that require re\-indexing, the domain status changes to NEEDS INDEXING\. While the index is being rebuilt, the domain's status is PROCESSING\. You can continue to submit search requests while indexing is in process, but the configuration changes won't be visible in search results until indexing completes and the domain's status changes to ACTIVE\. You can also continue to upload document batches to your domain\. However, if you submit a large volume of updates while your domain is in the PROCESSING state, it can increase the amount of time it takes for the updates to be applied to your search index\. If this becomes an issue, slow your update rate until the domain returns to the ACTIVE state\.
+When you make changes that require re\-indexing, the domain status changes to `Needs Indexing`\. While the index is being rebuilt, the domain's status is `Processing`\. You can continue to submit search requests while indexing is in process, but the configuration changes won't be visible in search results until indexing completes and the domain's status changes to `Active`\. You can also continue to upload document batches to your domain\. However, if you submit a large volume of updates while your domain is in the `Processing` state, it can increase the amount of time it takes for the updates to be applied to your search index\. If this becomes an issue, slow your update rate until the domain returns to the `Active` state\.
 
 **Note**  
 Depending on the volume of data, building a full index can take a considerable amount of compute power\. Amazon CloudSearch automatically manages the resources needed to build the index in a timely fashion\. Most data updates and simple domain configuration changes are built and deployed in minutes\. Indexing large volumes of data and applying configuration changes that require rebuilding the full index will take longer to complete\. 
@@ -23,13 +23,13 @@ Depending on the volume of data, building a full index can take a considerable a
 
 **To run indexing**
 
-1. Sign in to the AWS Management Console and open the Amazon CloudSearch console at [https://console\.aws\.amazon\.com/cloudsearch/home](https://console.aws.amazon.com/cloudsearch/home)\.
+1. Open the Amazon CloudSearch console at [https://console\.aws\.amazon\.com/cloudsearch/home](https://console.aws.amazon.com/cloudsearch/home)\.
 
-1. In the **Navigation** pane, click the name of the domain that needs indexing\.
+1. From the left navigation pane, choose **Domains**\.
 
-1. On the domain dashboard, click the **Run Indexing** button\.
+1. Choose the name of the domain that needs indexing\.
 
-1. Click **OK** in the **Starting Indexing** dialog box to return to the domain dashboard\.
+1. On the domain dashboard, choose **Actions**, **Run indexing**\.
 
 ## Indexing Documents Using the Amazon CloudSearch AWS CLI<a name="indexing-clt"></a>
 
@@ -45,4 +45,4 @@ You use the `aws cloudsearch index-documents` command to rebuild your domain's s
 
 ## Indexing Documents with the AWS SDK<a name="indexing-sdk"></a>
 
-The AWS SDKs \(except the Android and iOS SDKs\) support all of the Amazon CloudSearch actions defined in the Amazon CloudSearch Configuration API, including `[IndexDocuments](API_IndexDocuments.md)`\. For more information about installing and using the AWS SDKs, see [AWS Software Development Kits](http://aws.amazon.com/code)\.
+The AWS SDKs \(except the Android and iOS SDKs\) support all of the Amazon CloudSearch actions defined in the Amazon CloudSearch Configuration API, including `IndexDocuments`\. For more information about installing and using the AWS SDKs, see [AWS Software Development Kits](http://aws.amazon.com/code)\.

@@ -1,6 +1,6 @@
 # Searching DynamoDB Data with Amazon CloudSearch<a name="searching-dynamodb-data"></a>
 
-You can specify a DynamoDB table as a source when configuring indexing options or uploading data to a search domain through the console or AWS CLI\. This enables you to quickly set up a search domain to experiment with searching data stored in DynamoDB database tables\. 
+You can specify a DynamoDB table as a source when configuring indexing options or uploading data to a search domain through the console\. This enables you to quickly set up a search domain to experiment with searching data stored in DynamoDB database tables\. 
 
 To keep your search domain in sync with changes to the table, you can send updates to both your table and your search domain, or you can periodically load the entire table into a new search domain\. 
 
@@ -21,33 +21,33 @@ When you automatically configure a search domain from a DynamoDB table, a maximu
 **Important**  
 When you use a DynamoDB table to configure a domain, the data is not automatically uploaded to the domain for indexing\. You must upload the data for indexing as a separate step after you configure the domain\.
 
-### Configuring a Domain to Search DynamoDB using the Amazon CloudSearch Console<a name="w3aac17c27b9c10"></a>
+### Configuring a Domain to Search DynamoDB using the Amazon CloudSearch Console<a name="w2aac17c27b9c11"></a>
 
 You can use the Amazon CloudSearch console to analyze data from a DynamoDB table to configure a search domain\. A maximum of 5 MB is read from the table regardless of the table size\. By default, Amazon CloudSearch reads from the beginning of the table\. You can specify a start key to begin reading from a particular item\. 
 
 **To configure a search domain using a DynamoDB table**
 
-1. Sign in to the AWS Management Console and open the Amazon CloudSearch console at [https://console\.aws\.amazon\.com/cloudsearch/home](https://console.aws.amazon.com/cloudsearch/home)\.
+1. Open the Amazon CloudSearch console at [https://console\.aws\.amazon\.com/cloudsearch/home](https://console.aws.amazon.com/cloudsearch/home)\.
 
-1. In the **Navigation** pane, click the name of the domain, and then click the domain's **Indexing Options** link\.
+1. From the left navigation pane, choose **Domains**\.
 
-1. At the top of the **Indexing Options** pane, click the **configuration wizard** link\.
+1. Choose the name of the domain to open its details panel\.
 
-1. In the **Choose Source** step, select **Analyze sample item\(s\) from DynamoDB**\.
+1. Go to the **Indexing options** tab and choose **Configuration wizard**\.
 
-1. From the **DynamoDB Table** list, select the DynamoDB table that you want to analyze\. 
+1. Select **Amazon DynamoDB**\.
+
+1. Select the DynamoDB table that you want to analyze\. 
    + To limit the read capacity units that can be consumed while reading from the table, enter the maximum percentage of read capacity units you want to use\.
-   + To start reading from a particular item, specify a **Start Hash Key**\. If the table uses a hash and range type primary key, specify both the hash attribute and the range attribute for the item\. 
+   + To start reading from a particular item, specify a **Start hash key**\. If the table uses a hash and range type primary key, specify both the hash attribute and the range attribute for the item\. 
 
-1. When you finish specifying the table options, click **Continue**\.
+1. Choose **Next**\.
 
-1. In the **Review Configuration** step, review the suggested configuration\. You can edit these fields and add additional fields\. 
+1. Review the suggested configuration\. You can edit these fields and add additional fields\. 
 
-1. When you finish, click **Apply Configuration**\.
+1. When you finish, choose **Confirm**\.
 
-1. In the **Apply Configuration** step, you can choose to run indexing when you exit the configuration wizard\. If you haven't uploaded data to your domain yet, clear the **Run Indexing Now** checkbox to exit without indexing\. If you are done making configuration changes and are ready to index your data with the new configuration, make sure **Run Indexing Now** is selected\. When you are ready to apply the changes, click **Finish**\.
-
-You can also use a DynamoDB table to configure indexing options when you first create a domain\. In the **Configure Index** step, select **Analyze sample item\(s\) from DynamoDB** and select the table to analyze\.
+1. If you haven't uploaded data to your domain yet, clear the **Run indexing now** checkbox to exit without indexing\. If you're done making configuration changes and are ready to index your data with the new configuration, make sure **Run indexing now** is selected\. When you're ready to apply the changes, choose **Finish**\.
 
 ## Uploading Data to Amazon CloudSearch from DynamoDB<a name="searching-dynamodb-data.uploading"></a>
 
@@ -78,23 +78,23 @@ You can use the Amazon CloudSearch console to upload up to 5 MB of data from a D
 
 **To upload DynamoDB data using the console**
 
-1. Sign in to the AWS Management Console and open the Amazon CloudSearch console at [https://console\.aws\.amazon\.com/cloudsearch/home](https://console.aws.amazon.com/cloudsearch/home)\.
+1. Open the Amazon CloudSearch console at [https://console\.aws\.amazon\.com/cloudsearch/home](https://console.aws.amazon.com/cloudsearch/home)\.
 
-1. In the **Navigation** pane, click the name of the domain\.
+1. From the left navigation pane, choose **Domains**\.
 
-1. At the top of the domain dashboard, click **Upload Documents**\.
+1. Choose the name of the domain to open its configuration\.
 
-1. In the **Document Source** step, select **Item\(s\) from DynamoDB**\.
+1. Choose **Actions**, **Upload documents**\.
 
-1. In the **DynamoDB Table** list, select the DynamoDB table that contains your data\. 
+1. Select **Amazon DynamoDB**\.
+
+1. From the dropdown, select the DynamoDB table that contains your data\. 
    + To limit the read capacity units that can be consumed while reading from the table, enter the maximum percentage of read capacity units\.
-   + To start reading from a particular item, specify a **Start Hash Key**\. If the table uses a hash and range type primary key, specify both the hash attribute and the range attribute for the item\.
+   + To start reading from a particular item, specify a **Start hash key**\. If the table uses a hash and range type primary key, specify both the hash attribute and the range attribute for the item\.
 
-1. When you finish specifying the table options, click **Continue**\.
+1. When you finish specifying the table options, choose **Next**\.
 
-1. In the **Review Documents** step, review the items that will be uploaded\. \(You can also save the generated document batch by clicking **Download the generated document batch**\.\) When you finish, click **Upload Documents**\. 
-
-1. In the **Document Summary** step, click **Finish** to exit the upload documents wizard\.
+1. Review the items that will be uploaded\. You can also save the generated document batch by choosing **Download the generated document batch**\. Then choose **Upload documents**\. 
 
 ## Synchronizing a Search Domain with a DynamoDB Table<a name="searching-dynamodb-data.sync"></a>
 

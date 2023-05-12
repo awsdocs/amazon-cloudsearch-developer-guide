@@ -1,6 +1,6 @@
 # Configuring Availability Options in Amazon CloudSearch<a name="configuring-availability-options"></a>
 
-You can expand an Amazon CloudSearch domain to an additional Availability Zone in the same region to increase fault tolerance in the event of a service disruption\. Availability Zones are physically separate locations with independent infrastructure engineered to be insulated from failures in other Availability Zones\. For more information, see [Regions and Availability Zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide//using-regions-availability-zones.html) in the Amazon EC2 User Guide for Linux Instances\.
+You can expand an Amazon CloudSearch domain to an additional Availability Zone in the same region to increase fault tolerance in the event of a service disruption\. Availability Zones are physically separate locations with independent infrastructure engineered to be insulated from failures in other Availability Zones\. For more information, see [Regions and Availability Zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html) in the Amazon EC2 User Guide for Linux Instances\.
 
 When you turn on the Multi\-AZ option, Amazon CloudSearch provisions and maintains extra instances for your search domain in a second Availability Zone to ensure high availability\. The maximum number of Availability Zones a domain can be deployed in is two\.
 
@@ -22,13 +22,17 @@ If your domain is running on a single search instance, enabling the Multi\-AZ op
 
 ## Configuring Availability Options through the Amazon CloudSearch Console<a name="configuring-availability-options-console"></a>
 
+If your domain currently uses a single search instance, enabling Multi\-AZ adds a second search instance, which can significantly increase the cost of running your domain\.
+
 **To configure a search domain's availability options**
 
-1. Sign in to the AWS Management Console and open the Amazon CloudSearch console\. In the **Navigation** pane, click the name of the domain you want to configure, and then click the **Availability Options** link\.
+1. Within the Amazon CloudSearch console, choose the name of your domain\.
 
-1. To turn on the Multi\-AZ option, click **Turn Multi\-AZ on**\. To turn off the Multi\-AZ option, click **Turn Multi\-AZ off**\.
+1. In the **Domain configuration**, choose **Edit** next to **Availability options**\.
 
-1. When prompted, click **OK** to confirm that you want to modify your domain's availability options\. If your domain currently uses a single search instance, turning on the Multi\-AZ option adds a second search instance, which can significantly increase the cost of running your domain\. To exit without saving your changes, click **Cancel**\.
+1. Enable **Toggle Multi\-AZ options**\.
+
+1. Choose **Submit**\.
 
 ## Configuring Amazon CloudSearch Availability Options Using the AWS CLI<a name="configuring-availability-options-clt"></a>
 
@@ -39,16 +43,16 @@ You use the `aws cloudsearch update-availability-options` command to configure a
 
   ```
   aws cloudsearch update-availability-options --domain-name movies --multi-az
-                      
+  
   {
       "AvailabilityOptions": {
           "Status": {
-              "PendingDeletion": false, 
-              "State": "Processing", 
-              "CreationDate": "2014-04-30T20:42:57Z", 
-              "UpdateVersion": 13, 
+              "PendingDeletion": false,
+              "State": "Processing",
+              "CreationDate": "2014-04-30T20:42:57Z",
+              "UpdateVersion": 13,
               "UpdateDate": "2014-05-01T00:17:45Z"
-          }, 
+          },
           "Options": true
       }
   }
@@ -56,4 +60,4 @@ You use the `aws cloudsearch update-availability-options` command to configure a
 
 ## Configuring Availability Options through the AWS SDK<a name="configuring-availability-options-sdk"></a>
 
-The AWS SDKs \(except the Android and iOS SDKs\) support all of the Amazon CloudSearch actions defined in the Amazon CloudSearch Configuration API, including `[UpdateAvailabilityOptions](API_UpdateAvailabilityOptions.md)`\. For more information about installing and using the AWS SDKs, see [AWS Software Development Kits](http://aws.amazon.com/code)\.
+The AWS SDKs \(except the Android and iOS SDKs\) support all of the Amazon CloudSearch actions defined in the Amazon CloudSearch Configuration API, including `UpdateAvailabilityOptions`\. For more information about installing and using the AWS SDKs, see [AWS Software Development Kits](http://aws.amazon.com/code)\.

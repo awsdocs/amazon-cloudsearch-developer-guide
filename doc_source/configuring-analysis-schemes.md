@@ -129,20 +129,28 @@ You can define analysis schemes from the **Analysis Schemes** pane in the Amazon
 
 **To define an analysis scheme**
 
-1. Sign in to the AWS Management Console and open the Amazon CloudSearch console at [https://console\.aws\.amazon\.com/cloudsearch/home](https://console.aws.amazon.com/cloudsearch/home)\.
+1. Open the Amazon CloudSearch console at [https://console\.aws\.amazon\.com/cloudsearch/home](https://console.aws.amazon.com/cloudsearch/home)\.
 
-1. In the **Navigation** pane, click the name of the domain, and then click the domain's **Analysis Schemes** link\.
+1. From the left nagivation pane, choose **Domains**\.
 
-1. In the **Analysis Schemes** pane, click **Add Analysis Scheme**\.
+1. Choose the name of your domain to open its configuration\.
 
-1. Specify a name for the analysis scheme, select a language, and configure the scheme's text stopword, stemming, and synonym options\. You can configure individual stopwords, stems, and synonyms, or edit the displayed dictionaries directly\. The dictionaries are formatted in JSON\. Stopwords are specified as an array of strings\. Stems are specified as an object that contains one or more key:value pairs\. Synonym aliases are also specified as a JSON object with one or move key:value pairs, where the alias values are specified as an array of strings\. A synonym group is specified as a JSON array\. \(The synonym dictionary is an array of arrays\.\) 
+1. Go to the **Advanced search options** tab\.
 
-   If you select Japanese as the language, you also have the option of specifying a custom tokenization dictionary that overrides the default tokenization of specific phrases\. For more information, see [Customizing Japanese Tokenization](#customizing-japanese-tokenization)\.
+1. In the **Analysis schemes** pane, choose **Add analysis scheme**\.
 
-1. Click **Create** to save your changes\.
+1. Specify a name for the analysis scheme and select a language\.
+
+1. Choose **Next**\.
+
+1. In the next three steps, configure the scheme's text stopword, stemming, and synonym options\. You can configure individual stopwords, stems, and synonyms, or edit the displayed dictionaries directly\. The dictionaries are formatted in JSON\. Stopwords are specified as an array of strings\. Stems are specified as an object that contains one or more key:value pairs\. Synonym aliases are also specified as a JSON object with one or move key:value pairs, where the alias values are specified as an array of strings\. A synonym group is specified as a JSON array\. \(The synonym dictionary is an array of arrays\.\) 
+
+   If you selected Japanese as the language, you also have the option of specifying a custom tokenization dictionary that overrides the default tokenization of specific phrases\. For more information, see [Customizing Japanese Tokenization](#customizing-japanese-tokenization)\.
+
+1. On the summary page, review the analysis scheme configuration and choose **Save**\.
 
 **Important**  
-To use an analysis scheme, you must apply it to one or more `text` or `text-array` fields and rebuild the index\. You can configure a field's analysis scheme from the **Indexing Options** page\. To rebuild your index, click the **Run Indexing** button\.
+To use an analysis scheme, you must apply it to one or more `text` or `text-array` fields and rebuild the index\. You can configure a field's analysis scheme from the **Indexing options** tab\. To rebuild your index, choose **Actions**, **Run indexing**\.
 
 ## Configuring Analysis Schemes Using the AWS CLI<a name="configuring-analysis-schemes-clt"></a>
 
@@ -178,7 +186,7 @@ To use an analysis scheme, you must apply it to one or more `text` or `text-arra
 
 ## Configuring Analysis Schemes Using the AWS SDKs<a name="configuring-analysis-schemes-sdk"></a>
 
-The AWS SDKs \(except the Android and iOS SDKs\) support all of the Amazon CloudSearch actions defined in the Amazon CloudSearch Configuration API, including `[DefineAnalysisScheme](API_DefineAnalysisScheme.md)`\. For more information about installing and using the AWS SDKs, see [AWS Software Development Kits](http://aws.amazon.com/code)\.
+The AWS SDKs \(except the Android and iOS SDKs\) support all of the Amazon CloudSearch actions defined in the Amazon CloudSearch Configuration API, including `DefineAnalysisScheme`\. For more information about installing and using the AWS SDKs, see [AWS Software Development Kits](http://aws.amazon.com/code)\.
 
 **Important**  
 To use an analysis scheme, you must apply it to one or more `text` or `text-array` fields and rebuild the index\. You can configure a field's analysis scheme with the define index field method\. To rebuild your index, you use the index documents method\.

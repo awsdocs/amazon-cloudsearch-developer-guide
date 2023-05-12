@@ -19,15 +19,12 @@ To enable authentication, Amazon CloudSearch requests must be signed with an acc
 ## Writing Access Policies for Amazon CloudSearch<a name="cloudsearch-access-policies"></a>
 
 Amazon CloudSearch supports both *user\-based policies* and *resource\-based policies*:
-+ **User\-based policies** are attached to a particular IAM user, group, or role\. A user\-based policy specifies which of your account's search domains a person or process can access and what actions they can perform\. To attach a user\-based policy to a user, group, or role, you use the IAM console, AWS CLI, or AWS SDKs\. **You must define user\-based policies to control access to the Amazon CloudSearch configuration service actions\.** \(The *user* in this context isn't necessarily a person, it's just an identity with associated permissions\. For example, you might create an IAM user to represent an application that needs to have credentials to submit search requests to your domain\.\)
++ **User\-based policies** are attached to a particular IAM role, group, or user\. A user\-based policy specifies which of your account's search domains a person or process can access and what actions they can perform\. To attach a user\-based policy to a user, group, or role, you use the IAM console, AWS CLI, or AWS SDKs\. **You must define user\-based policies to control access to the Amazon CloudSearch configuration service actions\.** \(The *user* in this context isn't necessarily a person, it's just an identity with associated permissions\. For example, you might create a user to represent an application that needs to have credentials to submit search requests to your domain\.\)
 + **Resource\-based policies** for Amazon CloudSearch are attached to a particular search domain\. A resource\-based policy specifies who has access to the search domain and which domain services they can use\. Resource\-based policies control access only to a particular domain's document, search, and suggest services; they cannot be used to configure access to the Amazon CloudSearch configuration service actions\. To attach a resource\-based policy to a domain, you use the Amazon CloudSearch console, AWS CLI or AWS SDKs\. 
 
 In general, we recommend managing access to Amazon CloudSearch APIs by configuring user\-based policies\. This enables you to manage all of your permissions in one place and any changes you need to make take effect almost immediately\. However, to allow public access to a domain's search service or restrict access based on IP addresses, you must configure a resource\-based policy for the domain\. \(We recommend replacing your old IP based access policies with user\-based policies at your earliest convenience\.\) You can also use resource\-based policies to easily allow other accounts to access a domain\. Keep in mind that processing changes to a domain's resource\-based policies takes significantly longer than applying changes to user\-based policies\.
 
-You can use the [IAM Policy Generator](http://awspolicygen.s3.amazonaws.com/policygen.html) to write both user\-based and resource\-based policies for Amazon CloudSearch\. For more information, see [Managing IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingPolicies.html)\. 
-
-**Tip**  
-As a best practice, we recommend that you configure permissions for a group and assign IAM users to that group instead of defining permissions for individual users\. Similarly, you can assign permissions to roles for applications that run on Amazon EC2 instances rather than passing user credentials to each instance\. For more IAM recommendations for managing access to your AWS resources, see [IAM Best Practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html)\. 
+The IAM console can help you write both user\-based and resource\-based policies for Amazon CloudSearch\. For more information, see [Managing IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingPolicies.html)\.
 
 ### Contents of an Access Policy for Amazon CloudSearch<a name="access-policy-contents"></a>
 
@@ -38,7 +35,7 @@ You specify the following information in your access policies for Amazon CloudSe
 + `Sid` is an optional string that you can use to provide a descriptive name for the policy statement\.
 + `Action` specifies which Amazon CloudSearch actions the statement applies to\. For the supported actions, see [Amazon CloudSearch Actions](#cloudsearch-actions)\. You can use a wildcard \(\*\) as the action to configure access for all actions when you need to grant administrative access to select users\. \(In this case, you might also want to enable multi\-factor authorization for additional security\. For more information, see [Configuring MFA\-Protected API Access](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingMFA.html)\.\) Wildcards are also supported within action names\. For example, `"Action":["cloudsearch:Describe*]` matches all of the configuration service `Describe` actions, such as `DescribeDomains` and `DescribeServiceAccessPolicies`\.
 + `Condition` specifies conditions for when the policy is in effect\. When configuring anonymous, IP\-based access, you would specify the IP addresses that the access rule applies to, for example `"IpAddress": {"aws:SourceIp": ["192.0.2.0/32"]}`\.
-+ `Principal` specifies who is allowed access to the domain in a resource\-based policy\. `Principal` is not specified in user\-based policies configured through IAM\. The `Principal` value for a resource\-based policy can specify other AWS accounts or IAM users in your own account\. For example, to grant access to the account 555555555555, you would specify `"Principal":{"AWS":["arn:aws:iam::555555555555:root"]}`\. Specifying a wildcard \(\*\) enables anonymous access to the domain\. Anonymous access is not recommended\. If you enable anonymous access, you should at least specify a condition to restrict which IP addresses can submit requests to the domain\. For more information, see [Granting Access to a Domain from Selected IP Addresses](#ip-based-policy)\.
++ `Principal` specifies who is allowed access to the domain in a resource\-based policy\. `Principal` is not specified in user\-based policies configured through IAM\. The `Principal` value for a resource\-based policy can specify other AWS accounts or users in your own account\. For example, to grant access to the account 555555555555, you would specify `"Principal":{"AWS":["arn:aws:iam::555555555555:root"]}`\. Specifying a wildcard \(\*\) enables anonymous access to the domain\. Anonymous access is not recommended\. If you enable anonymous access, you should at least specify a condition to restrict which IP addresses can submit requests to the domain\. For more information, see [Granting Access to a Domain from Selected IP Addresses](#ip-based-policy)\.
 
 For examples of access policies for Amazon CloudSearch, see [Amazon CloudSearch Policy Examples](#policy-examples)\.
 
@@ -153,10 +150,7 @@ You can grant access to all Amazon CloudSearch configuration service actions by 
 
 ### Granting Unrestricted Access to All Amazon CloudSearch Services<a name="universal-policy"></a>
 
-You can grant unrestricted access to all Amazon CloudSearch services, including all configuration service actions and all domain services with a user\-based policy\. To do this, you specify wildcards for the actions, region, and domain name\. The following policy enables the user to access all Amazon CloudSearch actions for any domain in any region that's owned by the 111122223333 account\. 
-
-**Note**  
-We recommend that when you give highly privileged access to IAM users, as illustrated in this policy, that you also enable multi\-factor authorization \(MFA\) for those users\. For more information, see [IAM Best Practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html) in the IAM User guide\.
+You can grant unrestricted access to all Amazon CloudSearch services, including all configuration service actions and all domain services with a user\-based policy\. To do this, you specify wildcards for the actions, region, and domain name\. The following policy enables the user to access all Amazon CloudSearch actions for any domain in any region that's owned by the 111122223333 account\.
 
 ```
 {
@@ -173,7 +167,7 @@ We recommend that when you give highly privileged access to IAM users, as illust
 
 ### Granting Permission to Upload Documents to an Amazon CloudSearch Domain<a name="document-upload-policy"></a>
 
-You can grant an IAM user permission to upload documents to a search domain by specifying the `cloudsearch:document` action\. For example, the following user\-based policy enables the user to upload documents to the `movies` domain in `us-east-1` owned by the 111122223333 account\. 
+You can grant a user permission to upload documents to a search domain by specifying the `cloudsearch:document` action\. For example, the following user\-based policy enables the user to upload documents to the `movies` domain in `us-east-1` owned by the 111122223333 account\. 
 
 ```
 {
@@ -299,24 +293,13 @@ For example, the following policy grants public access to the search action for 
 
 1. Sign in to the AWS Management Console and open the Amazon CloudSearch console at [https://console\.aws\.amazon\.com/cloudsearch/home](https://console.aws.amazon.com/cloudsearch/home)\.
 
-1. In the **Navigation** pane, click the name of the domain you want to configure, and then click the domain's **Access Policies** link\.
+1. Choose the name of the domain you want to configure\.
 
-1. In the domain's **Access Policies** pane, choose one of the shortcuts or enter the IP addresses you want to authorize or block\. To add additional IP addresses or address ranges to the rule, click the add \(\+\) icon in the **IP Ranges** column\. To remove an address or range from the rule, click its delete \(\-\) icon in the **IP Ranges** column\. To add a new rule to the policy, click the **Add a New Rule** button\. To remove a rule from the policy, click the remove \(x\) button in the **Remove** column\.
+1. On the **Domain configuration** tab, choose **Edit** next to **Access policy**\.
 
-1. When you are done making changes to your access rules, click **Submit**\. To exit without saving your changes, click **Revert**\.
+1. When you're done making changes to the domain access policy, choose **Submit**\.
 
-The Amazon CloudSearch console enables you to easily add access rules to authorize or block particular IP addresses or address ranges\. However, resource\-based policies are not restricted to IP\-based policies\. You can use the AWS CLI or AWS SDKs to configure resource\-based policies that grant access to particular IAM users or AWS accounts\. 
-
-The console provides five shortcuts for specifying access rules: 
-+ **Search and Suggester service: Allow all\. Document Service: Account owner only**—this recommended default enables anyone to search your data and get suggestions, but only you can add and delete documents\. Your domain's search endpoint allows anonymous access from any IP address, but only you have access to the document endpoint\.
-+ **Only my IP address**—only requests originating from your IP address can search your data and add and delete documents\. These rules can be useful for testing\.
-+ **Allow everyone access to all services**—*anyone* can search your data and add and delete documents\. Your domain's endpoints allow anonymous access from any IP address\.
-+ **Deny everyone access to all services**—search and document requests must either be submitted through the console or authenticated with your account credentials\. The document and search endpoints do not allow anonymous access or accept requests from other AWS users\.
-+ **Copy access policy from another domain**—copy the access policies configured for another of your search domains\. \(This shortcut is only visible if you have more than one domain\.\)
-
-You can start with one of the shortcuts, and add additional rules to fine\-tune access to your domain's endpoints\. Deny rules take precedence over Allow rules\.
-
-Updating resource\-based access policies takes some time to complete\. The state of a domain's policies is displayed on the **Access Policies** pane\. Once the policy has been applied, the state changes from `PROCESSING` to `ACTIVE`\.
+Your domain remains in a `Processing` state while Amazon CloudSearch updates the access policy\.
 
 ## Configuring Access for Amazon CloudSearch with the AWS CLI<a name="configuring-access-clt"></a>
 
@@ -364,4 +347,4 @@ You can retrieve your domain's policies using the `aws cloudsearch describe-serv
 
 ## Configuring Access to a Domain's Endpoints Using the AWS SDKs<a name="configuring-access-sdk"></a>
 
-The AWS SDKs \(except the Android and iOS SDKs\) support all of the Amazon CloudSearch actions defined in the Amazon CloudSearch Configuration API, including `[UpdateServiceAccessPolicies](API_UpdateServiceAccessPolicies.md)`\. For more information about installing and using the AWS SDKs, see [AWS Software Development Kits](http://aws.amazon.com/code)\.
+The AWS SDKs \(except the Android and iOS SDKs\) support all of the Amazon CloudSearch actions defined in the Amazon CloudSearch Configuration API, including `UpdateServiceAccessPolicies`\. For more information about installing and using the AWS SDKs, see [AWS Software Development Kits](http://aws.amazon.com/code)\.

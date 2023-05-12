@@ -6,7 +6,7 @@ When you create a search domain, you must give it a unique name\. Domain names m
 
 By default, all new domains are created using the 2013\-01\-01 API version\. If you have previously created search domains with the 2011\-02\-01 API version, you can opt to use the old API for your new domain\. However, we recommend using the 2013\-01\-01 API for all new use cases\. All domains will need to migrate to the 2013\-01\-01 API when the 2011\-02\-01 API is retired\.
 
-You can choose the AWS region where you want to create your search domain\. Typically, you should choose the region closest to your operations\. For example, if you reside in Europe, create your search domain in the EU \(Ireland\) region \(eu\-west\-1\)\. For a current list of supported regions and endpoints, see [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html)\. For more information about choosing a region, see [Regions and Endpoints for Amazon CloudSearch](what-is-cloudsearch.md#endpoints)\.
+You can choose the AWS region where you want to create your search domain\. Typically, you should choose the region closest to your operations\. For example, if you reside in Europe, create your search domain in the Europe \(Ireland\) region \(eu\-west\-1\)\. For a current list of supported regions and endpoints, see [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html)\. For more information about choosing a region, see [Regions and Endpoints for Amazon CloudSearch](what-is-cloudsearch.md#endpoints)\.
 
 **Note**  
 Amazon CloudSearch domains in different regions are entirely independent\. For example, if you create a search domain called *my\-domain* in us\-east\-1, and another domain called *my\-domain* in eu\-west\-1, they are completely independent and do not share any data\.
@@ -36,23 +36,29 @@ You can create a search domain from the [Amazon CloudSearch console](#create-dom
 
 1. Sign in to the AWS Management Console and open the Amazon CloudSearch console at [https://console\.aws\.amazon\.com/cloudsearch/home](https://console.aws.amazon.com/cloudsearch/home)\.
 
-1. At the top of the **Navigation** pane, click **Create a New Domain**\. \(If you are creating a domain for the first time, click **Create Your First Search Domain** on the Welcome page\.\)
+1. Choose **Create domain**\.
 
-1. In the **NAME YOUR DOMAIN** step, enter a name for your new domain and click **Continue**\. Domain names must start with a letter or number and be at least 3 and no more than 28 characters long\. Domain names can contain the following characters: a\-z \(lower case\), 0\-9, and \- \(hyphen\)\. Upper case letters, underscores \(\_\), and other special characters are not allowed in domain names\.
+1. Enter a name for your new domain\. Domain names must start with a letter or number and be at least 3 and no more than 28 characters long\. Domain names can contain the following characters: a\-z \(lower case\), 0\-9, and \- \(hyphen\)\. Upper case letters, underscores \(\_\), and other special characters are not allowed in domain names\.
 
-   Optionally, you can set the **Desired Instance Type** and **Desired Replication Count** to prescale your domain\. For more information, see [Configuring Scaling Options in Amazon CloudSearch](configuring-scaling-options.md)\.
+   Optionally, you can set the **Desired instance type** and **Desired replication count** to prescale your domain\. For more information, see [Configuring Scaling Options in Amazon CloudSearch](configuring-scaling-options.md)\.
 
-1. In the **CONFIGURE INDEX** step, select **Manual Configuration** and click **Continue**\. You can configure index fields and access policies when you first create the domain, or simply create a domain and configure it later\. For more information about using the Amazon CloudSearch console to configure the domain, see [Configuring Index Fields](configuring-index-fields.md) and [Configuring Access for Amazon CloudSearch](configuring-access.md)\.
+1. Choose **Next**\.
 
-1. In the **REVIEW INDEX CONFIGURATION** step, click **Continue** to configure the index fields later\. For more information about configuring index fields, see [Configuring Index Fields](configuring-index-fields.md)\.
+1. In the configuring options, select **Manual configuration** and choose **Next**\.
 
-1. In the **SET UP ACCESS POLICIES** step, click **Continue** to set up access policies later\. For more information about configuring access policies, see [Configuring Access for Amazon CloudSearch](configuring-access.md)\. 
+1. Configure the index fields for the domain\. For instructions, see [Configuring Index Fields](configuring-index-fields.md)\.
+
+1. Choose **Next**\.
+
+1. Configure the domain access policy\. For instructions, see [Configuring Access for Amazon CloudSearch](configuring-access.md)\. 
 **Note**  
-Until you configure access policies, you will only be able to upload documents and submit search queries through the console\. By default, the Document and Search endpoints are configured to block all IP addresses\.
+Until you configure access policies, you will only be able to upload documents and submit search queries through the console\. By default, the document and search endpoints are configured to block all IP addresses\.
 
-1. In the **CONFIRM** step, review the domain configuration and click **Confirm** to create your domain\. 
+1. Choose **Next**\.
 
-1. Once the domain has been created, click **OK** to exit the Create New Search Domain wizard and go to the domain's dashboard\. The domain's document and search service endpoints are displayed on the domain dashboard when the domain reaches the ACTIVE state\. At that point, you can upload documents for indexing and start searching your data\.
+1. Review the domain configuration and choose **Create**\. 
+
+The domain's document and search service endpoints are displayed on the domain dashboard when the domain becomes active\. At that point, you can upload documents for indexing and start searching your data\.
 
 ## Creating a Domain Using the AWS CLI<a name="create-domain-clt"></a>
 
@@ -88,4 +94,4 @@ Once a domain's endpoints are active, they remain the same for the life of the d
 
 ## Creating an Amazon CloudSearch Domain Using the AWS SDKs<a name="create-domain-sdk"></a>
 
-The AWS SDKs \(except the Android and iOS SDKs\) support all of the Amazon CloudSearch actions defined in the Amazon CloudSearch Configuration API, including `[CreateDomain](API_CreateDomain.md)`\. For more information about installing and using the AWS SDKs, see [AWS Software Development Kits](http://aws.amazon.com/code)\.
+The AWS SDKs \(except the Android and iOS SDKs\) support all of the Amazon CloudSearch actions defined in the Amazon CloudSearch Configuration API, including `CreateDomain`\. For more information about installing and using the AWS SDKs, see [AWS Software Development Kits](http://aws.amazon.com/code)\.

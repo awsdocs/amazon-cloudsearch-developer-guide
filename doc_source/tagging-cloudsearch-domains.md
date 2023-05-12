@@ -25,18 +25,10 @@ Use the following procedure to create a resource tag with the Amazon CloudSearch
 
 **To create a tag**
 
-1. Go to [https://aws\.amazon\.com](https://aws.amazon.com) and choose **Sign In to the Console**\.
+1. Go to the Amazon CloudSearch console and choose the name of your domain to open its configuration panel\.
 
-1. Under **Analytics**, choose **CloudSearch**\.
+1. Go to the **Tags** tab and choose **Manage**\.
 
-1. On the navigation pane, choose your domain\.
-
-1. On the navigation pane, choose **Manage Tags**\.
-
-1. In the **Key** column, enter a tag key\.
-
-1. \(Optional\) In the **Value** column, enter a tag value\.
-
-1. Choose **Submit**\.
+1. Enter a tag key and optional value, then choose **Submit**\.
 
 For more information about using the console to work with tags, see [Working with the Tag Editor](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/tag-editor.html) in the *AWS Management Console Getting Started Guide*\.

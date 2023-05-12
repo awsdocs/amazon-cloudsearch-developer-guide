@@ -11,9 +11,13 @@ Amazon CloudSearch domains let you require that all traffic to the domain arrive
 
 **To configure a search domain's endpoint options**
 
-1. Sign in to the AWS Management Console and open the Amazon CloudSearch console\. In the navigation pane, click the name of the domain you want to configure, and then choose **HTTPS Options**\.
+1. Within the Amazon CloudSearch console, choose the name of your domain to open its settings\.
 
-1. To require that all traffic to the domain arrive over HTTPS, choose **Turn Enforce HTTPS on**\.
+1. Under **Domain configuration**, choose **Edit** next to **HTTPS options**\.
+
+1. Enable **Toggle HTTPS options**\.
+
+1. Choose **Submit**\.
 
 ## Configuring Domain Endpoint Options Using the AWS CLI<a name="configuring-domain-endpoint-options-cli"></a>
 

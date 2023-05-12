@@ -36,11 +36,11 @@ For a high\-level overview of Amazon CloudSearch, service highlights, and pricin
 
 You can interact with Amazon CloudSearch through the AWS Management Console, AWS SDKs, or AWS CLI\. While you can also submit API requests directly to Amazon CloudSearch, the SDKs and AWS CLI automatically sign your requests as needed and provide centralized tools for interacting with Amazon CloudSearch domains in conjunction with other AWS services\. For information about the AWS SDKs, see [Tools for Amazon Web Services](http://aws.amazon.com/tools/)\. For information about installing and using the AWS CLI, see the [AWS Command Line Interface User Guide](https://docs.aws.amazon.com/cli/latest/userguide/)\. 
 
-For more information about configuring and managing your search domains, getting your data into Amazon CloudSearch, submitting search requests, and processing the responses, see: 
-+ [Preparing Your Data](preparing-data.md)—how to format your data so you can upload it to an Amazon CloudSearch domain for indexing\,
-+ [Configuring Index Fields](configuring-index-fields.md)—how to configure indexing options for an Amazon CloudSearch domain\,
-+ [Searching Your Data with Amazon CloudSearch](searching.md)—how to use the Amazon CloudSearch query language\,
-+ [Controlling Search Results](controlling-search-results.md)—how to sort, filter, and paginate search results\.
+For more information about configuring and managing your search domains, getting your data into Amazon CloudSearch, submitting search requests, and processing the responses, see:
++ [Preparing Your Data](preparing-data.md)—how to format your data so you can upload it to an Amazon CloudSearch domain for indexing
++ [Configuring Index Fields](configuring-index-fields.md)—how to configure indexing options for an Amazon CloudSearch domain
++ [Searching Your Data with Amazon CloudSearch](searching.md)—how to use the Amazon CloudSearch query language
++ [Controlling Search Results](controlling-search-results.md)—how to sort, filter, and paginate search results
 
 ## Accessing Amazon CloudSearch<a name="accessing-cloudsearch"></a>
 
@@ -56,8 +56,8 @@ You can access Amazon CloudSearch through the Amazon CloudSearch console, the AW
 You use the configuration service to create and manage your search domains\. The region\-specific configuration service endpoints are of the form: `cloudsearch.region.amazonaws.com`\. For example, `cloudsearch.us-east-1.amazonaws.com`\. For a current list of supported regions, see [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#cloudsearch_region) in the AWS General Reference\.
 
  To access the Amazon CloudSearch search and document services, you use separate domain\-specific endpoints:
-+ `http://doc-domainname-domainid.us-east-1.cloudsearch.amazonaws.com`—a domain's document service endpoint is used to upload documents\
-+ `http://search-domainname-domainid.us-east-1.cloudsearch.amazonaws.com`—a domain's search endpoint is used to submit search requests\
++ `http://doc-domainname-domainid.us-east-1.cloudsearch.amazonaws.com`—a domain's document service endpoint is used to upload documents
++ `http://search-domainname-domainid.us-east-1.cloudsearch.amazonaws.com`—a domain's search endpoint is used to submit search requests
 
 ### Signing Amazon CloudSearch Requests<a name="signing-requests"></a>
 

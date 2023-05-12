@@ -36,9 +36,9 @@ Amazon CloudSearch sends the ClientId and DomainName dimensions to CloudWatch\.
 
 ## Generating SDK for Java Metrics for Amazon CloudSearch<a name="java-sdk-metrics"></a>
 
-The AWS SDK for Java can generate performance metrics for your Amazon CloudSearch client and send them to CloudWatch for visualization\. For the Java VM arguments that enable this feature, see [Enabling Metrics for the AWS SDK for Java](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/generating-sdk-metrics.html) in the *AWS SDK for Java Developer Guide*\.
+The AWS SDK for Java can generate performance metrics for your Amazon CloudSearch client and send them to CloudWatch for visualization\. For the Java VM arguments that enable this feature, see [Enabling Metrics for the AWS SDK for Java](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/generating-sdk-metrics.html) in the *AWS SDK for Java Developer Guide*\.
 
-You can use the following code to test metrics generation\. The code creates a new CloudWatch client and performs 2,500 searches\. Because the SDK only sends metrics once per minute, long\-running clients work best\. The code uses the [default credential provider chain](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/credentials.html#credentials-default)\.
+You can use the following code to test metrics generation\. The code creates a new CloudWatch client and performs 2,500 searches\. Because the SDK only sends metrics once per minute, long\-running clients work best\. The code uses the [default credential provider chain](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/credentials.html#credentials-default)\.
 
 ```
 import com.amazonaws.client.builder.AwsClientBuilder;
@@ -84,6 +84,8 @@ The Amazon CloudSearch console graphs the metrics reported to CloudWatch\. You c
 
 **To view metrics for a search domain using the Amazon CloudSearch console**
 
-1. Sign in to the AWS Management Console and open the Amazon CloudSearch console at [https://console\.aws\.amazon\.com/cloudsearch](https://console.aws.amazon.com/cloudsearch)\.
+1. Open the Amazon CloudSearch console at [https://console\.aws\.amazon\.com/cloudsearch](https://console.aws.amazon.com/cloudsearch)\.
 
-1. In the navigation pane, click the name of the domain, and then click the domain's **Monitoring** link\.
+1. Choose **Domains** from the left navigation pane\.
+
+1. Click the name of the domain, and then go to the **Monitoring** tab\.

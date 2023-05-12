@@ -30,26 +30,24 @@ The domain you're about to create will be live and you will incur the standard A
 
 1. Go to the Amazon CloudSearch console at [https://console\.aws\.amazon\.com/cloudsearch/home](https://console.aws.amazon.com/cloudsearch/home)\.
 
-1. On the Welcome to Amazon CloudSearch page, click **Create Your First Search Domain**\.
+1. Choose **Create domain**\.
 
-1. In the **NAME YOUR DOMAIN** step, enter a name for your new domain and click **Continue**\. Domain names must start with a letter or number and be at least 3 and no more than 28 characters\. Domain names can contain the following characters: a\-z \(lower case\), 0\-9, and \- \(hyphen\)\. Upper case letters and underscores are not allowed\.
+1. Enter a name for your new domain\. Domain names must start with a letter or number and be at least 3 and no more than 28 characters\. Domain names can contain the following characters: a\-z \(lower case\), 0\-9, and \- \(hyphen\)\. Upper case letters and underscores are not allowed\.
 
-1. In the **CONFIGURE INDEX** step, click **Use a predefined configuration**, select **IMDb movies \(demo\)**, and click **Continue**\. You can also automatically configure a search domain by analyzing a sample of your data\.
+1. Leave the other settings as their defaults and choose **Next**\.
 
-1. In the **REVIEW INDEX CONFIGURATION** step, review the index fields being configured\. Eleven fields are configured automatically for the imdb\-movie data: actors, directors, genres, image\_url, plot, rank, rating, release\_date, running\_time\_secs, title, and year\. 
+1. Select **Sample data** and choose **IMDb movies \(demo\)** from the dropdown\. You can also automatically configure a search domain by analyzing a sample of your data\.
+
+1. Choose **Next**\.
+
+1. Review the index fields being configured\. Eleven fields are configured automatically for the imdb\-movie data: actors, directors, genres, image\_url, plot, rank, rating, release\_date, running\_time\_secs, title, and year\. 
 **Note**  
 By default, all options are enabled for each field\. While this is convenient for development and testing, fine\-tuning the options configured for each field according to how you use those fields can reduce the size of your index\. If your domain uses more than a single small search instance, tuning can help minimize the cost of running your domain\. 
 
-   When you are finished reviewing the indexing options, click **Continue**\.
+   When you finish reviewing the indexing options, choose **Next**\.
 
-1. In the **SET UP ACCESS POLICIES** step, click **Search and Suggester service: Allow all\. Document Service: Account owner only\.** and click **Continue**\. The recommended rules allow access to the search endpoint from all IP addresses, and restrict access to the document service to the IP address you specify\.
-**Important**  
-If you do not configure access rules for your search domain, you will only be able to interact with the domain through the Amazon CloudSearch console\. By default, the document service and search service endpoints are configured to block all IP addresses\.
+1. For simplicity in this tutorial, use an open access domain\. Choose **Allow open access to the domain** and choose **Next**\.
 
-   Keep in mind that if you do not have a static IP address, you must re\-authorize your computer whenever your IP address changes\. If your IP address is assigned dynamically, it is also likely that you're sharing that address with other computers on your network\. This means that when you authorize the IP address, all computers that share it will be able to access your search domain's document service endpoint\.
+1. Review the domain configuration and click **Create** to create your domain\. 
 
-1. In the **CONFIRM** step, review the domain configuration and click **Confirm** to create your domain\. 
-
-1. Once the domain has been created, click **OK** to exit the Create New Search Domain wizard and go to the domain's dashboard\.
-
-When you create a new domain, Amazon CloudSearch initializes resources for the domain, which can take about ten minutes\. During this initialization process, the status of the domain will be LOADING\. Once the status changes to ACTIVE, you can upload your data and start searching\. 
+Amazon CloudSearch initializes resources for the domain, which can take about ten minutes\. During this initialization process, the status of the domain is **Processing**\. Once the status changes to **Active**, you can upload your data and start searching\.

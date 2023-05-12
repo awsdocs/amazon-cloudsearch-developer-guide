@@ -49,7 +49,7 @@ You can load up to 10,000 document batches per day \(every 24 hours\), with each
 
 ## Large Number of 5xx Errors When Uploading Documents to an Amazon CloudSearch Domain<a name="troubleshooting-upload-timeouts"></a>
 
-If you parallelize uploads and your domain is on a search\.m1\.small instance, you might experience an unacceptably high rate of 504 or 507 errors\. Setting the desired instance type to a larger instance type will increase your update capacity and reduce the error rate\. For more information about handling 5xx errors, see [Handling Errors](error-handling.md)\. For information about prescaling your domain to increase upload capacity, see [Configuring Scaling Options in Amazon CloudSearch](configuring-scaling-options.md)\. 
+If you parallelize uploads and your domain is on a search\.small instance, you might experience an unacceptably high rate of 504 or 507 errors\. Setting the desired instance type to a larger instance type will increase your update capacity and reduce the error rate\. For more information about handling 5xx errors, see [Handling Errors](error-handling.md)\. For information about prescaling your domain to increase upload capacity, see [Configuring Scaling Options in Amazon CloudSearch](configuring-scaling-options.md)\. 
 
 ## Search Latency and Timeouts in Amazon CloudSearch<a name="ts.searchfailures"></a>
 

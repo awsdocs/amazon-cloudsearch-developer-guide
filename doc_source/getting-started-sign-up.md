@@ -4,8 +4,6 @@ To use Amazon CloudSearch, you need an Amazon Web Services \(AWS\) account\. You
 
 If you already have an AWS account, you are automatically signed up for Amazon CloudSearch\. 
 
-For console access, use your IAM user name and password to sign in to the [AWS Management Console](https://console.aws.amazon.com/console/home) from the [IAM sign\-in page](https://docs.aws.amazon.com/IAM/latest/UserGuide/console.html)\. IAM lets you securely control access to AWS services and resources in your AWS account\. For details about console and programmatic credentials, see [Understanding and Getting Your Security Credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html) in the *AWS General Reference*\.
-
 **To create an AWS account**
 
 1. Go to [https://aws\.amazon\.com](https://aws.amazon.com) and click **Sign Up Now**\. 

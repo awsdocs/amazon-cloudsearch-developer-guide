@@ -78,27 +78,29 @@ You can easily [configure individual index fields](#configuring-index-fields-ind
 
 **To configure a new index field**
 
-1. Sign in to the AWS Management Console and open the Amazon CloudSearch console at [https://console\.aws\.amazon\.com/cloudsearch/home](https://console.aws.amazon.com/cloudsearch/home)\.
+1. Open the Amazon CloudSearch console at [https://console\.aws\.amazon\.com/cloudsearch/home](https://console.aws.amazon.com/cloudsearch/home)\.
 
-1. In the **Navigation** pane, click the name of the domain that you want to configure, and then click the domain's **Indexing Options** link\.
+1. In the left navigation pane, choose **Domains**\.
 
-1. To create a new index field, click **Add Index Field** to add a field specification to the list\. \(If you haven't created any fields yet, a blank field specification is shown on the Indexing Options page by default\.\)
+1. Click the name of the domain that you want to configure, then go to the **Indexing options** tab\.
 
-1. Specify a unique name for the field and select the field type: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `literal`,` literal-array`, `text`, `text-array`\. Field names must begin with a letter and be at least 3 and no more than 64 characters long\. The allowed characters are: a\-z \(lower\-case letters\), 0\-9, and \_ \(underscore\)\. The name *score* is reserved and cannot be used as a field name\.
+1. Choose **New index field** to add a field specification to the list\.
 
-1. Select the options you want to enable for the field\. For more information about specifying indexing options, see [Configuring Index Fields](#configuring-index-fields) 
+1. Specify a unique name for the field and select the field type\. Field names must begin with a letter and be at least 3 and no more than 64 characters long\. The allowed characters are: a\-z \(lower\-case letters\), 0\-9, and \_ \(underscore\)\. The name *score* is reserved and cannot be used as a field name\.
+
+1. Select the query details that you want to enable for the field\. For more information, see [Configuring Index Fields](#configuring-index-fields)\.
+
+1. Select the analysis scheme to use for each text field\. The analysis scheme specifies the language\-specific text processing options that are used during indexing\. By default, text fields use the `_en_default_` analysis scheme\. For more information, see [Configuring Analysis Schemes](configuring-analysis-schemes.md)\.
 
 1. Specify a default value for the field \(optional\)\. This value is used when no value is specified for the field in the document data\.
 
-1. Select the analysis scheme you want to use for each text field\. The analysis scheme specifies the language\-specific text processing options that are used during indexing\. By default, text fields use the `_en_default_` analysis scheme\. For more information, see [Configuring Analysis Schemes](configuring-analysis-schemes.md)\.
+1. Optionally, add additional fields in **Source field**\.
 
-1. To configure additional fields, click **Add Index Field** and repeat these configuration steps\.
-
-1. When you are done configuring fields, click **Submit** to save your changes\. To restore the previous field configurations, click **Revert**\.
+1. Choose **Submit**\.
 
 **Note**  
 When you add fields or modify existing fields, you must explicitly issue a request to re\-index your data when you are done making configuration changes\. For more information, see [Indexing Document Data](indexing.md)\.
 
 ## Configuring Amazon CloudSearch Index Fields Using the AWS SDKs<a name="configuring-index-fields-sdk"></a>
 
-The AWS SDKs \(except the Android and iOS SDKs\) support all of the Amazon CloudSearch actions defined in the Amazon CloudSearch Configuration API, including `[DefineIndexField](API_DefineIndexField.md)`\. For more information about installing and using the AWS SDKs, see [AWS Software Development Kits](http://aws.amazon.com/code)\.
+The AWS SDKs \(except the Android and iOS SDKs\) support all of the Amazon CloudSearch actions defined in the Amazon CloudSearch Configuration API, including `DefineIndexField`\. For more information about installing and using the AWS SDKs, see [AWS Software Development Kits](http://aws.amazon.com/code)\.

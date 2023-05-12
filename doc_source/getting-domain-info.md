@@ -1,14 +1,14 @@
 # Getting Information About an Amazon CloudSearch Domain<a name="getting-domain-info"></a>
 
 You can retrieve the following information about each of your search domains:
-+ **Domain Name**—The name of the domain\.
++ **Domain name**—The name of the domain\.
 + **ARN**—The domain's Amazon Resource Name \(ARN\)\.
-+ **Document Endpoint**—The endpoint through which you can submit document updates\.
-+ **Search Endpoint**—The endpoint through which you can submit search requests\.
-+ **Searchable Documents**—The number of documents that have been indexed\.
-+ **Access Policies**—The access policies configured for the domain's document and search endpoints\.
-+ **Analysis Schemes**—The text analysis schemes that can be applied to the domain's index fields\.
-+ **Index Fields**—The name and type of each configured index field\.
++ **Document endpoint**—The endpoint through which you can submit document updates\.
++ **Search endpoint**—The endpoint through which you can submit search requests\.
++ **Searchable documents**—The number of documents that have been indexed\.
++ **Access policies**—The access policies configured for the domain's document and search endpoints\.
++ **Analysis schemes**—The text analysis schemes that can be applied to the domain's index fields\.
++ **Index fields**—The name and type of each configured index field\.
 + **Expressions**—The expressions that can be used for sorting search results\.
 + **Suggesters**—The suggesters that can be used to retrieve suggestions for incomplete queries\.
 
@@ -32,11 +32,11 @@ q=matchall&q.parser=structured&size=0
 You can use the Amazon CloudSearch console to view information about all of your domains\. The dashboard of the console shows a summary of each domain that you have created, including the domain name, status, and number of searchable documents\. To update the table with the latest information, click the **Refresh** button at the top of the page\. 
 
 A domain can be in one of five states:
-+ **LOADING**—The domain has just been created and is still being initialized\. You must wait until the domain status changes to PROCESSING, NEEDS INDEXING, or ACTIVE before you can start uploading documents\.
-+ **ACTIVE**—The domain is running and all configured fields have been indexed\.
-+ **NEEDS INDEXING**—You have made changes to the domain configuration that require rebuilding the index\. If you search the domain, these changes won't be reflected in the results\. When you are done making changes, click **Run Indexing** to rebuild your index\.
-+ **PROCESSING**—Configuration changes are being applied to your domain\. If you search the domain, the most recent configuration changes might not be reflected in the results\.
-+ **BEING DELETED**—You chose to delete the domain and its contents, and the domain and all of its resources are in the process of being removed\. When deletion is complete, the domain will be removed from the list of domains\.
++ **Loading**—The domain has just been created and is still being initialized\. You must wait until the domain status changes to PROCESSING, NEEDS INDEXING, or ACTIVE before you can start uploading documents\.
++ **Active**—The domain is running and all configured fields have been indexed\.
++ **Needs Indexing**—You have made changes to the domain configuration that require rebuilding the index\. If you search the domain, these changes won't be reflected in the results\. When you are done making changes, choose **Actions**, **Run indexing** to rebuild your index\.
++ **Processing**—Configuration changes are being applied to your domain\. If you search the domain, the most recent configuration changes might not be reflected in the results\.
++ **Being Deleted**—You chose to delete the domain and its contents, and the domain and all of its resources are in the process of being removed\. When deletion is complete, the domain will be removed from the list of domains\.
 
  From the Amazon CloudSearch dashboard, you can do the following:
 + View the status of your search domains
@@ -45,9 +45,9 @@ A domain can be in one of five states:
 
 **To view detailed information about a particular domain**
 
-1. Sign in to the AWS Management Console and open the Amazon CloudSearch console at [https://console\.aws\.amazon\.com/cloudsearch/home](https://console.aws.amazon.com/cloudsearch/home)\.
+1. Open the Amazon CloudSearch console at [https://console\.aws\.amazon\.com/cloudsearch/home](https://console.aws.amazon.com/cloudsearch/home)\.
 
-1. Click the name of the domain in the **Navigation** pane\. 
+1. Choose **Domains** from the left navigation pane\.
 
 <a name="domain-dashboard"></a>The domain dashboard shows the status summary for the selected domain\. From the domain dashboard, you can do the following:
 + View the status of the domain
@@ -56,30 +56,9 @@ A domain can be in one of five states:
 + Access the domain configuration pages
 + Delete the domain
 
-**To view the access policies configured for the domain**
-+ Click the domain's **Access Policies** link in the **Navigation** pane\. For more information about access policies, see [Configuring Access for Amazon CloudSearch](configuring-access.md)\.
-
-**To view the availability options configured for the domain**
-+ Click the domain's **Availability Options** link in the **Navigation** pane\. For more information about access policies, see [Configuring Availability Options](configuring-availability-options.md)\.
-
-**To view the index fields configured for the domain**
-+ Click the domain's **Indexing Options** link in the **Navigation** pane\. For more information about index fields, see [Configuring Index Fields](configuring-index-fields.md)\.
-
-**To view the scaling options configured for the domain**
-+ Click the domain's **Scaling Options** link in the **Navigation** pane\. For more information about index fields, see [Configuring Scaling Options in Amazon CloudSearch](configuring-scaling-options.md)\.
-
-**To view the suggesters configured for the domain**
-+ Click the domain's **Suggesters** link in the **Navigation** pane\. For more information about index fields, see [Configuring Suggesters for Amazon CloudSearch](getting-suggestions.md#configuring-suggesters)\.
-
-**To view the expressions configured for the domain**
-+ Click the domain's ** Expressions** link in the **Navigation** pane\. For more information about expressions, see [Configuring Expressions](configuring-expressions.md)\.
-
-**To view the text\-processing options configured for the domain**
-+ Click the domain's **Analysis Schemes** link in the **Navigation** pane\. For information about text options, see [Configuring Analysis Schemes](configuring-analysis-schemes.md)\.
-
 ## Getting Amazon CloudSearch Domain Information Using the AWS CLI<a name="getting-domain-info-clt"></a>
 
-You use the `aws cloudsearch describe-domains` command to get the status of your search domains\. To get specific information such as the access policies, availability options, and scaling options configured for a domain, you use the separate describe command for each option\. For information about installing and setting up the AWS CLI, see the [AWS Command Line Interface User Guide](https://docs.aws.amazon.com/cli/latest/userguide/)\. 
+You use the `aws cloudsearch describe-domains` command to get the status of your search domains\. To get specific information such as the access policies, availability options, and scaling options configured for a domain, you use the separate `describe` commands for each option\. For information about installing and setting up the AWS CLI, see the [AWS Command Line Interface User Guide](https://docs.aws.amazon.com/cli/latest/userguide/)\. 
 
 **To get domain status information**
 + Run the `aws cloudsearch describe-domains` command to get information about all of your domains\. To get information about specific domains, use the `--domain-names` option to specify the domains that you are interested in\. For example, the following request gets the status of the `movies` domain:
@@ -90,7 +69,7 @@ You use the `aws cloudsearch describe-domains` command to get the status of your
   {
       "DomainStatusList": [
           {
-              "SearchInstanceType": "search.m1.small", 
+              "SearchInstanceType": "search.small", 
               "DomainId": "965407640801/movies", 
               "Created": true, 
               "Deleted": false, 
@@ -193,7 +172,7 @@ q=matchall&q.parser=structured&size=0
 
 ## Getting Domain Information Using the AWS SDKs<a name="getting-domain-info-sdk"></a>
 
-The AWS SDKs \(except the Android and iOS SDKs\) support all of the Amazon CloudSearch actions defined in the Amazon CloudSearch Configuration API, including `[DescribeDomains](API_DescribeDomains.md)`\. For more information about installing and using the AWS SDKs, see [AWS Software Development Kits](http://aws.amazon.com/code)\.
+The AWS SDKs \(except the Android and iOS SDKs\) support all of the Amazon CloudSearch actions defined in the Amazon CloudSearch Configuration API, including `DescribeDomains`\. For more information about installing and using the AWS SDKs, see [AWS Software Development Kits](http://aws.amazon.com/code)\.
 
 The `DescribeDomains` action does not return the number of searchable documents in the domain\. To get the number of searchable documents, use the console or submit a `matchall` request to your domain's search endpoint:
 

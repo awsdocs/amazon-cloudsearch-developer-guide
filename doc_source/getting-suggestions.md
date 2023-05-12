@@ -34,43 +34,27 @@ You can easily add, update, and delete suggesters through the Amazon CloudSearch
 
 **To add a suggester**
 
-1. Sign in to the AWS Management Console and open the Amazon CloudSearch console at [https://console\.aws\.amazon\.com/cloudsearch/home](https://console.aws.amazon.com/cloudsearch/home)\.
+1. Open the Amazon CloudSearch console at [https://console\.aws\.amazon\.com/cloudsearch/home](https://console.aws.amazon.com/cloudsearch/home)\.
 
-1. In the navigation pane, click the name of the domain, and then click the domain's **Suggesters** link\.
+1. In the left navigation pane, choose **Domains**\. 
 
-1. In the **Suggesters** pane, click the **Add a New Suggester** button\. The button is below the list of suggesters configured for the domain\.
+1. Choose the name of the domain to open its configuration\.
 
-1. Enter a name for the new suggester in the **Name** field\. 
+1. Go to the **Advanced search options** tab\.
 
-1. Specify the text field you want to use for suggestions in the **Source** field\. 
+1. In the **Suggesters** pane, choose **Add suggester**\.s
 
-1. If you want to include suggestions that correct for minor misspellings or typos, set the **Fuzzy Matching** option to **low** or **high**\. When set to low, the suggestions include terms that differ from the user query string by a single character\. When set to high, the suggestions include terms that differ by up to two characters\. 
+1. Enter a name for the new suggester\.
 
-1. If you want to control how the suggestions are sorted, enter a numeric expression in the **Sort Expression** field\. The expression can simply be the name of the numeric field you want to use to sort the suggestions, the name of an existing expression, or any valid expression\. For more information about expressions, see [Configuring Expressions](configuring-expressions.md)\. 
+1. For **Source field**, specify the text field to use for suggestions\.
 
-1. Click **Submit** to save your changes\.
+1. To include suggestions that correct for minor misspellings or typos, set **Fuzzy matching** to **Low** or **High**\. When set to low, the suggestions include terms that differ from the user query string by a single character\. When set to high, the suggestions include terms that differ by up to two characters\. 
 
-1. When you are done configuring suggesters for your search domain, you must re\-index your domain before you can use the suggesters\. To run indexing, go to the domain dashboard and click the **Run Indexing** button on the domain dashboard\. 
+1. To control how the suggestions are sorted, enter a numeric expression in the **Sort expression** field\. The expression can simply be the name of the numeric field you want to use to sort the suggestions, the name of an existing expression, or any valid expression\. For more information about expressions, see [Configuring Expressions](configuring-expressions.md)\. 
 
-**To update a suggester**
+1. Click **Save changes**\.
 
-1. Sign in to the AWS Management Console and open the Amazon CloudSearch console at [https://console\.aws\.amazon\.com/cloudsearch/home](https://console.aws.amazon.com/cloudsearch/home)\.
-
-1. In the **Navigation** pane, click the name of the domain, and then click the domain's **Suggesters** link\.
-
-1. In the **Suggesters** pane, modify the suggester settings\.
-
-1. Click **Submit** to save your changes\.
-
-**To delete a suggester**
-
-1. Sign in to the AWS Management Console and open the Amazon CloudSearch console at [https://console\.aws\.amazon\.com/cloudsearch/home](https://console.aws.amazon.com/cloudsearch/home)\.
-
-1. In the **Navigation** pane, click the name of the domain, and then click the domain's **Suggesters** link\.
-
-1. In the **Suggesters** pane, click the **Delete this Suggester** link for the suggester\(s\) you want to remove\.
-
-1. Click **Submit** to save your changes\.
+1. When you're done configuring suggesters for your search domain, you must re\-index your domain before you can use the suggesters\. To run indexing, go to the domain dashboard and choose **Actions**, **Run indexing**\.
 
 ### Configuring Suggesters with the AWS CLI<a name="configuring-suggesters-clt"></a>
 
@@ -123,7 +107,7 @@ You can add or update suggesters with the `aws cloudsearch define-suggester` com
 
 ### Configuring Suggesters Using the AWS SDKs<a name="configuring-suggesters-sdk"></a>
 
-The AWS SDKs \(except the Android and iOS SDKs\) support all of the Amazon CloudSearch actions defined in the Amazon CloudSearch Configuration API, including `[DefineSuggester](API_DefineSuggester.md)`\. For more information about installing and using the AWS SDKs, see [AWS Software Development Kits](http://aws.amazon.com/code)\.
+The AWS SDKs \(except the Android and iOS SDKs\) support all of the Amazon CloudSearch actions defined in the Amazon CloudSearch Configuration API, including `DefineSuggester`\. For more information about installing and using the AWS SDKs, see [AWS Software Development Kits](http://aws.amazon.com/code)\.
 
 ## Retrieving Suggestions in Amazon CloudSearch<a name="retrieving-suggestions"></a>
 
@@ -131,7 +115,7 @@ You retrieve suggestions by sending requests to the `suggest` resource on a doma
 
 ```
 http://search-movies-rr2f34ofg56xneuemujamut52i.us-east-1.cloudsearch.
-amazonaws.com/2013-01-01/suggest?q=kat&suggester=mysuggester
+amazonaws.com/2013-01-01/suggest?q=oce&suggester=mysuggester
 ```
 
 You must specify the API version in the request and the query string must be URL\-encoded\. The maximum size of a suggestion request is 8190 bytes, including the HTTP method, URI, and protocol version\.
@@ -147,7 +131,7 @@ The `q` and `suggester` parameters must be specified\. No suggestions are return
 The following example gets suggestions for the string `oce` based on the contents of the `title` field\.
 
 ```
-http://search-imdb2-m2brrr7ex7z6sqhgwsjdmcuvd4.us-east-1.cloudsearch.amazonaws.com/2013-01-01/suggest?q=san&suggester=citystate
+http://search-imdb2-m2brrr7ex7z6sqhgwsjdmcuvd4.us-east-1.cloudsearch.amazonaws.com/2013-01-01/suggest?q=oce&suggester=title
 {
   "status": {
     "rid": "646f5s0oDAr8pVk=",
